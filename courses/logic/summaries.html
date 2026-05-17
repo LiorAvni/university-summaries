@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>סיכומים מפורטים – לוגיקה למדעי המחשב</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <div class="nav-overlay"></div>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__brand">
+          <div class="nav__brand-icon">&#x22A8;</div>
+          <span>לוגיקה 20466</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="../../index.html" class="nav__link">ראשי</a></li>
+          <li><a href="index.html" class="nav__link">הקורס</a></li>
+          <li><a href="summaries.html" class="nav__link active">סיכומים</a></li>
+        </ul>
+        <button class="nav__hamburger" aria-label="תפריט">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container container--narrow">
+      <div class="breadcrumbs">
+        <a href="../../index.html">ראשי</a>
+        <span class="breadcrumbs__sep">‹</span>
+        <a href="index.html">לוגיקה</a>
+        <span class="breadcrumbs__sep">‹</span>
+        <span class="breadcrumbs__current">סיכומים מפורטים</span>
+      </div>
+
+      <div class="page-header">
+        <h1 class="page-header__title">סיכומים מפורטים</h1>
+        <p class="page-header__desc">סיכום מלא ומסודר של כל מפגש – הגדרות, משפטים, הוכחות ודוגמאות.</p>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="summaries-nav">
+        <button class="summary-tab active" data-target="s1">מפגש 1 – תחביר</button>
+        <button class="summary-tab" data-target="s2">מפגש 2 – אינדוקציה</button>
+        <button class="summary-tab" data-target="s3">מפגש 3 – סמנטיקה</button>
+        <button class="summary-tab" data-target="s4">מפגש 4 – תורת ההוכחה</button>
+        <button class="summary-tab" data-target="s5">מפגש 5 – שפת היחסים</button>
+        <button class="summary-tab" data-target="s6">מפגש 6 – אמיתות, הצבה וצורה פרנקסית</button>
+        <button class="summary-tab" data-target="s7">מפגש 7 – תורת ההוכחה בשפת היחסים</button>
+      </div>
+
+      <!-- ========== SUMMARY 1 ========== -->
+      <div id="s1" class="summary-panel active">
+        <div class="summary-content">
+
+          <h2>מפגש 1 – מבוא ותחביר השפה הפסוקית</h2>
+
+          <h3>א. מושגי רקע</h3>
+          <ul>
+            <li><strong>רקורסיה (Recursion):</strong> שיטת הגדרה שבה אובייקט מוגדר באמצעות עצמו. בקורס זה נגדיר ״פסוק״ באופן רקורסיבי.</li>
+            <li><strong>אינדוקציה (Induction):</strong> שיטת הוכחה שמבוססת על בסיס וצעד. נשתמש גם באינדוקציה ״מבנית״.</li>
+            <li><strong>מחרוזת (String):</strong> סדרה סופית של סימנים. לא כל מחרוזת היא ביטוי חוקי בשפה.</li>
+          </ul>
+
+          <h3>ב. מהי לוגיקה?</h3>
+          <p><strong>לוגיקה</strong> (תורת ההיגיון) היא שם כולל לתורות הבוחנות <strong>קשרי היסק בין טענות</strong>. הלוגיקה מבחינה בין <strong>טיעונים תקפים</strong> (המעבר מההנחות למסקנה מוצדק) לבין <strong>טיעונים לא תקפים</strong>. בתחשיב הפסוקים, אנו מתמקדים בטענות שניתנות לניתוח באמצעות קשרים לוגיים כגון ״וגם״, ״או״, ״אם...אז״ ו-״לא״.</p>
+
+          <div class="logic-note">
+            <p><strong>פסוקי חיווי בלבד:</strong> בתחשיב הפסוקים עוסקים אך ורק ב<strong>טענות שיש להן ערך אמת</strong> — אמת או שקר. לכן משפטים כמו ״קנדה היא מדינה״ או ״יוסי הוא חתול״ מתאימים לדיון, אבל פקודות כמו ״סגור את הדלת!״ ושאלות כמו ״מה השעה?״ <strong>אינן פסוקים לוגיים</strong>.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה להיסק</div>
+            <p>1. אם יורד גשם ולגילה אין מטרייה, אז היא מצטננת.<br>
+            2. גילה לא הצטננה למרות שירד גשם.<br>
+            <strong>מסקנה:</strong> לגילה יש מטרייה.</p>
+            <p><strong>הצרנה:</strong> \(p\) – יורד גשם, \(q\) – לגילה יש מטרייה, \(r\) – גילה הצטננה.
+            <br>הנחות: \((p \wedge \neg q) \to r\),&ensp; \(\neg r \wedge p\).&ensp; מסקנה: \(q\).</p>
+          </div>
+
+          <h3>ג. הצרנה (Formalization)</h3>
+          <p><strong>הצרנה</strong> היא תהליך של העברת טענות מ<strong>שפה מדוברת</strong> (טבעית) ל<strong>שפה פורמלית</strong> (מתמטית). שלב זה הכרחי כדי לנתח טיעונים בצורה מדויקת. בתהליך ההצרנה, מזהים את המשתנים הפסוקיים (הטענות הבסיסיות) ואת הקשרים הלוגיים ביניהם.</p>
+          <table>
+            <thead><tr><th>קשר</th><th>סימון</th><th>משמעות</th></tr></thead>
+            <tbody>
+              <tr><td>שלילה</td><td>\(\neg\)</td><td>״לא״</td></tr>
+              <tr><td>קוניונקציה</td><td>\(\wedge\)</td><td>״וגם״</td></tr>
+              <tr><td>דיסיונקציה</td><td>\(\vee\)</td><td>״או״</td></tr>
+              <tr><td>אימפליקציה</td><td>\(\to\)</td><td>״אם...אז״</td></tr>
+              <tr><td>שקילות</td><td>\(\leftrightarrow\)</td><td>״אם ורק אם״</td></tr>
+            </tbody>
+          </table>
+
+          <h3>ד. מבנה השפה הפסוקית – הא״ב</h3>
+          <p>השפה הפסוקית מורכבת מ:</p>
+          <ol>
+            <li><strong>פסוקים אלמנטריים (משתנים פסוקיים):</strong> \(p_1, p_2, p_3, \ldots\) — אלו הטענות הבסיסיות ביותר שאין לנו מידע על מבנן הפנימי.</li>
+            <li><strong>קשרים לוגיים:</strong> \(\neg,\ \wedge,\ \vee,\ \to,\ \leftrightarrow\)</li>
+            <li><strong>סוגריים:</strong> \((\;,\;)\) — משמשים לקביעת סדר פעולות חד-משמעי.</li>
+          </ol>
+          <p>המקלדת (אלפבית השפה):</p>
+          \[\Sigma = \{p_1, p_2, \ldots,\ \neg,\ \wedge,\ \vee,\ \to,\ \leftrightarrow,\ (,\ )\}\]
+
+          <h3>ה. הגדרת פסוק – הגדרה רקורסיבית</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>קבוצת הפסוקים מוגדרת באופן <strong>רקורסיבי</strong> (אינדוקטיבי):</p>
+            <ol>
+              <li>כל <strong>פסוק אלמנטרי</strong> \(p_i\) הוא פסוק.</li>
+              <li>אם \(\varphi\) פסוק, אזי גם \(\neg\varphi\) הוא פסוק (שלילה).</li>
+              <li>אם \(\varphi\) ו-\(\psi\) פסוקים, אזי גם \((\varphi\;@\;\psi)\) הוא פסוק, כאשר \(@\) הוא קשר דו-מקומי כלשהו (\(\wedge, \vee, \to, \leftrightarrow\)).</li>
+              <li><strong>תנאי מינימליות:</strong> אין פסוקים נוספים מעבר לאלו שנבנים בשלבים 1–3.</li>
+            </ol>
+          </div>
+          <div class="logic-note">
+            <p><strong>שימו לב:</strong> ההגדרה מבטיחה שכל פסוק נבנה בתהליך סופי של שלבים, כל שלב מייצר פסוק חדש מפסוקים שכבר נבנו. תנאי המינימליות (סעיף 4) חיוני — הוא מוציא מחרוזות שרירותיות שאינן נבנות לפי הכללים.</p>
+          </div>
+
+          <h3>ו. עומק קשרי (דרגה)</h3>
+          <p>מגדירים סדרה של קבוצות \(E_0 \subseteq E_1 \subseteq E_2 \subseteq \ldots\):</p>
+          <ul>
+            <li>\(E_0\) = קבוצת כל הפסוקים האלמנטריים.</li>
+            <li>\(E_n\) = כל מה שב-\(E_{n-1}\), בתוספת שלילות \(\neg\varphi\) וחיבורים \((\varphi\;@\;\psi)\) של איברי \(E_{n-1}\).</li>
+          </ul>
+          <p><strong>העומק הקשרי</strong> (או <strong>הדרגה</strong>) של פסוק \(\varphi\) הוא ה-\(n\) <strong>הקטן ביותר</strong> כך ש-\(\varphi \in E_n\). באופן אינטואיטיבי, הדרגה מודדת את ה״עומק״ של מבנה הפסוק — כמה פעמים הפעלנו קשרים כדי לבנות אותו.</p>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>דרגת \(((p \wedge \neg r) \to (q \vee r))\):</p>
+            <ul>
+              <li>\(p, q, r \in E_0\) (דרגה 0)</li>
+              <li>\(\neg r \in E_1\) (דרגה 1)</li>
+              <li>\((p \wedge \neg r) \in E_2\),&ensp; \((q \vee r) \in E_1\)</li>
+              <li>\(((p \wedge \neg r) \to (q \vee r)) \in E_3\) — דרגה <strong>3</strong></li>
+            </ul>
+          </div>
+
+          <h3>ז. משפט הקריאה היחידה</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט</div>
+            <p><strong>(א)</strong> כל פסוק שייך לאחד משלושת הסוגים, <strong>ולאחד בלבד</strong>: פסוק אלמנטרי, פסוק שלילה \((\neg\varphi)\), או פסוק מקושר \((\varphi\;@\;\psi)\).</p>
+            <p><strong>(ב)</strong> בכל פסוק מקושר, הקשר הדו-מקומי הראשי <strong>יחיד</strong>, וכך גם שני הפסוקים המרכיבים.</p>
+          </div>
+          <p>משפט זה הוא הבסיס לכל פעולה רקורסיבית על פסוקים — הוא מבטיח שכל פסוק ניתן לפירוק <strong>חד-ערכי</strong>.</p>
+          <p><strong>מציאת הקשר הראשי:</strong> מוחקים סוגריים חיצוניים, סורקים משמאל לימין. כל ״(״ מגדיל מונה ב-1, כל ״)״ מקטין ב-1. כשהמונה = 0 ונמצאים על קשר דו-מקומי — זהו הקשר הראשי.</p>
+
+          <h3>ח. עץ מבנה</h3>
+          <p><strong>עץ מבנה</strong> הוא שיטה ויזואלית לפירוק פסוק לרכיביו. רושמים את הפסוק בראש העץ (שורש), מזהים את סוגו (אלמנטרי / שלילה / מקושר), ומפרקים רקורסיבית: בפסוק שלילה — בן יחיד; בפסוק מקושר — שני בנים (הפסוק השמאלי והפסוק הימני). הפירוק ממשיך עד שכל העלים הם פסוקים אלמנטריים.</p>
+
+          <h3>ט. סדרת בנייה</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>סדרה סופית \(\varphi_1, \varphi_2, \ldots, \varphi_n\) היא <strong>סדרת בנייה של \(\varphi_n\)</strong> אם כל \(\varphi_i\) היא פסוק אלמנטרי, או מתקבלת מקודמותיה ע״י שלילה \(\neg\varphi_j\) או חיבור בקשר דו-מקומי \((\varphi_j\;@\;\varphi_k)\) כאשר \(j, k &lt; i\). הפסוק <strong>הנבנה</strong> הוא תמיד \(\varphi_n\) — האחרון בסדרה.</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>משפט סדרת הבנייה:</strong> מחרוזת היא <strong>פסוק</strong> אם ורק אם <strong>יש לה סדרת בנייה</strong>. זוהי למעשה דרך חלופית ושקולה להגדרה הרקורסיבית של פסוק.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">שאלת מבחן (מהמצגת, עמוד 9)</div>
+            <p><strong>שאלה:</strong> האם פסוק אלמנטרי \(P\) יכול להופיע <strong>במקום האחרון</strong> של סדרת בנייה <strong>של פסוק אחר \(\varphi\)</strong> (כלומר \(P \neq \varphi\))?</p>
+            <p><strong>תשובה: לא.</strong> סדרת בנייה <em>של</em> \(\varphi\) מסתיימת בהכרח ב-\(\varphi\) — זה חלק מהגדרת ״סדרת בנייה של \(\varphi\)״. פסוק אלמנטרי ״זר״ \(P\) יכול בהחלט להופיע <strong>באמצע</strong> סדרת הבנייה (כצעד עזר שלא משתתף בבנייה הסופית), אבל אם הוא במקום האחרון אז הוא הפסוק שנבנה — כלומר \(\varphi = P\), וזה נוגד את ההנחה.</p>
+            <p><strong>לב הנקודה:</strong> ״סדרת בנייה״ ללא ציון מי הפסוק היא חסרת משמעות; היא תמיד <em>של</em> פסוק קונקרטי, וזה תמיד האחרון בסדרה.</p>
+          </div>
+
+          <h3>י. סיכום</h3>
+          <table>
+            <thead><tr><th>נושא</th><th>תוכן מרכזי</th></tr></thead>
+            <tbody>
+              <tr><td>מהי לוגיקה</td><td>תורת ההיגיון, בוחנת קשרי היסק בין טענות</td></tr>
+              <tr><td>הצרנה</td><td>העברת טענות משפה מדוברת לשפה פורמלית</td></tr>
+              <tr><td>הגדרת פסוק</td><td>רקורסיבית: אלמנטרי / שלילה / מקושר</td></tr>
+              <tr><td>משפט הקריאה היחידה</td><td>סיווג חד-ערכי + מציאת קשר ראשי</td></tr>
+              <tr><td>עץ מבנה</td><td>פירוק ויזואלי לרכיבים</td></tr>
+              <tr><td>סדרת בנייה</td><td>מחרוזת היא פסוק ⇔ יש לה סדרת בנייה</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== SUMMARY 2 ========== -->
+      <div id="s2" class="summary-panel">
+        <div class="summary-content">
+
+          <h2>מפגש 2 – אינדוקציה מבנית ולמת ספירת הסוגריים</h2>
+
+          <h3>א. מושגים מנושאים קודמים</h3>
+          <ul>
+            <li><strong>פסוק:</strong> אלמנטרי, שלילה \(\neg\varphi\), או מקושר \((\varphi\;@\;\psi)\)</li>
+            <li><strong>משפט הקריאה היחידה:</strong> כל פסוק שייך לסוג אחד בלבד; קשר ראשי יחיד</li>
+            <li><strong>סדרת בנייה:</strong> מחרוזת היא פסוק ⇔ יש לה סדרת בנייה</li>
+          </ul>
+
+          <h3>ב. אינדוקציה מבנית (Structural Induction)</h3>
+          <p>אינדוקציה מבנית היא שיטת הוכחה המנצלת את <strong>ההגדרה הרקורסיבית</strong> של פסוק. היא מאפשרת להוכיח שתכונה \(R\) מתקיימת <strong>בכל הפסוקים</strong>.</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">עקרון האינדוקציה המבנית</div>
+            <p><strong>בסיס:</strong> מראים ש-\(R\) מתקיימת בכל פסוק אלמנטרי \(p_i\).</p>
+            <p><strong>צעד 1 (שלילה):</strong> מניחים \(R(\varphi)\) (הנחת האינדוקציה), מוכיחים \(R(\neg\varphi)\).</p>
+            <p><strong>צעד 2 (מקושר):</strong> מניחים \(R(\varphi)\) וגם \(R(\psi)\), מוכיחים \(R((\varphi\;@\;\psi))\) לכל קשר דו-מקומי \(@\).</p>
+            <p><strong>מסקנה:</strong> \(R\) נכונה לכל פסוק.</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>למה האינדוקציה המבנית עובדת?</strong> כיוון שכל פסוק נבנה בתהליך סופי מפסוקים אלמנטריים, ובכל שלב בנייה (שלילה או חיבור) מובטחת התכונה — נובע שכל פסוק מקיים את התכונה. זהו למעשה מקרה פרטי של אינדוקציה שלמה על העומק הקשרי.</p>
+          </div>
+
+          <h3>ג. דוגמה 1: מספר הסוגריים זוגי</h3>
+          <div class="example-box">
+            <div class="example-box__label">הוכחה</div>
+            <p>נוכיח: בכל פסוק \(\varphi\), מספר הסוגריים (שמאליים + ימניים) הוא זוגי.</p>
+            <p><strong>בסיס:</strong> פסוק אלמנטרי \(p\) — 0 סוגריים (זוגי). ✓</p>
+            <p><strong>צעד – שלילה:</strong> \(\neg\varphi\) לא מוסיף סוגריים, אם ב-\(\varphi\) יש \(2k\) סוגריים, גם ב-\(\neg\varphi\) יש \(2k\) (זוגי). ✓</p>
+            <p><strong>צעד – מקושר:</strong> \((\varphi\;@\;\psi)\) מוסיף 2 סוגריים חיצוניים: \(2k + 2m + 2 = 2(k+m+1)\) (זוגי). ✓ ■</p>
+          </div>
+
+          <h3>ד. דוגמה 2: סוגריים שמאליים = ימניים</h3>
+          <div class="example-box">
+            <div class="example-box__label">הוכחה</div>
+            <p>נסמן: \(L(\varphi)\) = מספר ״(״,&ensp; \(R(\varphi)\) = מספר ״)״.</p>
+            <p><strong>בסיס:</strong> \(L(p) = 0 = R(p)\). ✓</p>
+            <p><strong>שלילה:</strong> \(L(\neg\varphi) = L(\varphi) = R(\varphi) = R(\neg\varphi)\). ✓</p>
+            <p><strong>מקושר:</strong> \(L((\varphi\;@\;\psi)) = L(\varphi) + L(\psi) + 1 = R(\varphi) + R(\psi) + 1 = R((\varphi\;@\;\psi))\). ✓ ■</p>
+          </div>
+
+          <h3>ה. דוגמה 3: ללא שלילה – מספר סימבולים אי-זוגי</h3>
+          <div class="example-box">
+            <div class="example-box__label">הוכחה</div>
+            <p>בשפה ללא \(\neg\):</p>
+            <p><strong>בסיס:</strong> \(S(p) = 1\) (אי-זוגי). ✓</p>
+            <p><strong>צעד:</strong></p>
+            \[S((\varphi\;@\;\psi)) = S(\varphi) + S(\psi) + 3 = (2k+1) + (2m+1) + 3 = 2(k+m+2)+1\]
+            <p>(אי-זוגי). ✓ ■</p>
+          </div>
+
+          <h3>ו. למת ספירת הסוגריים</h3>
+          <p>למת ספירת הסוגריים מנוסחת במצגת בשלושה ניסוחים שקולים:</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">למה (שלושה ניסוחים)</div>
+            <p><strong>(1) פסוק מאוזן:</strong> בכל פסוק, מספר הסוגריים השמאליים שווה למספר הסוגריים הימניים.</p>
+            <p><strong>(2) רישא וסיפא:</strong> בכל <strong>רישא</strong> (קטע התחלתי, לא ריק) של פסוק — מספר השמאליים גדול או שווה למספר הימניים. שוויון מתקיים <strong>רק</strong> כשהרישא היא המחרוזת כולה. (סימטרית: בכל סיפא, מספר הימניים ≥ מספר השמאליים.)</p>
+            <p><strong>(3) קשר דו-מקומי:</strong> כל קשר דו-מקומי בפסוק ״רואה״ <strong>משמאלו</strong> יותר סוגריים שמאליים מימניים (ומימינו יותר סוגריים ימניים משמאליים).</p>
+          </div>
+          <p><strong>משמעות הניסוח השני:</strong> אם נסרוק את הפסוק משמאל לימין ונחזיק מונה (שסופר \(+1\) לכל ״(״ ו-\(-1\) לכל ״)״), המונה <strong>לעולם לא יהיה שלילי</strong>, ויחזור ל-0 <strong>רק בסוף</strong> הפסוק.</p>
+          <p><strong>משמעות הניסוח השלישי</strong> (החשוב ביותר לזיהוי הקשר הראשי): הקשר הדו-מקומי הראשי הוא היחיד שכאשר ה״מאזן״ של הסוגריים שלפניו הוא <strong>בדיוק 1</strong> (סוגר שמאלי אחד פתוח). זה נותן אלגוריתם מעשי לאיתור הקשר הראשי.</p>
+          <p>למה זו חיונית להוכחת משפט הקריאה היחידה: היא מבטיחה שכאשר מפרקים פסוק מקושר, ניתן לזהות באופן חד-ערכי את נקודת החלוקה בין שני הפסוקים המרכיבים.</p>
+        </div>
+      </div>
+
+      <!-- ========== SUMMARY 3 ========== -->
+      <div id="s3" class="summary-panel">
+        <div class="summary-content">
+
+          <h2>מפגש 3 – הסמנטיקה של השפה הפסוקית</h2>
+
+          <h3>א. מושגים מנושאים קודמים</h3>
+          <ul>
+            <li><strong>פסוק, תחביר, סדרת בנייה, אינדוקציה מבנית</strong> — מפגשים 1-2</li>
+          </ul>
+          <div class="logic-note">
+            <p>עד כה עסקנו ב<strong>תחביר</strong> — מבנה השפה: מהו פסוק חוקי. כעת נעבור ל<strong>סמנטיקה</strong> — <strong>המשמעות</strong>: מתי פסוק הוא אמיתי ומתי שקרי.</p>
+          </div>
+
+          <h3>ב. מודל (Model)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p><strong>מודל \(M\)</strong> בשפה הפסוקית הוא <strong>פונקציה</strong> \(M: \{p_1, p_2, \ldots\} \to \{T, F\}\) שנותנת לכל פסוק אלמנטרי ערך אמת.</p>
+            <p>אם \(M(q) = T\) נסמן \(M \models q\) (״\(M\) מספק את \(q\)״).</p>
+            <p>אם \(M(q) = F\) נסמן \(M \not\models q\).</p>
+          </div>
+          <p>מודל הוא למעשה ״מצב עולם״ — הוא קובע אילו טענות בסיסיות נכונות ואילו לא. משמודל נקבע, ערך האמת של כל פסוק (גם מורכב) נקבע חד-ערכית לפי הכללים שיוגדרו להלן.</p>
+
+          <h3>ג. ערך אמת של פסוקים מורכבים</h3>
+          <p>הגדרת ערכי האמת היא <strong>רקורסיבית</strong> — מבוססת על המבנה הרקורסיבי של פסוק:</p>
+          <table>
+            <thead><tr><th>קשר</th><th>הגדרה</th></tr></thead>
+            <tbody>
+              <tr><td>שלילה</td><td>\(M(\neg A) = T\) אם״ם \(M(A) = F\)</td></tr>
+              <tr><td>קוניונקציה</td><td>\(M(A \wedge B) = T\) אם״ם \(M(A) = T\) <strong>וגם</strong> \(M(B) = T\)</td></tr>
+              <tr><td>דיסיונקציה</td><td>\(M(A \vee B) = T\) אם״ם \(M(A) = T\) <strong>או</strong> \(M(B) = T\) (או שניהם)</td></tr>
+              <tr><td>אימפליקציה</td><td>\(M(A \to B) = T\) אם״ם \(M(A) = F\) <strong>או</strong> \(M(B) = T\)</td></tr>
+              <tr><td>שקילות</td><td>\(M(A \leftrightarrow B) = T\) אם״ם \(M(A) = M(B)\)</td></tr>
+            </tbody>
+          </table>
+
+          <h4>טבלאות אמת לארבעת הקשרים הדו-מקומיים</h4>
+          <div class="truth-tables-grid">
+            <table class="truth-table">
+              <caption>קוניונקציה \(P \wedge Q\)</caption>
+              <thead><tr><th>\(P\)</th><th>\(Q\)</th><th>\(P \wedge Q\)</th></tr></thead>
+              <tbody>
+                <tr><td>F</td><td>F</td><td>F</td></tr>
+                <tr><td>F</td><td>T</td><td>F</td></tr>
+                <tr><td>T</td><td>F</td><td>F</td></tr>
+                <tr><td>T</td><td>T</td><td>T</td></tr>
+              </tbody>
+            </table>
+            <table class="truth-table">
+              <caption>דיסיונקציה \(P \vee Q\)</caption>
+              <thead><tr><th>\(P\)</th><th>\(Q\)</th><th>\(P \vee Q\)</th></tr></thead>
+              <tbody>
+                <tr><td>F</td><td>F</td><td>F</td></tr>
+                <tr><td>F</td><td>T</td><td>T</td></tr>
+                <tr><td>T</td><td>F</td><td>T</td></tr>
+                <tr><td>T</td><td>T</td><td>T</td></tr>
+              </tbody>
+            </table>
+            <table class="truth-table">
+              <caption>אימפליקציה \(P \to Q\)</caption>
+              <thead><tr><th>\(P\)</th><th>\(Q\)</th><th>\(P \to Q\)</th></tr></thead>
+              <tbody>
+                <tr><td>F</td><td>F</td><td>T</td></tr>
+                <tr><td>F</td><td>T</td><td>T</td></tr>
+                <tr><td>T</td><td>F</td><td>F</td></tr>
+                <tr><td>T</td><td>T</td><td>T</td></tr>
+              </tbody>
+            </table>
+            <table class="truth-table">
+              <caption>שקילות \(P \leftrightarrow Q\)</caption>
+              <thead><tr><th>\(P\)</th><th>\(Q\)</th><th>\(P \leftrightarrow Q\)</th></tr></thead>
+              <tbody>
+                <tr><td>F</td><td>F</td><td>T</td></tr>
+                <tr><td>F</td><td>T</td><td>F</td></tr>
+                <tr><td>T</td><td>F</td><td>F</td></tr>
+                <tr><td>T</td><td>T</td><td>T</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="logic-note">
+            <p><strong>שימו לב על אימפליקציה:</strong> \(A \to B\) שקרית <strong>רק</strong> כאשר \(A\) אמיתית ו-\(B\) שקרית. בפרט, אם ההנחה \(A\) שקרית, האימפליקציה אמיתית תמיד — ״מהנחה שקרית ניתן להסיק הכל״.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת): חישוב ערך אמת של פסוק מורכב במודל נתון</div>
+            <p>פסוק: \(\varphi = \bigl((p \to (q \vee s)) \leftrightarrow (p \wedge (q \vee p))\bigr)\)</p>
+            <p>מודל \(M\) שבו: \(M(p) = T,\ M(q) = F,\ M(s) = F\). מהו \(M(\varphi)\)?</p>
+            <p><strong>חישוב שלב-אחר-שלב:</strong></p>
+            <ol>
+              <li>\(M(q \vee s) = M(q) \vee M(s) = F \vee F = F\)</li>
+              <li>\(M(p \to (q \vee s)) = M(p) \to F = T \to F = F\)</li>
+              <li>\(M(q \vee p) = F \vee T = T\)</li>
+              <li>\(M(p \wedge (q \vee p)) = T \wedge T = T\)</li>
+              <li>\(M(\varphi) = M((p \to (q \vee s)) \leftrightarrow (p \wedge (q \vee p))) = (F \leftrightarrow T) = F\)</li>
+            </ol>
+            <p><strong>מסקנה:</strong> ערך הפסוק במודל הזה הוא \(F\). באופן כללי, ערך האמת של פסוק מורכב נקבע ע״י ערכי הפסוקים האלמנטריים המרכיבים אותו — כיוון שההגדרה רקורסיבית.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת): טבלת אמת מלאה</div>
+            <p>פסוק: \(((t \wedge p) \wedge (q \to t))\) — שלושה משתנים, 8 שורות:</p>
+            <table class="truth-table">
+              <thead><tr><th>\(p\)</th><th>\(q\)</th><th>\(t\)</th><th>\((t \wedge p)\)</th><th>\((q \to t)\)</th><th>\(((t \wedge p) \wedge (q \to t))\)</th></tr></thead>
+              <tbody>
+                <tr><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td></tr>
+                <tr><td>T</td><td>T</td><td>F</td><td>F</td><td>F</td><td>F</td></tr>
+                <tr><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td><td>T</td></tr>
+                <tr><td>T</td><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td></tr>
+                <tr><td>F</td><td>T</td><td>T</td><td>F</td><td>T</td><td>F</td></tr>
+                <tr><td>F</td><td>T</td><td>F</td><td>F</td><td>F</td><td>F</td></tr>
+                <tr><td>F</td><td>F</td><td>T</td><td>F</td><td>T</td><td>F</td></tr>
+                <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td></tr>
+              </tbody>
+            </table>
+            <p>הפסוק מקבל \(T\) רק בשתי שורות (כש-\(p, t = T\)). זוהי שיטת עבודה בסיסית להוכחת טאוטולוגיות, סתירות וגרירות.</p>
+          </div>
+
+          <h3>ד. טאוטולוגיה, סתירה וספיקות</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרות</div>
+            <p><strong>ספיק (Satisfiable):</strong> פסוק \(\varphi\) שקיים לפחות מודל אחד \(M\) כך ש-\(M(\varphi) = T\).</p>
+            <p><strong>טאוטולוגיה (Tautology):</strong> פסוק אמיתי <strong>בכל מודל</strong>. סימון: \(\models \varphi\).</p>
+            <p><strong>סתירה (Contradiction):</strong> פסוק שקרי <strong>בכל מודל</strong>.</p>
+            <p><strong>קשר:</strong> \(\varphi\) טאוטולוגיה ⇔ \(\neg\varphi\) סתירה. פסוק שאינו סתירה הוא ספיק.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">תרגיל</div>
+            <p><strong>שאלה:</strong> אם \(A, B\) ספיקים, האם \((A \wedge B)\) ספיק?</p>
+            <p><strong>תשובה: לא בהכרח.</strong> דוגמה נגדית: \(A = p,\ B = \neg p\). כל אחד ספיק, אבל \((p \wedge \neg p)\) הוא סתירה.</p>
+          </div>
+
+          <h3>ה. ספיקות של קבוצת פסוקים</h3>
+          <p>\(M\) הוא <strong>מודל של קבוצה \(K\)</strong> (סימון: \(M \models K\)) אם <strong>כל פסוקי \(K\)</strong> אמיתיים ב-\(M\). קבוצה \(K\) <strong>ספיקה</strong> אם יש לה לפחות מודל אחד.</p>
+          <p>שימו לב: קבוצה אינסופית יכולה להיות ספיקה — הדרישה היא רק שקיים מודל אחד שמספק את <strong>כל</strong> הפסוקים בה בו-זמנית.</p>
+
+          <div class="example-box">
+            <div class="example-box__label">תרגיל (מהמצגת): מודלים של קבוצות אינסופיות</div>
+            <p>נגדיר שלוש קבוצות פסוקים מעל פסוקים אלמנטריים \(p_1, p_2, \ldots\):</p>
+            <p>\(\Sigma_1 = \{ p_i \to p_j \mid i \neq j,\; i,j \in \mathbb{N} \}\)</p>
+            <p>\(\Sigma_2 = \{ \neg p_i \to p_j \mid i \neq j,\; i,j \in \mathbb{N} \}\)</p>
+            <p>\(\Sigma_3 = \{ p_i \to \neg p_j \mid i \neq j,\; i,j \in \mathbb{N} \}\)</p>
+            <p>תארו את <strong>כל</strong> המודלים של כל אחת מהקבוצות הבאות:</p>
+            <p><strong>א. \(M(\Sigma_1)\):</strong> ב-\(\Sigma_1\) נדרש שלכל \(i \neq j\), אם \(p_i\) נכון אז גם \(p_j\) נכון. מסקנה: או שכל ה-\(p_i\) נכונים, או שאף אחד לא — כלומר <strong>שני</strong> מודלים בלבד: ״הכל \(T\)״ ו״הכל \(F\)״.</p>
+            <p><strong>ב. \(M(\Sigma_2)\):</strong> נדרש: לכל \(i \neq j\), אם \(\neg p_i\) אז \(p_j\). כלומר אסור ששני פסוקים אלמנטריים יהיו שניהם שקריים. מסקנה: <strong>לכל היותר אחד</strong> מה-\(p_i\) הוא \(F\) — כלומר המודלים הם ״כל \(T\)״ או מודל שבו בדיוק \(p_k\) אחד הוא \(F\) וכל השאר \(T\).</p>
+            <p><strong>ג. \(M(\Sigma_3)\):</strong> נדרש: לכל \(i \neq j\), אם \(p_i\) אז \(\neg p_j\). כלומר אסור ששני פסוקים אלמנטריים יהיו שניהם נכונים. מסקנה: <strong>לכל היותר אחד</strong> מה-\(p_i\) הוא \(T\).</p>
+            <p><strong>ד. \(M(\Sigma_1 \cup \Sigma_3)\):</strong> צריך לקיים את שניהם. מ-\(\Sigma_1\): כולם \(T\) או כולם \(F\). מ-\(\Sigma_3\): לכל היותר אחד \(T\). חיתוך: כולם \(F\) — מודל יחיד.</p>
+            <p><strong>ה. \(M(\Sigma_2 \cup \Sigma_3)\):</strong> מ-\(\Sigma_2\): לכל היותר אחד \(F\). מ-\(\Sigma_3\): לכל היותר אחד \(T\). אבל מערכת אינסופית של פסוקים אלמנטריים — לא ייתכן שיש בדיוק אחד \(T\) ובדיוק אחד \(F\) (היתר מה?). לכן <strong>אין מודלים</strong> — הקבוצה לא ספיקה.</p>
+          </div>
+
+          <h3>ו. שקילות לוגית</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה + משפט</div>
+            <p>\(A \equiv B\) (שקולים לוגית) אם״ם <strong>אמיתיים באותם המודלים בדיוק</strong>. כלומר, לכל מודל \(M\): \(M(A) = M(B)\).</p>
+            <p><strong>משפט:</strong> \(A \equiv B\) אם ורק אם \(A \leftrightarrow B\) היא <strong>טאוטולוגיה</strong>.</p>
+          </div>
+
+          <h4>שקילויות בסיסיות חשובות:</h4>
+          <table>
+            <thead><tr><th>שם</th><th>שקילות</th></tr></thead>
+            <tbody>
+              <tr><td>דה מורגן</td><td>\(\neg(A \wedge B) \equiv (\neg A \vee \neg B)\),&ensp; \(\neg(A \vee B) \equiv (\neg A \wedge \neg B)\)</td></tr>
+              <tr><td>שלילה כפולה</td><td>\(\neg\neg A \equiv A\)</td></tr>
+              <tr><td>המרת אימפליקציה</td><td>\(A \to B \equiv \neg A \vee B\)</td></tr>
+              <tr><td>קונטרפוזיטיב</td><td>\(A \to B \equiv \neg B \to \neg A\)</td></tr>
+              <tr><td>דיסטריבוטיביות</td><td>\(A \wedge (B \vee C) \equiv (A \wedge B) \vee (A \wedge C)\)</td></tr>
+              <tr><td>קומוטטיביות</td><td>\(A \wedge B \equiv B \wedge A\),&ensp; \(A \vee B \equiv B \vee A\)</td></tr>
+              <tr><td>אסוציאטיביות</td><td>\((A \wedge B) \wedge C \equiv A \wedge (B \wedge C)\)</td></tr>
+            </tbody>
+          </table>
+
+          <h3>ז. גרירה / נביעה לוגית</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>\(\varphi \models \psi\) (״\(\varphi\) <strong>גורר</strong> את \(\psi\)״) אם בכל מודל שבו \(\varphi\) אמיתי, גם \(\psi\) אמיתי.</p>
+            <p><strong>משפט:</strong> \(\varphi \models \psi\) אם ורק אם \(\models (\varphi \to \psi)\) (כלומר, \(\varphi \to \psi\) טאוטולוגיה).</p>
+          </div>
+          <p><strong>גרירה מקבוצה:</strong> \(K \models \varphi\) — בכל מודל של \(K\), גם \(\varphi\) אמיתי. כלומר, אי אפשר שכל ההנחות ב-\(K\) נכונות אך \(\varphi\) שקרי.</p>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p><strong>הוכח:</strong> \(\{A \to C,\ \neg C \to B\} \models (A \vee \neg B) \to C\)</p>
+            <p><strong>הוכחה בדרך השלילה:</strong> נניח שקיים מודל \(M\) שבו:</p>
+            <ol>
+              <li>\(M(A \to C) = T\)</li>
+              <li>\(M(\neg C \to B) = T\)</li>
+              <li>\(M((A \vee \neg B) \to C) = F\)</li>
+            </ol>
+            <p>מ-(3): \(M(A \vee \neg B) = T\) <strong>וגם</strong> \(M(C) = F\).</p>
+            <p>מ-\(M(C)=F\) ומ-(2): \(M(B) = T\), כלומר \(M(\neg B) = F\).</p>
+            <p>מ-\(M(A \vee \neg B) = T\) ו-\(M(\neg B) = F\): חייב \(M(A) = T\).</p>
+            <p>מ-\(M(A) = T\) ומ-(1): \(M(C) = T\). <strong>סתירה!</strong> ■</p>
+          </div>
+
+          <div class="logic-note">
+            <p><strong>מקרים מיוחדים:</strong></p>
+            <p>• \(K\) ריקה → גוררת רק טאוטולוגיות: \(\emptyset \models \varphi \iff \models \varphi\).</p>
+            <p>• \(K\) סותרת (אין לה מודל) → \(K \models \varphi\) לכל פסוק \(\varphi\) (גרירה טריוויאלית).</p>
+          </div>
+
+          <h3>ח. משפט הקומפקטיות</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט</div>
+            <p><strong>ניסוח 1 (גרירה):</strong> אם \(K \models \psi\), קיימת תת-קבוצה <strong>סופית</strong> \(\{\varphi_1, \ldots, \varphi_n\} \subseteq K\) כך ש-\(\{\varphi_1, \ldots, \varphi_n\} \models \psi\).</p>
+            <p><strong>ניסוח 2 (ספיקות):</strong> אם כל תת-קבוצה <strong>סופית</strong> של \(K\) ספיקה, אז גם \(K\) עצמה ספיקה.</p>
+          </div>
+          <p>משפט הקומפקטיות הוא מהמשפטים החשובים ביותר בלוגיקה. הוא מאפשר להעביר תוצאות מקבוצות סופיות לקבוצות אינסופיות.</p>
+        </div>
+      </div>
+
+      <!-- ========== SUMMARY 4 ========== -->
+      <div id="s4" class="summary-panel">
+        <div class="summary-content">
+
+          <h2>מפגש 4 – תורת ההוכחה, קבוצה שלמה של קשרים וצורה נורמלית</h2>
+
+          <h3>א. מושגים מנושאים קודמים</h3>
+          <ul>
+            <li>מודל, ספיקות, טאוטולוגיה, סתירה, שקילות, גרירה, קומפקטיות — מפגש 3</li>
+          </ul>
+          <div class="logic-note">
+            <p>עד כה עסקנו ב<strong>סמנטיקה</strong> — משמעות הפסוקים (ערכי אמת ומודלים). כעת נעבור ל<strong>תחשיב</strong> (Proof Calculus) — מערכת פורמלית של הוכחות, שפועלת על ידי מניפולציה <strong>תחבירית</strong> בלבד (ללא התייחסות למשמעות).</p>
+          </div>
+
+          <h3>ב. תורת ההוכחה – מבוא</h3>
+          <p>מערכת פורמלית מורכבת מ<strong>אקסיומות</strong> (טענות שמניחים מראש) ו<strong>כללי היסק</strong> (כללים לגזירת טענות חדשות מטענות קיימות).</p>
+          <p><strong>סדרת הוכחה (הוכחה פורמלית)</strong> היא סדרה סופית \(\varphi_1, \ldots, \varphi_n\) שבה כל \(\varphi_i\) היא: (1) אקסיומה, (2) הנחה מ-\(K\), או (3) נגזרת מפסוקים קודמים בסדרה ע״י כלל היסק. הפסוק האחרון \(\varphi_n\) הוא הפסוק המוכח.</p>
+
+          <h3>ג. תחשיב הפסוקים – מערכת הילברט</h3>
+          <p>שפה מצומצמת: רק \(\{\neg,\ \to\}\) (שאר הקשרים מוגדרים כקיצורי כתיבה).</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">שלוש האקסיומות</div>
+            \[\text{A1: } \varphi \to (\psi \to \varphi)\]
+            \[\text{A2: } (\varphi \to (\psi \to \theta)) \to ((\varphi \to \psi) \to (\varphi \to \theta))\]
+            \[\text{A3: } (\neg\varphi \to \neg\psi) \to (\psi \to \varphi)\]
+            <p><strong>כלל היסק יחיד – מודוס פוננס (M.P.):</strong> מתוך \(\varphi\) ומתוך \(\varphi \to \psi\), מסיקים \(\psi\).</p>
+          </div>
+          <p><strong>סימונים:</strong> \(\vdash \varphi\) = הפסוק \(\varphi\) יכיח (ניתן להוכחה מהאקסיומות בלבד). \(K \vdash \varphi\) = \(\varphi\) יכיח מתוך קבוצת ההנחות \(K\).</p>
+          <div class="logic-note">
+            <p><strong>A1</strong> אומרת: טענה אמיתית נובעת מכל דבר. <strong>A2</strong> היא כלל הפצה של אימפליקציה. <strong>A3</strong> (קונטרפוזיטיב) מאפשרת הוכחה בשלילה.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה להוכחה</div>
+            <p><strong>הוכח:</strong> \(\{(\neg B \to \neg A),\ A\} \vdash B\)</p>
+            <table>
+              <thead><tr><th>#</th><th>פסוק</th><th>הצדקה</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>\(\neg B \to \neg A\)</td><td>הנחה</td></tr>
+                <tr><td>2</td><td>\(A\)</td><td>הנחה</td></tr>
+                <tr><td>3</td><td>\((\neg B \to \neg A) \to (A \to B)\)</td><td>אקסיומה A3</td></tr>
+                <tr><td>4</td><td>\(A \to B\)</td><td>M.P. על (1) ו-(3)</td></tr>
+                <tr><td>5</td><td>\(B\)</td><td>M.P. על (2) ו-(4)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>ד. משפט הנאותות ומשפט השלמות</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפטים מרכזיים</div>
+            <p><strong>נאותות (Soundness):</strong> אם \(K \vdash \varphi\) אז \(K \models \varphi\). (כל מה שניתן להוכיח — אכן נכון.)</p>
+            <p><strong>שלמות (Completeness):</strong> אם \(K \models \varphi\) אז \(K \vdash \varphi\). (כל מה שנכון — ניתן להוכחה.)</p>
+            <p><strong>מסקנה:</strong></p>
+            \[K \vdash \varphi \iff K \models \varphi\]
+            <p>זהו גשר מרכזי בין <strong>תחביר</strong> (יכיחות) ל<strong>סמנטיקה</strong> (אמת).</p>
+          </div>
+
+          <h3>ה. משפט הדדוקציה</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט</div>
+            \[K \vdash (\psi \to \varphi) \iff K \cup \{\psi\} \vdash \varphi\]
+            <p>כדי להוכיח \(\psi \to \varphi\) מ-\(K\), מספיק להוסיף את \(\psi\) להנחות ולהוכיח \(\varphi\). זהו כלי מרכזי שמפשט הוכחות באופן דרמטי.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה – שימוש בדדוקציה</div>
+            <p><strong>הוכח:</strong> \(\vdash ((p \to (q \to t)) \to (q \to (p \to t)))\)</p>
+            <p>לפי הדדוקציה (3 פעמים) מספיק להוכיח: \(\{p \to (q \to t),\ q,\ p\} \vdash t\)</p>
+            <table>
+              <thead><tr><th>#</th><th>פסוק</th><th>הצדקה</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>\(p \to (q \to t)\)</td><td>הנחה</td></tr>
+                <tr><td>2</td><td>\(p\)</td><td>הנחה</td></tr>
+                <tr><td>3</td><td>\(q \to t\)</td><td>M.P. על (1),(2)</td></tr>
+                <tr><td>4</td><td>\(q\)</td><td>הנחה</td></tr>
+                <tr><td>5</td><td>\(t\)</td><td>M.P. על (4),(3) ■</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת): טרנזיטיביות של \(\to\)</div>
+            <p><strong>הוכח:</strong> \(\{(\varphi \to \psi),\ (\psi \to \theta)\} \vdash (\varphi \to \theta)\)</p>
+            <p>לפי משפט הדדוקציה, מספיק להוכיח: \(\{(\varphi \to \psi),\ (\psi \to \theta),\ \varphi\} \vdash \theta\)</p>
+            <table>
+              <thead><tr><th>#</th><th>פסוק</th><th>הצדקה</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>\(\varphi\)</td><td>הנחה</td></tr>
+                <tr><td>2</td><td>\(\varphi \to \psi\)</td><td>הנחה</td></tr>
+                <tr><td>3</td><td>\(\psi\)</td><td>M.P. על (1),(2)</td></tr>
+                <tr><td>4</td><td>\(\psi \to \theta\)</td><td>הנחה</td></tr>
+                <tr><td>5</td><td>\(\theta\)</td><td>M.P. על (3),(4) ■</td></tr>
+              </tbody>
+            </table>
+            <p>תוצאה זו (״כלל הסילוגיזם״) שימושית מאוד בהוכחות פורמליות.</p>
+          </div>
+
+          <h3>ו. קבוצה עקבית</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>קבוצת פסוקים \(K\) <strong>עקבית</strong> (קונסיסטנטית) אם <strong>אין</strong> פסוק \(\varphi\) כך ש-\(K \vdash \varphi\) וגם \(K \vdash \neg\varphi\).</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>משפט:</strong> קבוצת פסוקים \(K\) היא עקבית <strong>אם ורק אם</strong> יש לה מודל (כלומר, \(K\) ספיקה). זוהי תוצאה ישירה מנאותות + שלמות.</p>
+          </div>
+
+          <h3>ז. תורה ותורה שלמה</h3>
+          <p><strong>תורה:</strong> קבוצת פסוקים \(K\) שיש לה מודל (= \(K\) עקבית).</p>
+          <p><strong>תורה שלמה:</strong> תורה \(K\) שלכל פסוק \(\varphi\) מתקיים: \(K \vdash \varphi\) או \(K \vdash \neg\varphi\). כלומר, התורה ״מכריעה״ לגבי כל פסוק.</p>
+
+          <h3>ח. הוכחה בדרך השלילה</h3>
+          <ol>
+            <li>\(\{\psi, \neg\psi\} \vdash \varphi\) — מסתירה ניתן להוכיח <strong>כל</strong> פסוק (עקרון ה-Ex Falso).</li>
+            <li>קבוצה לא עקבית מוכיחה כל פסוק.</li>
+            <li>אם \(K \cup \{\neg\varphi\}\) <strong>לא עקבית</strong>, אז \(K \vdash \varphi\).</li>
+          </ol>
+
+          <div class="example-box">
+            <div class="example-box__label">הוכחה ש-\(\{\neg A, A\} \vdash B\)</div>
+            <table>
+              <thead><tr><th>#</th><th>פסוק</th><th>הצדקה</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>\(\neg A \to (\neg B \to \neg A)\)</td><td>אקסיומה A1</td></tr>
+                <tr><td>2</td><td>\(\neg A\)</td><td>הנחה</td></tr>
+                <tr><td>3</td><td>\(\neg B \to \neg A\)</td><td>M.P. על (2),(1)</td></tr>
+                <tr><td>4</td><td>\((\neg B \to \neg A) \to (A \to B)\)</td><td>אקסיומה A3</td></tr>
+                <tr><td>5</td><td>\(A \to B\)</td><td>M.P. על (3),(4)</td></tr>
+                <tr><td>6</td><td>\(A\)</td><td>הנחה</td></tr>
+                <tr><td>7</td><td>\(B\)</td><td>M.P. על (6),(5) ■</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">שאלת מבחן (מהמצגת, עמוד 28): מערכת הוכחה חלופית D</div>
+            <p>נתונה מערכת הוכחה חדשה \(D\) בשפה הפסוקית מעל קבוצת הקשרים \(\{\neg, \to\}\).</p>
+            <p><strong>האקסיומות של \(D\):</strong></p>
+            <ol>
+              <li>\((\varphi \to (\psi \to \varphi))\)</li>
+              <li>\(\bigl((\varphi \to (\psi \to \varphi)) \to ((\varphi \to \psi) \to (\varphi \to \varphi))\bigr)\)</li>
+            </ol>
+            <p><strong>כללי ההיסק של \(D\):</strong></p>
+            <ol>
+              <li>מודוס פוננס: \(\dfrac{\varphi,\ (\varphi \to \psi)}{\psi}\)</li>
+              <li>״כלל ניתוק״: \(\dfrac{(\varphi \to (\psi \to \varphi))}{\varphi}\)</li>
+            </ol>
+            <p>(לשם השוואה — מערכת הילברט מכילה 3 אקסיומות + M.P. בלבד.)</p>
+            <p><strong>הוכיחו או הפריכו את הטענות הבאות:</strong></p>
+            <p><strong>א.</strong> לכל קבוצת פסוקים \(\Sigma\) ולכל פסוק \(\alpha\):&ensp; אם \(\Sigma \vdash_D \alpha\) אז \(\Sigma \models \alpha\).&ensp; (נאותות של \(D\))</p>
+            <p><strong>ב.</strong> לכל קבוצת פסוקים \(\Sigma\) ולכל פסוק \(\alpha\):&ensp; אם \(\Sigma \models \alpha\) אז \(\Sigma \vdash_D \alpha\).&ensp; (שלמות של \(D\))</p>
+            <p><strong>ג.</strong> אם נשנה את כלל ההיסק השני לכלל הבא: \(\dfrac{(\varphi \to (\psi \to \varphi))}{((\neg\varphi \to \neg\psi) \to (\psi \to \varphi))}\)&ensp; — האם תשובתכם לאחד מהסעיפים תשתנה?</p>
+
+            <div class="logic-note">
+              <p><strong>הכוונה לפתרון (ניתוח קצר):</strong></p>
+              <p><strong>סעיף א — לא נאותה!</strong> כלל ההיסק השני הוא <em>בעייתי</em>: ההנחה \((\varphi \to (\psi \to \varphi))\) היא טאוטולוגיה (אקסיומה A1 של הילברט), ולכן ניתן ״לקבל״ את \(\varphi\) <strong>לכל</strong> \(\varphi\). למשל, נקח \(\varphi = p\) (פסוק אלמנטרי): מאקסיומה 1 \(\vdash_D (p \to (q \to p))\), ובהפעלת כלל ההיסק השני: \(\vdash_D p\). אבל \(p\) אינה טאוטולוגיה (במודל \(M(p) = F\) היא שקרית), כלומר \(\not\models p\). הפרכה לנאותות. ■</p>
+              <p><strong>סעיף ב — שלמה באופן טריוויאלי.</strong> מהניתוח של סעיף א ראינו שכלל ההיסק השני מאפשר להוכיח <strong>כל</strong> פסוק \(\varphi\): נשתמש באקסיומה 1 לקבל את הטאוטולוגיה \((\varphi \to (\psi \to \varphi))\), ואז נפעיל את הכלל השני ונקבל \(\vdash_D \varphi\). מאחר ש-\(D\) מוכיחה כל פסוק, בפרט היא מוכיחה כל פסוק שנובע לוגית מ-\(\Sigma\) — כלומר השלמות \(\Sigma \models \alpha \Rightarrow \Sigma \vdash_D \alpha\) מתקיימת. אך זוהי שלמות ״ריקה״ ובלתי שימושית, משום שהיא נובעת מאי-הנאותות של המערכת.</p>
+              <p><strong>סעיף ג —</strong> בכלל החדש, ההנחה היא טאוטולוגיה (כמו קודם), אבל המסקנה היא \(((\neg\varphi \to \neg\psi) \to (\psi \to \varphi))\) — זוהי בדיוק <strong>אקסיומה A3 של הילברט</strong>, שהיא טאוטולוגיה. אז הכלל החדש <em>שומר על אמת</em> (כי גם הנחה וגם מסקנה תמיד אמת). שינוי זה הופך את המערכת לנאותה (סעיף א משתנה ל״נכון״). מה לגבי שלמות? עם אקסיומות 1, 2 של \(D\) + הכלל החדש שמעניק לנו A3 + M.P., יש לנו ביסוס דומה לזה של הילברט, אך עדיין חסר A2 המקורית — כך שייתכן שהמערכת לא שלמה (ניתוח מלא חורג מהיקף השאלה).</p>
+            </div>
+          </div>
+
+          <h3>ט. צורה דיסיונקטיבית נורמלית (DNF)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרות</div>
+            <p><strong>ליטרל:</strong> פסוק אלמנטרי \(p\) או שלילתו \(\neg p\).</p>
+            <p><strong>קוניונקציה פשוטה:</strong> \(\wedge\) של ליטרלים (למשל \(p \wedge \neg q \wedge r\)).</p>
+            <p><strong>DNF (צורה דיסיונקטיבית נורמלית):</strong> \(\vee\) של קוניונקציות פשוטות.</p>
+            <p><strong>משפט:</strong> כל פסוק שקול לפסוק בצורת DNF.</p>
+          </div>
+
+          <h4>אלגוריתם המרה ל-DNF:</h4>
+          <ol>
+            <li><strong>סילוק \(\to\) ו-\(\leftrightarrow\):</strong>&ensp; \(A \to B \equiv \neg A \vee B\)</li>
+            <li><strong>דה מורגן + שלילה כפולה:</strong> הכנסת \(\neg\) פנימה</li>
+            <li><strong>דיסטריבוטיביות:</strong>&ensp; \(A \wedge (B \vee C) \equiv (A \wedge B) \vee (A \wedge C)\)</li>
+            <li><strong>מחיקת כפילויות</strong></li>
+            <li><strong>מחיקת קוניונקציות סותרות</strong> (מכילות \(p \wedge \neg p\))</li>
+          </ol>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה אלגברית – המרה ל-DNF</div>
+            <p>פסוק: \((p \wedge (q \to r)) \to s\)</p>
+            <p>שלב 1 (סילוק \(\to\)): \(\neg(p \wedge (\neg q \vee r)) \vee s\)</p>
+            <p>שלב 2 (דה מורגן): \((\neg p \vee (q \wedge \neg r)) \vee s\)</p>
+            <p>תוצאה: \(\neg p \vee (q \wedge \neg r) \vee s\) — זו כבר צורת DNF.</p>
+          </div>
+
+          <h4>שיטה אלטרנטיבית: בניית DNF מטבלת אמת (מהמצגת)</h4>
+          <p>ניתן לבנות פסוק ב-DNF השקול לפסוק נתון <strong>ישירות מטבלת האמת</strong> שלו:</p>
+          <ol>
+            <li>בונים את טבלת האמת המלאה של הפסוק.</li>
+            <li>לכל שורה שבה הפסוק מקבל \(T\), בונים <strong>קוניונקציה פשוטה</strong> שמתארת בדיוק את אותה שורה: כל פסוק אלמנטרי מופיע <em>בעצמו</em> אם ערכו \(T\), או <em>שלילתו</em> אם ערכו \(F\).</li>
+            <li>מחברים את כל הקוניונקציות הללו ב-\(\vee\).</li>
+          </ol>
+          <p><strong>חשיבות:</strong> שיטה זו מוכיחה ש-<strong>כל</strong> טבלת אמת ניתנת לביטוי ע״י פסוק (זוהי תוצאה חזקה — היא מוכיחה את שלמות הקבוצה \(\{\neg, \wedge, \vee\}\)).</p>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת): \(((t \wedge p) \wedge (q \to t))\)</div>
+            <p>טבלת האמת של הפסוק (מסומנות בצהוב השורות שבהן הוא \(T\)):</p>
+            <table class="truth-table">
+              <thead><tr><th>\(p\)</th><th>\(q\)</th><th>\(t\)</th><th>\((t \wedge p)\)</th><th>\((q \to t)\)</th><th>הפסוק</th></tr></thead>
+              <tbody>
+                <tr style="background-color:#fff3cd"><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td><strong>T</strong></td></tr>
+                <tr><td>T</td><td>T</td><td>F</td><td>F</td><td>F</td><td>F</td></tr>
+                <tr style="background-color:#fff3cd"><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td><td><strong>T</strong></td></tr>
+                <tr><td>T</td><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td></tr>
+                <tr><td>F</td><td>T</td><td>T</td><td>F</td><td>T</td><td>F</td></tr>
+                <tr><td>F</td><td>T</td><td>F</td><td>F</td><td>F</td><td>F</td></tr>
+                <tr><td>F</td><td>F</td><td>T</td><td>F</td><td>T</td><td>F</td></tr>
+                <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td></tr>
+              </tbody>
+            </table>
+            <p><strong>בנייה:</strong></p>
+            <ul>
+              <li>שורה 1 (\(p,q,t\) כולם \(T\)): קוניונקציה \((p \wedge q \wedge t)\).</li>
+              <li>שורה 3 (\(p=T, q=F, t=T\)): קוניונקציה \((p \wedge \neg q \wedge t)\).</li>
+            </ul>
+            <p><strong>תוצאה:</strong> \(\;(p \wedge q \wedge t) \vee (p \wedge \neg q \wedge t)\) — צורת DNF השקולה לפסוק המקורי. ■</p>
+          </div>
+
+          <h3>י. קבוצה שלמה של קשרים</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה (מדויקת, מהמצגת)</div>
+            <p>קבוצת קשרים תיקרא <strong>קבוצה שלמה של קשרים</strong> אם <strong>כל פסוק \(\varphi\) שקול לוגית לפסוק \(\varphi'\)</strong> שבו מופיעים אותם פסוקים אלמנטריים, והקשרים היחידים בו הם הקשרים השייכים לקבוצה.</p>
+            <p><strong>ניסוח שקול:</strong> אם ניתן להביע באמצעותה <strong>כל טבלת אמת</strong>.</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>למה שני הניסוחים שקולים?</strong> הכיוון מימין לשמאל ברור — אם מבטאים כל פסוק שקול בעזרת הקשרים, אז בפרט כל טבלת אמת שמתארת איזה פסוק. הכיוון השני: אם מבטאים כל טבלת אמת, אז בהינתן פסוק, נבנה לפי שיטת DNF מטבלת האמת — והתוצאה משתמשת רק ב-\(\{\neg, \wedge, \vee\}\). אם הקבוצה שלנו מבטאת את \(\{\neg, \wedge, \vee\}\), היא מבטאת את כל פסוק.</p>
+          </div>
+          <h4>קבוצות שלמות:</h4>
+          <ul>
+            <li>\(\{\neg, \wedge, \vee\}\) — שלמה (כי DNF משתמש רק בהם)</li>
+            <li>\(\{\neg, \vee\}\) — שלמה (כי \(A \wedge B \equiv \neg(\neg A \vee \neg B)\))</li>
+            <li>\(\{\neg, \wedge\}\) — שלמה (כי \(A \vee B \equiv \neg(\neg A \wedge \neg B)\))</li>
+            <li>\(\{\neg, \to\}\) — שלמה (כי \(A \vee B \equiv \neg A \to B\))</li>
+            <li>\(\{\downarrow\}\) (NOR בלבד) — שלמה!</li>
+          </ul>
+
+          <h4>הקשר NOR (\(\downarrow\)):</h4>
+          <p>\(P \downarrow Q \equiv \neg(P \vee Q)\). ניתן לבטא באמצעותו:</p>
+          <ul>
+            <li>שלילה: \(P \downarrow P \equiv \neg P\)</li>
+            <li>דיסיונקציה: \((P \downarrow Q) \downarrow (P \downarrow Q) \equiv P \vee Q\)</li>
+            <li>קוניונקציה: \((P \downarrow P) \downarrow (Q \downarrow Q) \equiv P \wedge Q\)</li>
+          </ul>
+
+          <h4>קבוצות <strong>לא</strong> שלמות:</h4>
+          <ul>
+            <li>\(\{\vee, \to\}\) — לא שלמה. סיבה: כאשר כל הפסוקים האלמנטריים מקבלים T, כל פסוק שנבנה מ-\(\vee\) ו-\(\to\) בלבד מקבל T, ולכן אי אפשר לבטא \(\neg p\).</li>
+            <li>\(\{\neg, \leftrightarrow\}\) — לא שלמה. סיבה: מספר שורות ה-T בטבלת האמת תמיד זוגי, ולכן אי אפשר לבטא \(p \vee q\) (3 שורות T).</li>
+          </ul>
+
+          <h3>יא. סיכום</h3>
+          <table>
+            <thead><tr><th>נושא</th><th>תוכן מרכזי</th></tr></thead>
+            <tbody>
+              <tr><td>תחשיב הילברט</td><td>3 אקסיומות + M.P., שפה \(\{\neg, \to\}\)</td></tr>
+              <tr><td>נאותות</td><td>\(\vdash \varphi \Rightarrow\ \models \varphi\)</td></tr>
+              <tr><td>שלמות</td><td>\(\models \varphi \Rightarrow\ \vdash \varphi\)</td></tr>
+              <tr><td>דדוקציה</td><td>\(K \vdash (\psi \to \varphi) \iff K \cup \{\psi\} \vdash \varphi\)</td></tr>
+              <tr><td>עקביות</td><td>עקבית ⇔ יש מודל</td></tr>
+              <tr><td>DNF</td><td>דיסיונקציה של קוניונקציות פשוטות</td></tr>
+              <tr><td>קבוצות שלמות</td><td>\(\{\neg,\wedge,\vee\}\), \(\{\neg,\vee\}\), \(\{\neg,\to\}\), \(\{\downarrow\}\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== SUMMARY 5 ========== -->
+      <div id="s5" class="summary-panel">
+        <div class="summary-content">
+
+          <h2>מפגש 5 – שפת היחסים (תחשיב הפרדיקטים)</h2>
+
+          <h3>א. מבוא – למה צריך שפה חדשה?</h3>
+          <p>בתחשיב הפסוקים, פסוק אלמנטרי הוא ״קופסה שחורה״ — אין לנו גישה למבנה הפנימי שלו. זה מקשה על הצרנת טיעונים שמערבים <strong>אובייקטים, תכונות ויחסים</strong>. לדוגמה:</p>
+          <div class="example-box">
+            <div class="example-box__label">דוגמאות לטיעונים שדורשים שפה עשירה יותר</div>
+            <p>1. כל מי שבא לארץ הפלאות הוא מטורף.<br>
+            אליס באה לארץ הפלאות.<br>
+            <strong>מסקנה:</strong> אליס מטורפת.</p>
+            <p>2. יוסי הוא סטודנט.<br>
+            כל סטודנט הוא בן אדם.<br>
+            <strong>מסקנה:</strong> יוסי הוא בן אדם.</p>
+            <p>בתחשיב הפסוקים אי אפשר לבטא את ה״כל״ — לכן נדרשת שפה חדשה: <strong>שפת היחסים</strong> (Predicate Logic).</p>
+          </div>
+
+          <h3>ב. אלפבית שפת היחסים</h3>
+          <p>שפת היחסים מורכבת מהסימנים הבאים:</p>
+          <ul>
+            <li><strong>סוגריים:</strong> \(( \, , \, )\)</li>
+            <li><strong>קשרים לוגיים:</strong> \(\neg,\ \wedge,\ \vee,\ \to,\ \leftrightarrow\)</li>
+            <li><strong>כמתים:</strong> \(\forall\) (״לכל״),&ensp; \(\exists\) (״קיים״)</li>
+            <li><strong>סימני משתנים:</strong> \(v_1, v_2, v_3, \ldots\) (לעיתים נשתמש ב-\(x, y, z\))</li>
+            <li><strong>סימני קבועים:</strong> \(c_1, c_2, \ldots\)</li>
+            <li><strong>סימני פונקציה:</strong> \(F^{n_1}_1, F^{n_2}_2, \ldots\) — לכל סימן יש <strong>מקומיות</strong> (arity) שמציינת כמה ארגומנטים הוא מקבל.</li>
+            <li><strong>סימני יחס:</strong> \(R^{n_1}_1, R^{n_2}_2, \ldots\) — גם להם יש מקומיות.</li>
+          </ul>
+          <div class="logic-note">
+            <p><strong>הבחנה חשובה:</strong> <em>פונקציה</em> מקבלת שמות עצם ומחזירה <strong>שם עצם</strong> (אובייקט בתחום). <em>יחס</em> מקבל שמות עצם ומחזיר <strong>ערך אמת</strong> (T/F).</p>
+          </div>
+
+          <h3>ג. שם עצם (Term)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה רקורסיבית</div>
+            <ol>
+              <li>כל <strong>משתנה</strong> \(x\) הוא שם עצם.</li>
+              <li>כל <strong>קבוע</strong> \(c\) הוא שם עצם.</li>
+              <li>אם \(t_1, \ldots, t_n\) שמות עצם ו-\(F^n\) פונקציה \(n\)-מקומית, אז \(F^n(t_1, \ldots, t_n)\) הוא שם עצם.</li>
+              <li>אין שמות עצם נוספים.</li>
+            </ol>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">דוגמאות</div>
+            <p>\(b\),&ensp; \(x\),&ensp; \(F(a)\),&ensp; \(G(F(x), y)\) — כולם שמות עצם.</p>
+          </div>
+
+          <h3>ד. נוסחה (Formula)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה רקורסיבית</div>
+            <ol>
+              <li><strong>נוסחה אטומית (אלמנטרית):</strong> אם \(t_1, \ldots, t_n\) שמות עצם ו-\(R^n\) יחס \(n\)-מקומי, אז \(R^n(t_1, \ldots, t_n)\) היא נוסחה.</li>
+              <li><strong>שלילה:</strong> אם \(A\) נוסחה אז \(\neg A\) נוסחה.</li>
+              <li><strong>קשר דו-מקומי:</strong> אם \(A, B\) נוסחאות אז \((A\;@\;B)\) נוסחה (לכל \(@ \in \{\wedge, \vee, \to, \leftrightarrow\}\)).</li>
+              <li><strong>כימות:</strong> אם \(A\) נוסחה ו-\(x\) משתנה, אז \(\forall x\,A\) ו-\(\exists x\,A\) הן נוסחאות.</li>
+              <li>אין נוסחאות נוספות.</li>
+            </ol>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">דוגמאות</div>
+            <p>\(R(x,y)\),&ensp; \((\forall x\,G(x) \to \exists y\,P(y))\) — נוסחאות.</p>
+          </div>
+
+          <h3>ה. הצרנה בשפת היחסים</h3>
+          <p>בהינתן שפה (יחסים, פונקציות, קבועים), ניתן להצרין טענות מהשפה הטבעית.</p>
+          <div class="example-box">
+            <div class="example-box__label">דוגמאות הצרנה</div>
+            <p>שפה: \(\text{Smart}^1\),&ensp; \(\text{love}^2\),&ensp; \(\text{cat}^1\),&ensp; \(\text{dog}^1\),&ensp; \(=^2\),&ensp; פונקציה \(\text{color}^1\),&ensp; קבוע \(\text{Rony}\).</p>
+            <p>״כל כלב הוא חכם״:&ensp; \(\forall x\,(\text{dog}(x) \to \text{Smart}(x))\)</p>
+            <p>״יש כלב שהוא חכם״:&ensp; \(\exists x\,(\text{dog}(x) \wedge \text{Smart}(x))\)</p>
+            <p>״יש חתול שאוהב כל כלב שאוהב אותו״:&ensp; \(\exists x\,(\text{cat}(x) \wedge \forall y\,((\text{dog}(y) \wedge \text{love}(y,x)) \to \text{love}(x,y)))\)</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>כללי אצבע:</strong></p>
+            <p>• ״<strong>לכל</strong>״ הולך עם <strong>גרירה</strong> (\(\forall x\,(P(x) \to Q(x))\)).</p>
+            <p>• ״<strong>קיים</strong>״ הולך עם <strong>וגם</strong> (\(\exists x\,(P(x) \wedge Q(x))\)).</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמת הצרנה נוספת (מהמצגת): הצרנה גיאומטרית</div>
+            <p>שפה: יחסים \(\text{point}^1\),&ensp; \(\text{line}^1\),&ensp; \(\text{on}^2\),&ensp; \(=^2\).</p>
+            <p>טענה: <strong>״דרך כל שתי נקודות (שונות) עובר קו ישר״</strong>.</p>
+            <p><strong>הצרנה:</strong></p>
+            \[\forall x\,\forall y\,\Bigl(\bigl(\text{point}(x) \wedge \text{point}(y) \wedge \neg(x = y)\bigr) \to \exists z\,\bigl(\text{line}(z) \wedge \text{on}(x,z) \wedge \text{on}(y,z)\bigr)\Bigr)\]
+            <p>הדוגמה משלבת: כמתים מרובים (\(\forall\forall \exists\)), תנאי שונות (\(x \neq y\)), קיום של אובייקט (\(\exists z\)), ויחס שייכות (\(\text{on}\)).</p>
+          </div>
+
+          <h3>ו. סדר הכמתים חשוב!</h3>
+          <p>החלפת סדר הכמתים יכולה לשנות לחלוטין את משמעות הנוסחה:</p>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת)</div>
+            <p>במספרים הטבעיים, יהי \(I[R]\,=\,&lt;\) (כלומר \(R(x,y)\) פירושו ״\(x &lt; y\)״):</p>
+            <ul>
+              <li>\(\forall x\,\exists y\,(x &lt; y)\) — ״לכל \(x\) קיים \(y\) גדול ממנו״ — <strong>אמת</strong>.</li>
+              <li>\(\exists y\,\forall x\,(x &lt; y)\) — ״קיים \(y\) הגדול מכל \(x\)״ — <strong>שקר</strong> (אין מספר טבעי גדול מכולם).</li>
+              <li>\(\exists x\,\forall y\,(x &lt; y)\) — ״קיים \(x\) שקטן מכל \(y\)״ — <strong>שקר</strong>! בפרט עבור \(y = x\) צריך \(x &lt; x\), שלא מתקיים.</li>
+            </ul>
+            <p>אותה ״סדרת כמתים״ עם החלפת סדר נותנת ערכי אמת שונים לחלוטין.</p>
+          </div>
+
+          <h3>ז. משתנים חופשיים וקשורים</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרות</div>
+            <p><strong>מופע קשור:</strong> מופע של משתנה \(x\) שנמצא בטווח של כמת \(\forall x\) או \(\exists x\).</p>
+            <p><strong>מופע חופשי:</strong> מופע שאינו קשור.</p>
+            <p>משתנה <strong>חופשי בנוסחה</strong> אם יש לו לפחות מופע חופשי אחד. משתנה <strong>קשור בנוסחה</strong> אם יש לו לפחות מופע קשור.</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">דוגמאות</div>
+            <p>\(\forall x\,(R(x,y) \vee \forall y\,R(y,x))\):&ensp; \(x\) קשור,&ensp; \(y\) חופשי <em>וגם</em> קשור (יש שני מופעים).</p>
+            <p>\(\forall x\,\forall y\,(R(x,y) \to R(y,x))\):&ensp; שני המשתנים קשורים בלבד.</p>
+          </div>
+
+          <h3>ח. פסוק (Sentence)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p><strong>פסוק</strong> בשפת היחסים הוא נוסחה <strong>שאין בה משתנים חופשיים</strong> — כל המשתנים קשורים.</p>
+          </div>
+          <p>רק לפסוקים יש ערך אמת מוחלט במודל; לנוסחה עם משתנים חופשיים, ערך האמת תלוי גם ב<strong>השמה</strong> (ראו סעיף יב).</p>
+
+          <h3>ט. סמנטיקה – ערך אמת תלוי בפירוש</h3>
+          <p>בשונה מתחשיב הפסוקים, הסמנטיקה כאן מורכבת יותר: ערך האמת של פסוק תלוי גם ב<strong>תחום</strong> הדיון וגם ב<strong>פירוש</strong> של היחסים, הפונקציות והקבועים.</p>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה מאלפת (מהמצגת)</div>
+            <p>פסוק: \(\forall x\,\forall y\,(R(x,y) \to \neg R(y,x))\) (״<strong>אסימטריות</strong>״ של \(R\)). שימו לב: זה <em>שונה</em> מאנטי-סימטריות הרגילה \((R(x,y) \wedge R(y,x)) \to x = y\).</p>
+            <ul>
+              <li>תחום \(\mathbb{N}\), \(I[R]\,=\, &lt;\) — <strong>אמת</strong> (אם \(a&lt;b\) אז ודאי \(\neg(b&lt;a)\)).</li>
+              <li>תחום \(\mathbb{N}\), \(I[R]\,=\, \le\) — <strong>שקר</strong> (\(2 \le 2\) אך גם \(2 \le 2\), כלומר \(\neg(2 \le 2)\) שקר).</li>
+              <li>תחום = צמתי גרף <strong>לא</strong>-מכוון <em>שיש בו לפחות קשת אחת</em>, \(R(a,b)\) ⇔ קיימת קשת בין \(a\) ל-\(b\) — <strong>שקר</strong> (אם יש קשת בין \(a\) ל-\(b\), אז גם בין \(b\) ל-\(a\), כי הגרף לא מכוון). אם הגרף ריק מקשתות הפסוק אמיתי באופן ריק (כי \(R(x,y)\) לעולם לא מתקיים).</li>
+            </ul>
+            <p>אותה נוסחה יכולה לקבל ערכי אמת שונים בפירושים שונים.</p>
+          </div>
+
+          <h3>י. מודל (מבנה)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p><strong>מבנה (מודל)</strong> הוא זוג סדור \(M = \langle D, I \rangle\) כך ש:</p>
+            <ul>
+              <li>\(D\) — קבוצה <strong>לא ריקה</strong> של עצמים (<strong>תחום</strong> השיח).</li>
+              <li>\(I\) — <strong>פונקציית פירוש</strong> שמתאימה משמעות לכל סימן בשפה:
+                <ul>
+                  <li>לכל קבוע \(c\):&ensp; \(I[c] \in D\).</li>
+                  <li>לכל יחס \(R\) \(n\)-מקומי:&ensp; \(I[R] \subseteq D^n\).</li>
+                  <li>לכל פונקציה \(F\) \(n\)-מקומית:&ensp; \(I[F] : D^n \to D\).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>נתון \(M = \langle \mathbb{N}, I \rangle\) עם \(I[R] = \{(a,b) : a &lt; b\}\),&ensp; \(I[c] = 0\).</p>
+            <ul>
+              <li>\(\forall x\,R(x,c)\) — ״לכל \(x\), \(x &lt; 0\)״ — <strong>שקר</strong>.</li>
+              <li>\(\exists x\,R(x,c)\) — ״קיים \(x\) עם \(x &lt; 0\)״ — <strong>שקר</strong> (אין מספר טבעי קטן מ-0).</li>
+            </ul>
+            <p>אם משנים ל-\(I[c] = 7\):</p>
+            <ul>
+              <li>\(\forall x\,R(x,c)\) — <strong>שקר</strong>.</li>
+              <li>\(\exists x\,R(x,c)\) — <strong>אמת</strong> (למשל \(x=3\)).</li>
+              <li>\(R(x,c)\) — נוסחה עם משתנה חופשי, אין לה ערך אמת בלי השמה.</li>
+            </ul>
+          </div>
+
+          <h3>יא. פונקציית השמה \(S\)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p><strong>השמה</strong> \(S\) במודל \(M\) היא פונקציה <strong>מן המשתנים החופשיים</strong> בנוסחה <strong>אל התחום \(D\)</strong>. היא נותנת ״ערך זמני״ לכל משתנה חופשי, ואז ניתן לחשב ערך אמת.</p>
+          </div>
+
+          <h3>יב. סימוני אמת</h3>
+          <table>
+            <thead><tr><th>סימון</th><th>משמעות</th></tr></thead>
+            <tbody>
+              <tr><td>\(M \models_S \varphi\)</td><td>\(\varphi\) אמיתית במודל \(M\) תחת ההשמה \(S\)</td></tr>
+              <tr><td>\(M \not\models_S \varphi\)</td><td>\(\varphi\) שקרית במודל \(M\) תחת ההשמה \(S\)</td></tr>
+              <tr><td>\(M \models \varphi\)</td><td>\(\varphi\) אמיתית במודל \(M\) <strong>תחת כל השמה</strong></td></tr>
+              <tr><td>\(\models \varphi\)</td><td>\(\varphi\) אמיתית <strong>בכל מודל ובכל השמה</strong> (תקפה לוגית)</td></tr>
+            </tbody>
+          </table>
+          <div class="logic-note">
+            <p><strong>פסוקים אינם תלויים בהשמה:</strong> אם \(\varphi\) פסוק (אין משתנים חופשיים), ערך האמת שלו במודל \(M\) זהה בכל ההשמות, ולכן פשוט נכתוב \(M \models \varphi\) או \(M \not\models \varphi\).</p>
+          </div>
+
+          <h3>יג. דוגמאות לתרגילי ״הוכח או הפרך״ (מהמצגת)</h3>
+          <p>תזכורת לסימון: \(M \models \varphi\) פירושו ש-\(\varphi\) אמיתית במודל \(M\) <strong>תחת כל השמה</strong>; \(M \models_S \varphi\) פירושו אמיתית במודל \(M\) תחת ההשמה הספציפית \(S\).</p>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה 1: אם \(M \not\models \varphi\) אז \(M \models \neg\varphi\)?</div>
+            <p><strong>הפרכה.</strong> הטענה נכונה רק כאשר \(\varphi\) פסוק. עבור נוסחה כללית עם משתנים חופשיים, ייתכן ש-\(\varphi\) אמיתית בחלק מההשמות ושקרית באחרות — ואז גם \(\varphi\) וגם \(\neg\varphi\) אינן ״אמיתיות בכל השמה״.</p>
+            <p><strong>דוגמה נגדית:</strong> \(M = \langle \mathbb{N}, I\rangle\) עם \(I[R] = \{(a,b) : a &lt; b\}\), \(\varphi = R(x,y)\). אם \(S(x)=2, S(y)=3\) אז \(M \models_S \varphi\), אך אם \(S(x)=3, S(y)=2\) אז \(M \models_S \neg\varphi\). מסקנה: \(M \not\models \varphi\) (כי לא מתקיים בכל השמה), אבל גם \(M \not\models \neg\varphi\). ■</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה 2: אם \(M \models \exists x\,\alpha\) אז \(M \models \alpha\)?</div>
+            <p><strong>הפרכה.</strong> \(M \models \exists x\,\alpha\) אומר שעבור <strong>כל</strong> השמה \(S\) קיים איבר \(d \in D\) כך ש-\(M \models_{S\langle x|d\rangle} \alpha\). אבל זה לא מבטיח ש-\(\alpha\) עצמה אמיתית תחת ההשמה המקורית \(S\).</p>
+            <p><strong>דוגמה נגדית:</strong> \(M = \langle \{0,1\}, I\rangle\) עם \(I[R] = \{0\}\), \(\alpha = R(x)\). אז \(\exists x\,R(x)\) אמיתי בכל השמה (תמיד יש את \(x = 0\) כעד), כלומר \(M \models \exists x\,R(x)\). אבל \(R(x)\) אינו אמיתי בכל השמה — עבור \(S(x) = 1\), \(M \not\models_S R(x)\). לכן \(M \not\models R(x)\). ■</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה 3: אם \(M \models_S \forall x\,\alpha\) אז \(M \models_S \alpha\)?</div>
+            <p><strong>נכון.</strong> מהגדרת \(\forall\): \(M \models_S \forall x\,\alpha\) אם״ם לכל איבר \(a \in D\) מתקיים \(M \models_{S\langle x|a\rangle} \alpha\). בפרט עבור \(a = S(x)\) (אם \(x\) בתחום ההשמה) או עבור איבר כלשהו, נקבל \(M \models_S \alpha\) (לאחר התאמת ההשמה המתאימה ב-\(x\)). ■</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה 4: אם \(M \models_S \exists x\,\alpha\) אז \(M \models_S \alpha\)?</div>
+            <p><strong>הפרכה.</strong> \(M \models_S \exists x\,\alpha\) פירושו <strong>קיים</strong> איבר \(a \in D\) כך ש-\(M \models_{S\langle x|a\rangle} \alpha\). אבל לא בהכרח \(a = S(x)\) — אז ל-\(\alpha\) תחת ההשמה \(S\) המקורית ייתכן שאין ערך אמת.</p>
+            <p><strong>דוגמה נגדית:</strong> \(M = \langle \{0,1\}, I\rangle\) עם \(I[R] = \{0\}\), \(\alpha = R(x)\), \(S(x) = 1\). אז \(\exists x\,R(x)\) אמיתי תחת \(S\) (יש את \(0\) כעד), כלומר \(M \models_S \exists x\,R(x)\). אבל \(M \not\models_S R(x)\) כי \(S(x) = 1 \notin I[R]\). ■</p>
+          </div>
+
+          <h3>יד. סיכום</h3>
+          <table>
+            <thead><tr><th>נושא</th><th>תוכן מרכזי</th></tr></thead>
+            <tbody>
+              <tr><td>אלפבית</td><td>קשרים, כמתים \(\forall, \exists\), משתנים, קבועים, פונקציות, יחסים</td></tr>
+              <tr><td>שם עצם</td><td>משתנה / קבוע / \(F(t_1,\ldots,t_n)\)</td></tr>
+              <tr><td>נוסחה</td><td>אטומית \(R(t_1,\ldots,t_n)\), קשרים, כמתים</td></tr>
+              <tr><td>פסוק</td><td>נוסחה ללא משתנים חופשיים</td></tr>
+              <tr><td>הצרנה</td><td>״לכל״ עם \(\to\), ״קיים״ עם \(\wedge\)</td></tr>
+              <tr><td>מודל</td><td>\(M = \langle D, I\rangle\) — תחום + פירוש</td></tr>
+              <tr><td>השמה</td><td>פונקציה מהמשתנים החופשיים אל \(D\)</td></tr>
+              <tr><td>אמת</td><td>\(M \models_S \varphi\), \(M \models \varphi\), \(\models \varphi\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== SUMMARY 6 ========== -->
+      <div id="s6" class="summary-panel">
+        <div class="summary-content">
+
+          <h2>מפגש 6 – אמיתות לוגית, שקילות, הצבה וצורה פרנקסית נורמלית</h2>
+
+          <h3>א. מושגים מנושאים קודמים</h3>
+          <ul>
+            <li><strong>שפת היחסים:</strong> משתנים, קבועים, פונקציות, יחסים, כמתים \(\forall, \exists\)</li>
+            <li><strong>מודל \(M = \langle D, I\rangle\), השמה \(S\), סימוני אמת</strong> \(M \models_S \varphi\) — מפגש 5</li>
+            <li><strong>משתנים חופשיים וקשורים, פסוק</strong> (נוסחה ללא משתנים חופשיים)</li>
+          </ul>
+
+          <h3>ב. אמיתות לוגית (תקפות)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>נוסחה היא <strong>אמיתית לוגית</strong> (תקפה) אם״ם היא אמיתית <strong>בכל מודל ובכל השמה</strong>. סימון: \(\models \varphi\).</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>\(\models P(x) \vee \neg P(x)\)</p>
+            <p>זוהי אמיתות לוגית: בכל מודל ובכל השמה, או ש-\(P(x)\) אמת (ואז הדיסיונקציה אמת), או ש-\(P(x)\) שקר ואז \(\neg P(x)\) אמת.</p>
+            <p><strong>שימו לב:</strong> זוהי <strong>נוסחה</strong> ולא <strong>פסוק</strong> (כי \(x\) חופשי בה). אצל פסוק, ערך האמת תלוי במודל בלבד; אצל נוסחה כללית הוא תלוי גם בהשמה — אלא אם הנוסחה אמיתית בכל השמה, כמו במקרה הזה.</p>
+          </div>
+
+          <h3>ג. שקילות לוגית</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>הנוסחאות \(\varphi, \psi\) <strong>שקולות לוגית</strong> (\(\varphi \equiv \psi\)) אם ורק אם הנוסחה \(\varphi \leftrightarrow \psi\) <strong>אמיתית לוגית</strong>.</p>
+          </div>
+          <h4>דוגמאות (שלילת כמתים – ״דה־מורגן״ של שפת היחסים):</h4>
+          <table>
+            <thead><tr><th>#</th><th>שקילות</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>\(\neg \exists x\,A \;\equiv\; \forall x\,\neg A\)</td></tr>
+              <tr><td>2</td><td>\(\exists x\,A \;\equiv\; \neg \forall x\,\neg A\)</td></tr>
+              <tr><td>3</td><td>\(\neg \forall x\,A \;\equiv\; \exists x\,\neg A\)</td></tr>
+              <tr><td>4</td><td>\(\forall x\,A \;\equiv\; \neg \exists x\,\neg A\)</td></tr>
+            </tbody>
+          </table>
+
+          <h3>ד. דוגמה להוכחת אמיתות לוגית של פסוק</h3>
+          <div class="example-box">
+            <div class="example-box__label">הוכח: \(\;\models \;\alpha = \forall x\,R(x) \to \exists x\,R(x)\)</div>
+            <p>נוכיח שהנוסחה \(\alpha\) אמיתית לוגית. צריך להוכיח שבכל מודל \(M\) ובכל השמה \(S\) מתקיים \(M \models_S \alpha\).</p>
+            <p><strong>הוכחה:</strong> יהיו \(M = \langle D, I\rangle\) מבנה כלשהו ו-\(S\) השמה כלשהי. נניח שהאגף השמאלי של האימפליקציה אמת:</p>
+            \[M \models_S \forall x\,R(x)\]
+            <p>פירוש הדבר: לכל \(a \in D\) מתקיים \(a \in I[R]\). כיוון שהתחום \(D\) <strong>אינו ריק</strong> (לפי הגדרת מבנה), קיים לפחות איבר אחד \(a_0 \in D\), ועבורו \(a_0 \in I[R]\). לכן:</p>
+            \[M \models_S \exists x\,R(x)\]
+            <p>הראינו שאם הצד השמאלי אמת אז גם הימני, כלומר \(M \models_S \alpha\). מאחר שזה נכון לכל \(M\) ולכל \(S\), \(\alpha\) אמיתית לוגית. ■</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">ומה לגבי \(\;\alpha = \exists x\,R(x) \to \forall x\,R(x)\)?</div>
+            <p>נוסחה זו <strong>אינה</strong> אמיתית לוגית.</p>
+            <p><strong>הפרכה:</strong> ניקח \(M = \langle \{0,1\},\, I\rangle\) עם \(I[R] = \{0\}\). אז \(\exists x\,R(x)\) אמת (מתקיים עבור \(x=0\)), אך \(\forall x\,R(x)\) שקר (לא מתקיים עבור \(x=1\)). לכן האימפליקציה שקרית במודל זה — \(\alpha\) לא תקפה.</p>
+          </div>
+
+          <h3>ה. דוגמה נוספת – החלפת סדר כמתים</h3>
+          <div class="example-box">
+            <div class="example-box__label">נראה ש-\(\alpha = \exists y\,\forall x\,R(x,y) \to \forall x\,\exists y\,R(x,y)\) אמיתי לוגית</div>
+            <p><strong>הוכחה בדרך השלילה:</strong> נניח בשלילה שקיים מבנה \(M\) שעבורו:</p>
+            <ol>
+              <li>\(M \models \exists y\,\forall x\,R(x,y)\)</li>
+              <li>\(M \not\models \forall x\,\exists y\,R(x,y)\)</li>
+            </ol>
+            <p>מ-(1): קיים איבר \(d_0 \in D\) כך שלכל \(a \in D\) מתקיים \((a, d_0) \in I[R]\).</p>
+            <p>מ-(2): קיים איבר \(a_0 \in D\) כך שלכל \(b \in D\) מתקיים \((a_0, b) \notin I[R]\). בפרט עבור \(b = d_0\): \((a_0, d_0) \notin I[R]\) — בסתירה ל-(1). ■</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">האם \(\alpha = \forall x\,\exists y\,R(x,y) \to \exists y\,\forall x\,R(x,y)\) אמיתי לוגית?</div>
+            <p><strong>לא.</strong> ניתן להפריך עם \(M = \langle \mathbb{N}, I\rangle\) ו-\(I[R] = \{(a,b) : a &lt; b\}\):</p>
+            <ul>
+              <li>\(\forall x\,\exists y\,(x &lt; y)\) — <strong>אמת</strong> (לכל \(x\) קיים \(y = x+1\) גדול ממנו).</li>
+              <li>\(\exists y\,\forall x\,(x &lt; y)\) — <strong>שקר</strong> (אין מספר טבעי גדול מכל מספר טבעי).</li>
+            </ul>
+            <p>לכן האימפליקציה שקרית במודל זה — \(\alpha\) לא תקפה.</p>
+          </div>
+
+          <h3>ו. הצבה (Substitution)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p><strong>הצבה</strong> – מציבים שם עצם <strong>אך ורק במקום משתנה חופשי</strong> בנוסחה. סימון: <strong>הצבת שם העצם \(t\) בנוסחה \(\varphi\)</strong> במקום המשתנה \(x\) נכתבת \(\varphi[t/x]\).</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת)</div>
+            <p>\(\varphi = S(x) \wedge \forall y\,(P(x) \to Q(y))\)</p>
+            <p>ב-\(\varphi\), שני המופעים של \(x\) (ב-\(S(x)\) וב-\(P(x)\)) <strong>חופשיים</strong>; אין מופע חופשי של \(y\).</p>
+            <ul>
+              <li>\(\varphi[f(z)/x] \;=\; S(f(z)) \wedge \forall y\,(P(f(z)) \to Q(y))\) — מציבים בשני המופעים החופשיים.</li>
+              <li>\(\varphi[f(z)/y] \;=\; S(x) \wedge \forall y\,(P(x) \to Q(y)) \;=\; \varphi\) — אין מה להציב, ל-\(y\) אין מופע חופשי.</li>
+            </ul>
+            <p>ועתה נסתכל בנוסחה אחרת: \(\alpha = S(x) \wedge \forall x\,(P(x) \to Q(y))\)</p>
+            <p>כאן ה-\(x\) הראשון (ב-\(S(x)\)) חופשי, אבל שני ה-\(x\)-ים בתוך \(\forall x\,(\ldots)\) קשורים.</p>
+            <ul>
+              <li>\(\alpha[f(z)/x] \;=\; S(f(z)) \wedge \forall x\,(P(x) \to Q(y))\) — מציבים <strong>רק</strong> במופע החופשי.</li>
+            </ul>
+          </div>
+
+          <h3>ז. הצבה כשרה (Permissible)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>ההצבה \([t/x]\) <strong>כשרה</strong> (מותרת) רק אם <strong>אף משתנה שמופיע ב-\(t\) אינו הופך קשור</strong> כתוצאה מההצבה.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמאות (מהמצגת)</div>
+            <p>\(\alpha = \exists x\,R(x,y)\)</p>
+            <ul>
+              <li>\(\alpha[z/y] \;=\; \exists x\,R(x,z)\) — <strong>כשרה</strong> (\(z\) נשאר חופשי).</li>
+              <li>\(\alpha[x/y] \;=\; \exists x\,R(x,x)\) — <strong>אינה כשרה</strong>! ה-\(x\) שמציבים נלכד מיד ע״י \(\exists x\), והמשמעות משתנה.</li>
+            </ul>
+            <p><strong>למשל אם \(I(R) = \,\neq\,\):</strong></p>
+            <p>הנוסחה המקורית \(\alpha = \exists x\,(x \neq y)\) אומרת ״קיים איבר שונה מ-\(y\)״ — אמת בכל תחום עם לפחות שני איברים.</p>
+            <p>הנוסחה לאחר ההצבה \(\exists x\,(x \neq x)\) אומרת ״קיים איבר השונה מעצמו״ — שקר תמיד.</p>
+            <p>ההבדל מבהיר מדוע ההצבה הזאת אינה כשרה.</p>
+          </div>
+
+          <h3>ח. יש חשיבות לסדר ההצבה</h3>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת)</div>
+            <p>\(\alpha = R(x,y)\)</p>
+            <p><strong>סדר ראשון:</strong></p>
+            \[\alpha[f(y)/x][z/y] \;=\; R(f(y),y)\,[z/y] \;=\; R(f(z),z)\]
+            <p><strong>סדר שני:</strong></p>
+            \[\alpha[z/y][f(y)/x] \;=\; R(x,z)\,[f(y)/x] \;=\; R(f(y),z)\]
+            <p>שתי התוצאות שונות — <strong>ההצבות אינן קומוטטיביות</strong>.</p>
+          </div>
+
+          <h3>ט. שקילויות נוספות עם כמתים</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">אם \(x\) לא חופשי ב-\(B\):</div>
+            <p>(a) \(\;\forall x\,A \,\wedge\, B \;\equiv\; \forall x\,(A \wedge B)\)</p>
+            <p>(b) \(\;\forall x\,A \,\vee\, B \;\equiv\; \forall x\,(A \vee B)\)</p>
+            <p>(c) \(\;\exists x\,A \,\wedge\, B \;\equiv\; \exists x\,(A \wedge B)\)</p>
+            <p>(d) \(\;\exists x\,A \,\vee\, B \;\equiv\; \exists x\,(A \vee B)\)</p>
+          </div>
+          <div class="theorem-box">
+            <div class="theorem-box__label">אם \(x\) לא חופשי ב-\(\psi\):</div>
+            <p>\(\bigl[\psi \to \forall x\,\varphi\bigr] \;\leftrightarrow\; \forall x\,(\psi \to \varphi)\)</p>
+            <p>\(\bigl[\psi \to \exists x\,\varphi\bigr] \;\leftrightarrow\; \exists x\,(\psi \to \varphi)\)</p>
+            <p>\(\bigl[\exists x\,\varphi \to \psi\bigr] \;\leftrightarrow\; \forall x\,(\varphi \to \psi)\) &nbsp;&nbsp;<em>(שימו לב: הכמת מתחלף!)</em></p>
+            <p>\(\bigl[\forall x\,\varphi \to \psi\bigr] \;\leftrightarrow\; \exists x\,(\varphi \to \psi)\) &nbsp;&nbsp;<em>(גם כאן הכמת מתחלף!)</em></p>
+          </div>
+          <div class="logic-note">
+            <p><strong>אינטואיציה לחילוף הכמתים:</strong> \(\exists x\,\varphi \to \psi\) פירושו ״אם קיים \(x\) שעבורו \(\varphi\) – אז \(\psi\)״, וזה שקול ל-״לכל \(x\), אם \(\varphi(x)\) אז \(\psi\)״. בדומה ל-\(\forall\) במקדם של אימפליקציה הופך ל-\(\exists\).</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת): האם \(\;\forall x\,P(x) \,\vee\, \forall x\,G(x) \;\equiv\; \forall x\,(P(x) \vee G(x))\)?</div>
+            <p><strong>תשובה: לא.</strong> השקילות אינה מתקיימת.</p>
+            <p>הכיוון משמאל לימין <strong>נכון</strong>: אם לכל \(x\) מתקיים \(P(x)\), או לכל \(x\) מתקיים \(G(x)\), אז ודאי לכל \(x\) מתקיים \(P(x) \vee G(x)\). כלומר \(\;\forall x\,P(x) \vee \forall x\,G(x) \Rightarrow \forall x\,(P(x) \vee G(x))\).</p>
+            <p>אבל הכיוון מימין לשמאל <strong>אינו נכון</strong>: \(\;\forall x\,(P(x) \vee G(x)) \not\Rightarrow \forall x\,P(x) \vee \forall x\,G(x)\). <strong>הפרכה:</strong> תחום \(D = \{1, 2\}\), \(I[P] = \{1\}\), \(I[G] = \{2\}\).</p>
+            <ul>
+              <li>\(\forall x\,(P(x) \vee G(x))\) — <strong>אמת</strong> (\(1 \in I[P]\) ו-\(2 \in I[G]\)).</li>
+              <li>\(\forall x\,P(x)\) — שקר (\(2 \notin I[P]\)).</li>
+              <li>\(\forall x\,G(x)\) — שקר (\(1 \notin I[G]\)).</li>
+              <li>אז \(\forall x\,P(x) \vee \forall x\,G(x)\) — <strong>שקר</strong>.</li>
+            </ul>
+            <p>הסיבה: בשקילות (b) דרשנו ש-\(x\) לא יהיה חופשי ב-\(B\), אבל כאן בשני האגפים יש את אותו \(x\).</p>
+          </div>
+
+          <h3>י. רענון משתנים (Variable Renaming)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט</div>
+            <p>אם \(y\) הוא משתנה ש<strong>אינו מופיע ב-\(A\)</strong>, אז:</p>
+            \[\forall x\,A \;\equiv\; \forall y\,A[y/x]\]
+            <p>(וכמובן באופן אנלוגי גם \(\exists x\,A \equiv \exists y\,A[y/x]\)).</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת)</div>
+            <p>\(\forall x\,G(x) \;\equiv\; \forall y\,G(y)\) — שמות המשתנים הקשורים ״אילמים״.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה לשימוש (מהמצגת): מה זה נותן?</div>
+            <p>\(\forall x\,P(x) \,\vee\, \forall x\,G(x) \;\equiv\; \forall x\,P(x) \,\vee\, \forall y\,G(y)\)</p>
+            <p>לאחר רענון, ב-\(\forall y\,G(y)\) המשתנה \(y\) אינו חופשי ב-\(\forall x\,P(x)\), ולכן ניתן ״להוציא״ את \(\forall y\) מתוך הדיסיונקציה (לפי שקילות (b)). כך גם עבור \(\forall x\):</p>
+            \[\forall x\,P(x) \,\vee\, \forall y\,G(y) \;\equiv\; \forall x\,\forall y\,(P(x) \vee G(y))\]
+            <p>קיבלנו צורה שבה <strong>שני הכמתים מקדימים</strong> את הגוף — צעד מרכזי במעבר לצורה פרנקסית!</p>
+          </div>
+
+          <h3>יא. צורה פרנקסית נורמלית</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרות</div>
+            <p><strong>צורה פרנקסית</strong> – צורת כתיבה עבור נוסחאות שבה <strong>כל הכמתים מופיעים בראש הנוסחה</strong> ואחריהם יש נוסחה <strong>חסרת כמתים</strong>.</p>
+            <p><strong>צורה פרנקסית נורמלית</strong> – נוסחה שכתובה בצורה פרנקסית כשהחלק חסר הכמתים הוא בצורה <strong>דיסיונקטיבית נורמלית</strong>.</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה (מהמצגת)</div>
+            <p>\(\forall x\,\forall z\,\exists y\,\bigl(\neg P(x) \,\vee\, (Q(z) \wedge R(z,y))\bigr)\)</p>
+            <p>שלושת הכמתים בראש הנוסחה, והגוף \(\neg P(x) \vee (Q(z) \wedge R(z,y))\) הוא דיסיונקציה של ליטרל וקוניונקציה — צורת DNF.</p>
+          </div>
+
+          <h4>האלגוריתם</h4>
+          <ol>
+            <li><strong>הכנסת שלילה פנימה</strong> (דה־מורגן \(+\) \(\neg\forall x\,A \equiv \exists x\,\neg A\) ו-\(\neg\exists x\,A \equiv \forall x\,\neg A\)).</li>
+            <li><strong>הוצאת כמתים לראש הנוסחה</strong> ובמידת הצורך <strong>רענון משתנים</strong>.</li>
+            <li><strong>הפיכת הנוסחה לנוסחה דיסיונקטיבית נורמלית</strong> (דיסיונקציה של קוניונקציות).</li>
+          </ol>
+          <div class="logic-note">
+            <p>במצגת לא מופיע מפורשות שלב לסילוק \(\to\) ו-\(\leftrightarrow\), אבל מהדוגמאות ברור שזהו צעד מקדים: ממירים אימפליקציה ע״י \(A \to B \equiv \neg A \vee B\), ואז ניתן ״להכניס״ את השלילה פנימה.</p>
+          </div>
+
+          <h3>יב. דוגמה למעבר לצורה פרנקסית נורמלית (מהמצגת)</h3>
+          <div class="example-box">
+            <div class="example-box__label">פתרון מודרך</div>
+            <p>נוסחה: \(\;\exists x\,P(x) \to \forall x\,(Q(x) \wedge \exists y\,R(x,y))\)</p>
+
+            <p><strong>שלב 1</strong> — סילוק האימפליקציה: \(A \to B \equiv \neg A \vee B\):</p>
+            \[\neg \exists x\,P(x) \,\vee\, \forall x\,(Q(x) \wedge \exists y\,R(x,y))\]
+
+            <p><strong>שלב 2</strong> — הכנסת השלילה פנימה (\(\neg \exists x\,A \equiv \forall x\,\neg A\)):</p>
+            \[\forall x\,\neg P(x) \,\vee\, \forall x\,(Q(x) \wedge \exists y\,R(x,y))\]
+
+            <p><strong>שלב 3</strong> — רענון משתנים: אותו \(x\) משמש בשני האגפים. נחליף את ה-\(x\) השמאלי ב-\(z\) חדש:</p>
+            \[\forall z\,\neg P(z) \,\vee\, \forall x\,(Q(x) \wedge \exists y\,R(x,y))\]
+
+            <p><strong>שלב 4</strong> — הוצאת כמתים לראש (כעת אין התנגשויות; \(z\) לא חופשי באגף הימני, \(x, y\) לא חופשיים בשמאלי):</p>
+            \[\forall z\,\forall x\,\exists y\,\bigl(\neg P(z) \,\vee\, (Q(x) \wedge R(x,y))\bigr)\]
+
+            <p><strong>שלב 5</strong> — הגוף הוא דיסיונקציה של ליטרל וקוניונקציה של ליטרלים — זוהי כבר צורת DNF:</p>
+            \[\forall z\,\forall x\,\exists y\,\bigl(\neg P(z) \,\vee\, (Q(x) \wedge R(x,y))\bigr) \quad\blacksquare\]
+          </div>
+
+          <h3>יג. דוגמה 2 למעבר לצורה פרנקסית נורמלית (מהמצגת)</h3>
+          <div class="example-box">
+            <div class="example-box__label">פתרון מודרך</div>
+            <p>נוסחה: \(\;\forall x\,(P(x) \to \exists y\,R(x,y)) \to \forall x\,\forall y\,G(x,y)\)</p>
+
+            <p><strong>שלב 1</strong> — סילוק האימפליקציה החיצונית, ולאחר מכן גם הפנימית:</p>
+            \[\neg \forall x\,(\neg P(x) \vee \exists y\,R(x,y)) \,\vee\, \forall x\,\forall y\,G(x,y)\]
+
+            <p><strong>שלב 2</strong> — הכנסת שלילה פנימה:</p>
+            \[\exists x\,\neg(\neg P(x) \vee \exists y\,R(x,y)) \,\vee\, \forall x\,\forall y\,G(x,y)\]
+            \[\equiv\; \exists x\,(P(x) \wedge \neg \exists y\,R(x,y)) \,\vee\, \forall x\,\forall y\,G(x,y)\]
+            \[\equiv\; \exists x\,(P(x) \wedge \forall y\,\neg R(x,y)) \,\vee\, \forall x\,\forall y\,G(x,y)\]
+
+            <p><strong>שלב 3</strong> — רענון משתנים: אותם \(x, y\) משמשים בשני האגפים. נחליף בצד הימני ל-\(u, v\):</p>
+            \[\exists x\,(P(x) \wedge \forall y\,\neg R(x,y)) \,\vee\, \forall u\,\forall v\,G(u,v)\]
+
+            <p><strong>שלב 4</strong> — הוצאת כמתים לראש:</p>
+            \[\exists x\,\forall y\,\forall u\,\forall v\,\bigl((P(x) \wedge \neg R(x,y)) \,\vee\, G(u,v)\bigr)\]
+
+            <p><strong>שלב 5</strong> — הגוף כבר בצורת DNF (דיסיונקציה של שתי קוניונקציות פשוטות). ■</p>
+          </div>
+
+          <h3>יד. סיכום</h3>
+          <table>
+            <thead><tr><th>נושא</th><th>תוכן מרכזי</th></tr></thead>
+            <tbody>
+              <tr><td>אמיתות לוגית</td><td>אמת בכל מודל ובכל השמה: \(\models \varphi\)</td></tr>
+              <tr><td>שקילות לוגית</td><td>\(\varphi \equiv \psi \iff \;\models (\varphi \leftrightarrow \psi)\)</td></tr>
+              <tr><td>שלילת כמתים</td><td>\(\neg\forall x\,A \equiv \exists x\,\neg A\), &nbsp; \(\neg\exists x\,A \equiv \forall x\,\neg A\)</td></tr>
+              <tr><td>הצבה</td><td>\([t/x]\) במופעים חופשיים בלבד</td></tr>
+              <tr><td>הצבה כשרה</td><td>אף משתנה ב-\(t\) אינו נלכד</td></tr>
+              <tr><td>סדר ההצבה</td><td>אינו קומוטטיבי</td></tr>
+              <tr><td>הוצאת כמת</td><td>תקפה כש-\(x\) לא חופשי בצד השני; באימפליקציה הכמת מתחלף בצד שמאל</td></tr>
+              <tr><td>רענון משתנים</td><td>\(\forall x\,A \equiv \forall y\,A[y/x]\) (כש-\(y\) חדש ב-\(A\))</td></tr>
+              <tr><td>צורה פרנקסית נורמלית</td><td>כל הכמתים בראש + גוף ב-DNF</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- ========== SUMMARY 7 ========== -->
+      <div id="s7" class="summary-panel">
+        <div class="summary-content">
+
+          <h2>מפגש 7 – תורת ההוכחה בשפת היחסים</h2>
+
+          <h3>א. חזרה קצרה על שפת היחסים</h3>
+          <p>במפגשים הקודמים למדנו את התחביר והסמנטיקה של שפת היחסים: שמות עצם, נוסחאות, פסוקים, משתנים חופשיים וקשורים, מודלים, השמות והצבות. כעת עוברים מהשאלה הסמנטית ״האם נוסחה אמיתית במודל?״ לשאלה התחבירית ״האם אפשר להוכיח נוסחה מתוך אקסיומות וכללי היסק?״.</p>
+
+          <div class="logic-note">
+            <p><strong>המעבר המרכזי:</strong> סמנטיקה עוסקת ב-\(\models\), כלומר אמת במודלים. תורת ההוכחה עוסקת ב-\(\vdash\), כלומר יכיחות במערכת פורמלית.</p>
+          </div>
+
+          <h4>תזכורת: נוסחה</h4>
+          <ul>
+            <li>אם \(t_1,\ldots,t_n\) שמות עצם ו-\(R\) יחס \(n\)-מקומי, אז \(R(t_1,\ldots,t_n)\) היא נוסחה אטומית.</li>
+            <li>אם \(A\) נוסחה, אז \(\neg A\) נוסחה.</li>
+            <li>אם \(A,B\) נוסחאות, אז \((A @ B)\) נוסחה, כאשר \(@\) הוא קשר דו־מקומי.</li>
+            <li>אם \(A\) נוסחה ו-\(x\) משתנה, אז \(\forall x A\) ו-\(\exists x A\) הן נוסחאות.</li>
+          </ul>
+
+          <h4>תזכורת: משתנה חופשי, משתנה קשור ופסוק</h4>
+          <ul>
+            <li><strong>משתנה קשור:</strong> מופע של משתנה שנמצא בטווח של כמת מתאים.</li>
+            <li><strong>משתנה חופשי:</strong> מופע של משתנה שאינו נמצא בטווח של כמת מתאים.</li>
+            <li><strong>פסוק:</strong> נוסחה שאין בה משתנים חופשיים.</li>
+          </ul>
+
+          <h4>תזכורת: מודל והשמה</h4>
+          <p>מודל הוא זוג \(M=\langle D,I\rangle\), כאשר \(D\) הוא תחום לא ריק ו-\(I\) היא פונקציית פירוש: לקבועים היא מתאימה איברים בתחום, ליחסים היא מתאימה יחסים על התחום, ולפונקציות היא מתאימה פונקציות על התחום. השמה נותנת ערכים למשתנים חופשיים.</p>
+
+          <h3>ב. אמת לוגית וטאוטולוגיה של שפת היחסים</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>נוסחה \(\varphi\) היא <strong>אמיתית לוגית</strong> אם ורק אם היא אמיתית בכל מודל ובכל השמה. סימון: \(\models \varphi\).</p>
+          </div>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">טאוטולוגיה של שפת היחסים</div>
+            <p><strong>טאוטולוגיה של שפת היחסים</strong> היא נוסחה שמתקבלת מטאוטולוגיה של תחשיב הפסוקים על ידי הצבה שיטתית של נוסחאות במקום פסוקים אלמנטריים.</p>
+            <p>כל טאוטולוגיה של שפת היחסים היא אמיתית לוגית.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>הטאוטולוגיה הפסוקית \(p \to p\) יכולה להפוך בשפת היחסים לנוסחה:</p>
+            \[
+              \forall x P(x) \to \forall x P(x)
+            \]
+            <p>או לנוסחה:</p>
+            \[
+              (R(x,y) \wedge Q(y)) \to (R(x,y) \wedge Q(y))
+            \]
+            <p>בשני המקרים קיבלנו טאוטולוגיה של שפת היחסים, כי החלפנו את \(p\) בנוסחה שלמה באופן שיטתי.</p>
+          </div>
+
+          <h3>ג. שאלה ממבחן: תקפות לוגית עם יחידות</h3>
+          <div class="example-box">
+            <div class="example-box__label">שאלה</div>
+            <p>הוכיחו או הפריכו: הנוסחה הבאה תקפה לוגית:</p>
+            \[
+            \bigl(\forall x\forall y(((P(x)\wedge P(y))\to(x=y)))\wedge \exists xP(x)\bigr)
+            \to
+            \exists x\bigl(P(x)\wedge \forall y(P(y)\to(y=x))\bigr)
+            \]
+            <p><strong>פירוש מילולי:</strong> אם יש בדיוק לכל היותר איבר אחד שמקיים \(P\), וגם קיים איבר שמקיים \(P\), אז קיים איבר שמקיים \(P\) וכל מי שמקיים \(P\) שווה לו.</p>
+            <p><strong>תשובה:</strong> הנוסחה תקפה לוגית.</p>
+            <p><strong>הוכחה:</strong> יהי \(M=\langle D,I\rangle\) מודל כלשהו. נניח שהצד השמאלי של האימפליקציה אמיתי:</p>
+            <ol>
+              <li>\(M \models \forall x\forall y(((P(x)\wedge P(y))\to(x=y)))\)</li>
+              <li>\(M \models \exists xP(x)\)</li>
+            </ol>
+            <p>מ-(2) קיים איבר \(a\in D\) כך ש-\(P(a)\) אמיתי. נראה ש-\(a\) הוא העד לקיום בצד ימין. צריך להראות:</p>
+            \[
+              P(a)\wedge \forall y(P(y)\to(y=a))
+            \]
+            <p>החלק \(P(a)\) נכון לפי בחירת \(a\). כעת יהי \(b\in D\) כלשהו ונניח \(P(b)\). מאחר שגם \(P(a)\) וגם \(P(b)\), לפי (1) נקבל \(b=a\). לכן לכל \(y\), אם \(P(y)\) אז \(y=a\). לכן:</p>
+            \[
+              M \models \exists x(P(x)\wedge \forall y(P(y)\to(y=x)))
+            \]
+            <p>קיבלנו שהאימפליקציה אמיתית בכל מודל, ולכן הנוסחה תקפה לוגית. ■</p>
+          </div>
+
+          <h3>ד. שאלה ממבחן: חישוב ערכי אמת במודל נתון</h3>
+          <div class="example-box">
+            <div class="example-box__label">שאלה</div>
+            <p>נתון מודל \(M\) שבו התחום הוא \(D=\{1,2,3\}\), והיחס \(R(x,y)\) מתפרש כ-\(x+y\le 4\). קבעו את ערך האמת של כל אחת מהנוסחאות:</p>
+            <ol>
+              <li>\(\forall x\exists yR(x,y)\)</li>
+              <li>\(\exists x\forall yR(x,y)\)</li>
+              <li>\(\forall x\forall y(R(x,y)\to R(y,x))\)</li>
+            </ol>
+
+            <p><strong>נחשב את היחס:</strong></p>
+            <p>\(R(x,y)\) אמיתי כאשר \(x+y\le 4\). לכן:</p>
+            \[
+            R=\{(1,1),(1,2),(1,3),(2,1),(2,2),(3,1)\}
+            \]
+
+            <p><strong>1. \(\forall x\exists yR(x,y)\): אמת.</strong></p>
+            <p>לכל \(x\in\{1,2,3\}\) צריך למצוא \(y\) כך ש-\(x+y\le 4\):</p>
+            <ul>
+              <li>אם \(x=1\), אפשר \(y=1\).</li>
+              <li>אם \(x=2\), אפשר \(y=1\).</li>
+              <li>אם \(x=3\), אפשר \(y=1\).</li>
+            </ul>
+
+            <p><strong>2. \(\exists x\forall yR(x,y)\): אמת.</strong></p>
+            <p>צריך למצוא \(x\) אחד שעובד לכל \(y\). נבחר \(x=1\):</p>
+            \[
+              1+1\le4,\quad 1+2\le4,\quad 1+3\le4
+            \]
+            <p>לכן \(x=1\) הוא עד מתאים.</p>
+
+            <p><strong>3. \(\forall x\forall y(R(x,y)\to R(y,x))\): אמת.</strong></p>
+            <p>היחס מוגדר על ידי התנאי \(x+y\le4\). מאחר שחיבור סימטרי, אם \(x+y\le4\), אז גם \(y+x\le4\). לכן אם \(R(x,y)\) אמיתי, גם \(R(y,x)\) אמיתי.</p>
+          </div>
+
+          <h3>ה. תחשיב הילברט בשפת היחסים</h3>
+          <p>בשפת היחסים נשתמש בתחשיב מצומצם הכולל את הקשרים \(\{\neg,\to\}\) ואת הכמת \(\forall\). שאר הקשרים והכמת \(\exists\) ניתנים להגדרה כקיצורי כתיבה.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">האקסיומות הפסוקיות</div>
+            <p>בתחשיב הילברט של שפת היחסים נשארות שלוש האקסיומות מתחשיב הפסוקים, אך כעת \(\varphi,\psi,\theta\) יכולות להיות נוסחאות של שפת היחסים:</p>
+            \[
+            \text{A1: } \varphi \to (\psi \to \varphi)
+            \]
+            \[
+            \text{A2: } (\varphi \to (\psi \to \theta)) \to ((\varphi \to \psi) \to (\varphi \to \theta))
+            \]
+            \[
+            \text{A3: } (\neg\varphi \to \neg\psi) \to (\psi \to \varphi)
+            \]
+          </div>
+
+          <h3>ו. אקסיומות הכמת הכולל</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">אקסיומת הזזת הכמת</div>
+            \[
+              \forall x(A \to B) \to (A \to \forall xB)
+            \]
+            <p>בתנאי ש-\(x\) אינו חופשי ב-\(A\).</p>
+          </div>
+
+          <div class="logic-note">
+            <p><strong>למה צריך את התנאי?</strong> אם \(x\) חופשי ב-\(A\), אז \(A\) עשויה להשתנות כאשר משנים את ערך \(x\). לכן אי אפשר להעביר את הכמת רק על \(B\) בלי לשנות את המשמעות.</p>
+          </div>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">אקסיומת ההצבה</div>
+            \[
+              \forall xA \to A[t/x]
+            \]
+            <p>כאשר ההצבה של \(t\) במקום \(x\) היא הצבה כשרה, כלומר אף משתנה שמופיע ב-\(t\) אינו הופך קשור כתוצאה מההצבה.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה להצבה שאינה כשרה</div>
+            <p>ניקח:</p>
+            \[
+              A=\exists y(x<y)
+            \]
+            <p>אם נציב \(y\) במקום \(x\), נקבל:</p>
+            \[
+              A[y/x]=\exists y(y<y)
+            \]
+            <p>זוהי הצבה שאינה כשרה, כי ה-\(y\) שהכנסנו נלכד על ידי הכמת \(\exists y\). לכן אסור להשתמש בה באקסיומת ההצבה.</p>
+          </div>
+
+          <h3>ז. כללי ההיסק</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">1. כלל הניתוק / Modus Ponens</div>
+            <p>מתוך \(\varphi\) ומתוך \(\varphi\to\psi\), מסיקים \(\psi\):</p>
+            \[
+              \frac{\varphi,\ \varphi\to\psi}{\psi}
+            \]
+          </div>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">2. כלל ההכללה</div>
+            <p>מתוך \(\varphi(x)\), מסיקים \(\forall x\varphi(x)\):</p>
+            \[
+              \frac{\varphi(x)}{\forall x\varphi(x)}
+            \]
+          </div>
+
+          <div class="logic-note">
+            <p><strong>ההיגיון של כלל ההכללה:</strong> בהוכחה פורמלית, המשתנה \(x\) אינו מייצג איבר מסוים בתחום, אלא איבר שרירותי. לכן אם הוכחנו טענה על \(x\) בלי הנחות מיוחדות עליו, אפשר להסיק שהיא נכונה לכל \(x\). כאשר מוכיחים מתוך קבוצת הנחות, חשוב שההנחות הן פסוקים, ולכן אינן תלויות בערך של \(x\).</p>
+          </div>
+
+          <h3>ח. נאותות ושלמות</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">שלמות לטאוטולוגיות של שפת היחסים</div>
+            <p>כל טאוטולוגיה של שפת היחסים ניתנת להוכחה בתחשיב הילברט.</p>
+          </div>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט הנאותות</div>
+            <p>אם \(K \vdash \varphi\), אז כל מודל וכל השמה שמספקים את \(K\) מספקים גם את \(\varphi\).</p>
+            <p>כלומר:</p>
+            \[
+              K \vdash \varphi \quad\Rightarrow\quad K \models \varphi
+            \]
+          </div>
+
+          <div class="logic-note">
+            <p><strong>איך מוכיחים ש-\(K \not\vdash \varphi\)?</strong> לפי נאותות, מספיק למצוא מודל והשמה שמספקים את כל \(K\), אבל לא מספקים את \(\varphi\). זהו כלי הפרכה חשוב מאוד.</p>
+          </div>
+
+          <h3>ט. לוגיקה עם שוויון</h3>
+          <p>כאשר השפה כוללת את סימן השוויון \(=\), מתווספות אקסיומות שמבטיחות שהשוויון מתנהג כמו שוויון אמיתי.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">אקסיומות שוויון בסיסיות</div>
+            <p><strong>רפלקסיביות:</strong></p>
+            \[
+              \forall x(x=x)
+            \]
+            <p><strong>סימטריות:</strong></p>
+            \[
+              \forall x\forall y((x=y)\to(y=x))
+            \]
+            <p><strong>טרנזיטיביות:</strong></p>
+            \[
+              \forall x\forall y\forall z(((x=y)\wedge(y=z))\to(x=z))
+            \]
+          </div>
+
+          <div class="logic-note">
+            <p>בגרסה מלאה יותר של לוגיקה עם שוויון יש גם אקסיומות החלפה, שאומרות שאפשר להחליף שווים בשווים בתוך פונקציות ויחסים. במצגת הנוכחית מופיעות שלוש האקסיומות הבסיסיות של השוויון.</p>
+          </div>
+
+          <h3>י. עקביות והוכחה בדרך השלילה</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">קבוצה עקבית</div>
+            <p>קבוצת פסוקים \(K\) נקראת <strong>עקביות</strong> או <strong>קונסיסטנטית</strong> אם לא קיים פסוק \(\psi\) כך שגם \(K\vdash\psi\) וגם \(K\vdash\neg\psi\).</p>
+            <p>הגדרה שקולה בקורס: קבוצה עקבית אם ורק אם יש לה מודל.</p>
+          </div>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט ההוכחה בדרך השלילה</div>
+            <p><strong>א.</strong> לכל פסוק \(\psi\) ולכל נוסחה \(\varphi\):</p>
+            \[
+              \{\psi,\neg\psi\}\vdash\varphi
+            \]
+            <p>כלומר, מקבוצת פסוקים לא עקבית ניתן להוכיח כל נוסחה.</p>
+            <p><strong>ב.</strong> אם \(K\cup\{\neg\psi\}\) אינה עקבית, אז:</p>
+            \[
+              K\vdash\psi
+            \]
+          </div>
+
+          <h3>יא. משפט הדדוקציה בשפת היחסים</h3>
+          <p>משפט הדדוקציה בשפת היחסים דומה למשפט הדדוקציה מתחשיב הפסוקים, אבל יש בו מגבלות חשובות.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט הדדוקציה</div>
+            <p><strong>כיוון 1:</strong> תהי \(K\) תורה, ויהיו \(\psi,\varphi\) נוסחאות. אם:</p>
+            \[
+              K\cup\{\psi\}\vdash\varphi
+            \]
+            <p>אז:</p>
+            \[
+              K\vdash(\psi\to\varphi)
+            \]
+
+            <p><strong>כיוון 2:</strong> תהי \(K\) תורה, יהי \(\psi\) פסוק, ותהי \(\varphi\) נוסחה. אם:</p>
+            \[
+              K\vdash(\psi\to\varphi)
+            \]
+            <p>אז:</p>
+            \[
+              K\cup\{\psi\}\vdash\varphi
+            \]
+          </div>
+
+          <div class="logic-note">
+            <p><strong>שימו לב:</strong> הכיוון השני נכון רק כאשר \(\psi\) הוא פסוק. זו נקודה חשובה בשפת היחסים, כי נוסחאות עם משתנים חופשיים תלויות בהשמות.</p>
+          </div>
+
+          <h3>יב. דוגמה להוכחה בתחשיב הילברט</h3>
+          <div class="example-box">
+            <div class="example-box__label">הוכח</div>
+            \[
+              \vdash \forall x(P(x)\to Q(x)) \to (\forall xP(x)\to \forall xQ(x))
+            \]
+
+            <p><strong>רעיון:</strong> לפי משפט הדדוקציה, מספיק להוכיח:</p>
+            \[
+              \forall x(P(x)\to Q(x)),\ \forall xP(x)\ \vdash\ \forall xQ(x)
+            \]
+
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>נוסחה</th>
+                  <th>הצדקה</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>\(\forall xP(x)\)</td>
+                  <td>הנחה</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>\(\forall x(P(x)\to Q(x))\)</td>
+                  <td>הנחה</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>\(\forall xP(x)\to P(x)\)</td>
+                  <td>אקסיומת ההצבה</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>\(P(x)\)</td>
+                  <td>ניתוק על 1,3</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>\(\forall x(P(x)\to Q(x))\to(P(x)\to Q(x))\)</td>
+                  <td>אקסיומת ההצבה</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>\(P(x)\to Q(x)\)</td>
+                  <td>ניתוק על 2,5</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>\(Q(x)\)</td>
+                  <td>ניתוק על 4,6</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>\(\forall xQ(x)\)</td>
+                  <td>כלל ההכללה</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>לכן:</p>
+            \[
+              \forall x(P(x)\to Q(x)),\ \forall xP(x)\vdash\forall xQ(x)
+            \]
+            <p>ומשימוש כפול במשפט הדדוקציה נקבל:</p>
+            \[
+              \vdash \forall x(P(x)\to Q(x)) \to (\forall xP(x)\to \forall xQ(x))
+            \]
+          </div>
+
+          <h3>יג. דדוקציה טבעית</h3>
+          <p>בחלק האחרון של המצגת עוברים לדדוקציה טבעית. כאן השפה כוללת את כל הקשרים:</p>
+          \[
+            \{\neg,\wedge,\vee,\to,\leftrightarrow\}
+          \]
+          <p>ואת שני הכמתים:</p>
+          \[
+            \forall x,\ \exists x
+          \]
+
+          <div class="logic-note">
+            <p>הדדוקציה הטבעית קרובה יותר לדרך שבה אנחנו כותבים הוכחות בפועל: מפרקים קוניונקציות, משתמשים בעדים לקיום, מכלילים טענה שהוכחה למשתנה שרירותי, וכן הלאה.</p>
+          </div>
+
+          <h4>אקסיומות שימושיות לקשרים</h4>
+          <p>בין האקסיומות השימושיות בדדוקציה טבעית מופיעות למשל:</p>
+          \[
+            ((\alpha\wedge\beta)\to\alpha)
+          \]
+          \[
+            ((\alpha\wedge\beta)\to\beta)
+          \]
+          \[
+            \alpha\to(\beta\to(\alpha\wedge\beta))
+          \]
+          <p>כלומר: אפשר לפרק קוניונקציה לשני רכיביה, ואפשר לבנות קוניונקציה משתי נוסחאות שהוכחנו.</p>
+
+          <h3>יד. כללי היסק לכמתים בדדוקציה טבעית</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>שם הכלל</th>
+                <th>צורה</th>
+                <th>משמעות</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>הצבה כוללת</td>
+                <td>\(\dfrac{\forall x\varphi(x)}{\varphi(a)}\)</td>
+                <td>אם משהו נכון לכל \(x\), הוא נכון בפרט עבור \(a\).</td>
+              </tr>
+              <tr>
+                <td>הכללה כוללת</td>
+                <td>\(\dfrac{\varphi(x)}{\forall x\varphi(x)}\)</td>
+                <td>אם הוכחנו עבור \(x\) שרירותי, אפשר להסיק לכל \(x\).</td>
+              </tr>
+              <tr>
+                <td>הכללה ישית</td>
+                <td>\(\dfrac{\varphi(a)}{\exists x\varphi(x)}\)</td>
+                <td>אם מצאנו דוגמה אחת, אז קיים איבר שמקיים את הנוסחה.</td>
+              </tr>
+              <tr>
+                <td>הצבה ישית</td>
+                <td>\(\dfrac{\exists x\varphi(x)}{\varphi(c)}\)</td>
+                <td>אם קיים איבר, אפשר לבחור לו שם זמני \(c\).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="logic-note">
+            <p><strong>זהירות בכלל ההצבה הישית:</strong> כשמשתמשים ב-\(\exists x\varphi(x)\) כדי לקבל \(\varphi(c)\), הקבוע \(c\) צריך להיות חדש — כלומר לא הופיע קודם בהוכחה ובהנחות הרלוונטיות. אחרת עלולים לבחור עד לא חוקי.</p>
+          </div>
+
+          <h3>טו. דוגמה בדדוקציה טבעית 1</h3>
+          <div class="example-box">
+            <div class="example-box__label">הוכח</div>
+            \[
+              \{\exists xP(x),\ \forall x\forall y(P(x)\to Q(y))\}\vdash \forall yQ(y)
+            \]
+
+            <p><strong>הוכחה:</strong></p>
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>נוסחה</th>
+                  <th>הצדקה</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>\(\exists xP(x)\)</td>
+                  <td>הנחה</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>\(\forall x\forall y(P(x)\to Q(y))\)</td>
+                  <td>הנחה</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>\(P(c)\)</td>
+                  <td>הצבה ישית מ-1, כאשר \(c\) קבוע חדש</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>\(\forall y(P(c)\to Q(y))\)</td>
+                  <td>הצבה כוללת מ-2 עבור \(x=c\)</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>\(P(c)\to Q(y)\)</td>
+                  <td>הצבה כוללת מ-4</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>\(Q(y)\)</td>
+                  <td>ניתוק על 3,5</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>\(\forall yQ(y)\)</td>
+                  <td>הכללה כוללת</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>טז. דוגמה בדדוקציה טבעית 2</h3>
+          <div class="example-box">
+            <div class="example-box__label">הוכח</div>
+            \[
+              \{\forall x(Q(x)\to R(x)),\ \exists x(P(x)\wedge Q(x))\}\vdash \exists x(P(x)\wedge R(x))
+            \]
+
+            <p><strong>רעיון:</strong> מההנחה הישית נקבל עד \(c\) כך ש-\(P(c)\wedge Q(c)\). נפרק את הקוניונקציה, נקבל \(Q(c)\), נשתמש ב-\(\forall x(Q(x)\to R(x))\) כדי לקבל \(Q(c)\to R(c)\), ומכאן \(R(c)\). יחד עם \(P(c)\), נבנה \(P(c)\wedge R(c)\), ואז נסיק קיום.</p>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>נוסחה</th>
+                  <th>הצדקה</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>\(\forall x(Q(x)\to R(x))\)</td>
+                  <td>הנחה</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>\(\exists x(P(x)\wedge Q(x))\)</td>
+                  <td>הנחה</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>\(P(c)\wedge Q(c)\)</td>
+                  <td>הצבה ישית מ-2, \(c\) חדש</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>\((P(c)\wedge Q(c))\to P(c)\)</td>
+                  <td>אקסיומת פירוק קוניונקציה</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>\(P(c)\)</td>
+                  <td>ניתוק על 3,4</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>\((P(c)\wedge Q(c))\to Q(c)\)</td>
+                  <td>אקסיומת פירוק קוניונקציה</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>\(Q(c)\)</td>
+                  <td>ניתוק על 3,6</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>\(Q(c)\to R(c)\)</td>
+                  <td>הצבה כוללת מ-1</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>\(R(c)\)</td>
+                  <td>ניתוק על 7,8</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>\(P(c)\to(R(c)\to(P(c)\wedge R(c)))\)</td>
+                  <td>אקסיומת בניית קוניונקציה</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>\(R(c)\to(P(c)\wedge R(c))\)</td>
+                  <td>ניתוק על 5,10</td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>\(P(c)\wedge R(c)\)</td>
+                  <td>ניתוק על 9,11</td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>\(\exists x(P(x)\wedge R(x))\)</td>
+                  <td>הכללה ישית מ-12</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>יז. סיכום</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>נושא</th>
+                <th>תוכן מרכזי</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>תחשיב הילברט בשפת היחסים</td>
+                <td>שלוש אקסיומות פסוקיות + אקסיומות לכמת \(\forall\)</td>
+              </tr>
+              <tr>
+                <td>אקסיומת הזזת הכמת</td>
+                <td>\(\forall x(A\to B)\to(A\to\forall xB)\), כאשר \(x\) לא חופשי ב-\(A\)</td>
+              </tr>
+              <tr>
+                <td>אקסיומת ההצבה</td>
+                <td>\(\forall xA\to A[t/x]\), כאשר ההצבה כשרה</td>
+              </tr>
+              <tr>
+                <td>כללי היסק</td>
+                <td>ניתוק וכלל ההכללה</td>
+              </tr>
+              <tr>
+                <td>נאותות</td>
+                <td>\(K\vdash\varphi\Rightarrow K\models\varphi\)</td>
+              </tr>
+              <tr>
+                <td>הפרכת יכיחות</td>
+                <td>מחפשים מודל והשמה שמספקים את \(K\) אך מפריכים את \(\varphi\)</td>
+              </tr>
+              <tr>
+                <td>לוגיקה עם שוויון</td>
+                <td>רפלקסיביות, סימטריות, טרנזיטיביות</td>
+              </tr>
+              <tr>
+                <td>דדוקציה</td>
+                <td>בשפת היחסים יש מגבלות, בעיקר לגבי נוסחאות שאינן פסוקים</td>
+              </tr>
+              <tr>
+                <td>דדוקציה טבעית</td>
+                <td>שימוש בכללי כמתים: הצבה כוללת, הכללה כוללת, הכללה ישית והצבה ישית</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">לוגיקה למדעי המחשב · 20466</div>
+          <p class="footer__text">פורטל לימוד · האוניברסיטה הפתוחה</p>
+        </div>
+        <ul class="footer__links">
+          <li><a href="../../index.html">ראשי</a></li>
+          <li><a href="index.html">הקורס</a></li>
+          <li><a href="summaries.html">סיכומים</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- KaTeX -->
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <!-- Core -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\(', right: '\\)', display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

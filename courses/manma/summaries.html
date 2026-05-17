@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>סיכומים – מבני נתונים ומבוא לאלגוריתמים</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+  <div class="nav-overlay"></div>
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__brand">
+          <div class="nav__brand-icon" style="background:linear-gradient(135deg,#34d399,#22d3ee)">&#x1F4CA;</div>
+          <span>מנמ״א 20407</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="../../index.html" class="nav__link">ראשי</a></li>
+          <li><a href="index.html" class="nav__link">הקורס</a></li>
+          <li><a href="summaries.html" class="nav__link active">סיכומים</a></li>
+        </ul>
+        <button class="nav__hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container container--narrow">
+      <div class="breadcrumbs">
+        <a href="../../index.html">ראשי</a>
+        <span class="breadcrumbs__sep">‹</span>
+        <a href="index.html">מנמ״א</a>
+        <span class="breadcrumbs__sep">‹</span>
+        <span class="breadcrumbs__current">סיכומים מפורטים</span>
+      </div>
+
+      <div class="page-header">
+        <h1 class="page-header__title">סיכומים מפורטים</h1>
+        <p class="page-header__desc">סיכום מלא של כל שיעור – אלגוריתמים, הוכחות נכונות, סיבוכיות, מבני נתונים ושיטות
+          פתרון.</p>
+      </div>
+
+      <div class="summaries-nav">
+        <button class="summary-tab active" data-target="s1">שיעור 1 – מבוא</button>
+        <button class="summary-tab" data-target="s2">שיעור 2 – סיבוכיות</button>
+        <button class="summary-tab" data-target="s3">שיעור 3 – נסיגה</button>
+        <button class="summary-tab" data-target="s4">שיעור 4 – ערימות</button>
+        <button class="summary-tab" data-target="s5a">שיעור 5א – מיון מהיר</button>
+        <button class="summary-tab" data-target="s5b">שיעור 5ב – בעיית הבחירה</button>
+        <button class="summary-tab" data-target="s6">שיעור 6 – חסם תחתון ומיונים לינאריים</button>
+        <button class="summary-tab" data-target="s7">שיעור 7 – תוחלת ומבני נתונים בסיסיים</button>
+      </div>
+
+      <!-- ========== LESSON 1 ========== -->
+      <div id="s1" class="summary-panel active">
+        <div class="summary-content">
+          <h2>שיעור 1 – מבוא לאלגוריתמים והוכחת נכונות</h2>
+
+          <h3>א. מהו אלגוריתם?</h3>
+          <p><strong>אלגוריתם</strong> הוא פרוצדורה חישובית מוגדרת היטב, המקבלת <strong>קלט</strong> (ערך או קבוצת
+            ערכים) ומפיקה <strong>פלט</strong> (תוצאה) לאחר ביצוע סדרה של צעדים חישוביים. אלגוריתם פותר <strong>בעיה
+              חישובית</strong> — הגדרה של הקשר הרצוי בין הקלט לפלט.</p>
+          <p>שני המשאבים העיקריים שאלגוריתם צורך הם <strong>זמן חישוב</strong> ו<strong>זיכרון</strong>. בקורס זה נתמקד
+            בעיקר בניתוח זמן הריצה.</p>
+
+          <h3>ב. פסאודו קוד (Pseudocode)</h3>
+          <p>פסאודו קוד הוא שפה מופשטת לתיאור אלגוריתמים. היא אינה שפת תכנות ולכן לא ניתנת להידור, אך ניתנת לתרגום לכל
+            שפת תכנות בקלות.</p>
+          <div class="logic-note">
+            <p><strong>כללים:</strong></p>
+            <p>1. שורה ראשונה — שם הפונקציה והקלט בסוגריים.</p>
+            <p>2. פקודה אחת לשורה; הזחה (אינדנטציה) בתוך לולאות ותנאים.</p>
+            <p>3. השמה מסומנת ב-\(\leftarrow\).</p>
+            <p>4. פעולות מתמטיות וכן השוואות (\(>,<,=\)) מותרות.</p>
+          </div>
+
+          <h3>ג. הוכחת נכונות אלגוריתם</h3>
+          <p>שני אלמנטים קריטיים בהוכחת נכונות:</p>
+          <ol>
+            <li><strong>סיום:</strong> האלגוריתם עוצר בסופו של דבר (לכל קלט).</li>
+            <li><strong>נכונות חלקית:</strong> אם האלגוריתם עוצר — הפלט הוא נכון.</li>
+          </ol>
+          <p>שלוש שיטות עיקריות:</p>
+
+          <h4>1. הוכחה באינדוקציה (מתאימה לאלגוריתמים רקורסיביים)</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">עקרון</div>
+            <p>נרצה להראות שטענה \(P(n)\) נכונה לכל \(n\) טבעי:</p>
+            <p><strong>בסיס:</strong> \(P(1)\) נכונה (או \(P(0)\)).</p>
+            <p><strong>הנחה:</strong> \(P(k)\) נכונה לכל \(k \le m\).</p>
+            <p><strong>צעד:</strong> מוכיחים \(P(m+1)\).</p>
+          </div>
+
+          <h4>2. הוכחה בעזרת שמורת לולאה (מתאימה לאלגוריתמים איטרטיביים)</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p><strong>שמורת לולאה</strong> (Loop Invariant) היא טענה שקיומה מוכיח את נכונות האלגוריתם. שלושה שלבים:</p>
+            <p><strong>אתחול:</strong> השמורה מתקיימת <strong>לפני הכניסה הראשונה</strong> ללולאה.</p>
+            <p><strong>תחזוקה:</strong> אם השמורה נכונה לפני איטרציה \(k\), היא נכונה גם לפני איטרציה \(k+1\).</p>
+            <p><strong>סיום:</strong> כשהלולאה מסתיימת, השמורה (יחד עם תנאי היציאה) מבטיחה שהאלגוריתם נכון.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה – מיון הכנסה (Insertion Sort)</div>
+            <p><strong>שמורה:</strong> ״בתחילת כל איטרציה של הלולאה, התת-מערך \(A[1..j-1]\) מכיל את אותם איברים שהיו
+              ב-\(A[1..j-1]\) במקור, אך ממוינים.״</p>
+            <p><strong>אתחול:</strong> כש-\(j=2\), התת-מערך \(A[1..1]\) מכיל איבר אחד — ממוין טריוויאלית. ✓</p>
+            <p><strong>תחזוקה:</strong> הלולאה הפנימית מזיזה את \(A[j]\) למקומו הנכון. ✓</p>
+            <p><strong>סיום:</strong> כש-\(j = n+1\), התת-מערך \(A[1..n]\) — המערך כולו — ממוין. ✓</p>
+          </div>
+
+          <h4>3. הוכחה בשלילה</h4>
+          <p>מניחים שהאלגוריתם <strong>אינו</strong> נכון (כלומר, קיים קלט שעבורו הפלט שגוי), ומגיעים לסתירה.</p>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה – חיפוש במערך ממוין</div>
+            <p>נתון מערך ממוין \(A\) ומספר \(k\). האלגוריתם מחזיר אינדקס \(i\) שבו \(A[i]=i\), או \(-1\).</p>
+            <p><strong>שמורה:</strong> ״בכל שלב, אם קיים אינדקס \(i\) שבו \(A[i]=i\), אזי \(low \le i \le high\).״</p>
+          </div>
+
+          <h3>ד. אלגוריתמי מיון בסיסיים</h3>
+
+          <h4>מיון הכנסה (Insertion Sort)</h4>
+          <p>בונה את המערך הממוין מהצד השמאלי, מוסיף איבר אחד בכל פעם למקום הנכון.</p>
+          <ul>
+            <li><strong>זמן גרוע:</strong> \(\Theta(n^2)\) — כשהמערך ממוין בסדר הפוך.</li>
+            <li><strong>זמן טוב:</strong> \(\Theta(n)\) — כשהמערך כבר ממוין.</li>
+          </ul>
+
+          <h4>מיון בחירה (Selection Sort)</h4>
+          <p>מוצא את המינימום בתת-המערך הלא ממוין, ומחליף אותו עם האיבר הראשון.</p>
+          <ul>
+            <li><strong>זמן:</strong> \(\Theta(n^2)\) תמיד (גם במקרה הטוב).</li>
+          </ul>
+
+          <h4>מיון מיזוג (Merge Sort)</h4>
+          <p>פועל לפי פרדיגמת <strong>הפרד ומשול</strong>: מחלק את המערך לשניים, ממיין כל חצי רקורסיבית, ואז ממזג.</p>
+          <ul>
+            <li><strong>זמן:</strong> \(\Theta(n \log n)\) תמיד.</li>
+          </ul>
+
+          <h3>ה. סיכום</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>נושא</th>
+                <th>תוכן מרכזי</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>אלגוריתם</td>
+                <td>פרוצדורה חישובית: קלט → צעדים → פלט</td>
+              </tr>
+              <tr>
+                <td>פסאודו קוד</td>
+                <td>שפה מופשטת, לא תלויית שפת תכנות</td>
+              </tr>
+              <tr>
+                <td>אינדוקציה</td>
+                <td>בסיס + הנחה + צעד — לאלגוריתמים רקורסיביים</td>
+              </tr>
+              <tr>
+                <td>שמורת לולאה</td>
+                <td>אתחול + תחזוקה + סיום — לאלגוריתמים איטרטיביים</td>
+              </tr>
+              <tr>
+                <td>הוכחה בשלילה</td>
+                <td>הנחת היפך ← סתירה</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== LESSON 2 ========== -->
+      <div id="s2" class="summary-panel">
+        <div class="summary-content">
+          <h2>שיעור 2 – סיבוכיות זמן וסימונים אסימפטוטיים</h2>
+
+          <h3>א. מושגי יסוד</h3>
+          <p><strong>גודל הקלט</strong> — תלוי בבעיה: במיון — מספר האיברים \(n\); בכפל מספרים — מספר הביטים; בגרפים —
+            מספר הקודקודים והצלעות.</p>
+          <p><strong>זמן הריצה</strong> — מספר הפעולות הבסיסיות (primitive operations) שהאלגוריתם מבצע כפונקציה של גודל
+            הקלט. במודל ה-RAM, כל פעולה בסיסית (חיבור, השוואה, העתקה) לוקחת זמן קבוע.</p>
+
+          <h3>ב. סוגי זמני ריצה</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרות</div>
+            <p><strong>זמן ריצה גרוע (Worst-case):</strong> \(T_{\text{worst}}(n) = \max\{T(I) \mid I \in
+              \mathcal{K}(n)\}\) — הקלט שגורם למירב הפעולות.</p>
+            <p><strong>זמן ריצה טוב (Best-case):</strong> \(T_{\text{best}}(n) = \min\{T(I) \mid I \in
+              \mathcal{K}(n)\}\)</p>
+            <p><strong>זמן ריצה ממוצע (Average-case):</strong> \(T_{\text{avg}}(n) = \frac{1}{|\mathcal{K}(n)|}\sum_{I
+              \in \mathcal{K}(n)} T(I)\)</p>
+          </div>
+          <div class="logic-note">
+            <p>ברוב המקרים נתמקד ב<strong>זמן הגרוע</strong>, כי הוא מהווה <strong>חסם עליון</strong> על זמן הריצה לכל
+              קלט, והוא לעתים קרובות גם המקרה השכיח.</p>
+          </div>
+
+          <h3>ג. סימונים אסימפטוטיים</h3>
+          <p>מתארים את <strong>קצב הגדילה</strong> של פונקציות כש-\(n \to \infty\), תוך התעלמות מקבועים כפליים ומאיברים
+            בעלי סדר גודל נמוך.</p>
+
+          <h4>סימן \(O\) — חסם עליון אסימפטוטי (Big-O)</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>\(f(n) = O(g(n))\) אם קיימים \(c > 0\) ו-\(n_0 \in \mathbb{N}\) כך שלכל \(n > n_0\):</p>
+            \[0 \le f(n) \le c \cdot g(n)\]
+            <p><strong>אינטואיציה:</strong> \(f\) גדלה <strong>לכל היותר</strong> כמו \(g\) (עד כדי קבוע).</p>
+          </div>
+
+          <h4>סימן \(\Omega\) — חסם תחתון אסימפטוטי (Big-Omega)</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>\(f(n) = \Omega(g(n))\) אם קיימים \(c > 0\) ו-\(n_0 \in \mathbb{N}\) כך שלכל \(n > n_0\):</p>
+            \[f(n) \ge c \cdot g(n) \ge 0\]
+            <p><strong>אינטואיציה:</strong> \(f\) גדלה <strong>לפחות</strong> כמו \(g\).</p>
+          </div>
+
+          <h4>סימן \(\Theta\) — חסם הדוק (Theta)</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>\(f(n) = \Theta(g(n))\) אם״ם \(f(n) = O(g(n))\) <strong>וגם</strong> \(f(n) = \Omega(g(n))\).</p>
+            <p>כלומר, קיימים \(c_1, c_2 > 0\) ו-\(n_0\) כך שלכל \(n > n_0\):</p>
+            \[c_1 \cdot g(n) \le f(n) \le c_2 \cdot g(n)\]
+            <p><strong>אינטואיציה:</strong> \(f\) גדלה <strong>בדיוק</strong> כמו \(g\) (עד כדי קבוע).</p>
+          </div>
+
+          <h4>סימן \(o\) — חסם עליון לא הדוק (Little-o)</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>\(f(n) = o(g(n))\) אם <strong>לכל</strong> \(c > 0\) קיים \(n_0\) כך שלכל \(n > n_0\): \(f(n) < c \cdot
+                g(n)\).</p>
+                <p>שקול ל: \(\displaystyle\lim_{n \to \infty} \frac{f(n)}{g(n)} = 0\).</p>
+                <p><strong>אינטואיציה:</strong> \(f\) גדלה <strong>לאט מהותית יותר</strong> מ-\(g\).</p>
+          </div>
+
+          <h4>סימן \(\omega\) — חסם תחתון לא הדוק (Little-omega)</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>\(f(n) = \omega(g(n))\) אם <strong>לכל</strong> \(c > 0\) קיים \(n_0\) כך שלכל \(n > n_0\): \(f(n) > c
+              \cdot g(n)\).</p>
+            <p>שקול ל: \(\displaystyle\lim_{n \to \infty} \frac{f(n)}{g(n)} = \infty\).</p>
+          </div>
+
+          <h4>קשרים בין הסימונים</h4>
+          <ul>
+            <li>\(f(n) = o(g(n)) \Rightarrow f(n) = O(g(n))\) (אבל לא להפך)</li>
+            <li>\(f(n) = \omega(g(n)) \Rightarrow f(n) = \Omega(g(n))\)</li>
+            <li>\(\Theta\) מגדיר <strong>יחס שקילות</strong> — רפלקסיבי, סימטרי וטרנזיטיבי</li>
+          </ul>
+
+          <h3>ד. תכונות שימושיות</h3>
+          <ul>
+            <li><strong>טרנזיטיביות:</strong> \(f = O(g)\) וגם \(g = O(h)\) ⟹ \(f = O(h)\)</li>
+            <li><strong>חיבור:</strong> \(O(f_1) + O(f_2) = O(\max(f_1, f_2))\)</li>
+            <li><strong>כפל:</strong> \(O(f_1) \cdot O(f_2) = O(f_1 \cdot f_2)\)</li>
+            <li><strong>קבוע:</strong> \(c \cdot O(f) = O(f)\) לכל \(c > 0\)</li>
+          </ul>
+
+          <h3>ה. חסמים אסימפטוטיים שימושיים</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>ביטוי</th>
+                <th>סדר גודל</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>שקילות לוגריתמים</td>
+                <td>\(\log_b n = \Theta(\log_2 n)\)</td>
+              </tr>
+              <tr>
+                <td>טור חשבוני</td>
+                <td>\(\sum_{k=1}^{n} k = \Theta(n^2)\)</td>
+              </tr>
+              <tr>
+                <td>טור הרמוני</td>
+                <td>\(\sum_{k=1}^{n} \frac{1}{k} = \Theta(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>פולינום</td>
+                <td>\(a_k n^k + \ldots + a_0 = \Theta(n^k)\)</td>
+              </tr>
+              <tr>
+                <td>טור הנדסי (\(a > 1\))</td>
+                <td>\(\sum_{k=0}^{n} a^k = \Theta(a^n)\)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>ו. ניתוח מיון בועות</h3>
+          <div class="example-box">
+            <div class="example-box__label">הוכחה: מיון בועות \(\Theta(n^2)\)</div>
+            <p>מספר ההשוואות (תמיד): \(\sum_{i=1}^{n-1}(n-i) = \frac{n(n-1)}{2} = \Theta(n^2)\).</p>
+            <p>מספר ההחלפות בגרוע: \(\frac{n(n-1)}{2}\) — כאשר המערך ממוין הפוך.</p>
+            <p>לכן זמן הריצה הגרוע: \(\Theta(n^2)\).</p>
+          </div>
+
+          <h3>ז. מגדלי האנוי</h3>
+          <p>בעיה קלאסית: העברת \(n\) דיסקיות מעמוד אחד לאחר, תוך שמירה על הכלל שדיסקית גדולה לעולם לא מונחת על קטנה.
+          </p>
+          <p><strong>אלגוריתם רקורסיבי:</strong> העבר \(n-1\) דיסקיות לעמוד עזר, העבר את הגדולה ליעד, העבר \(n-1\) חזרה
+            מעמוד העזר ליעד.</p>
+          <p><strong>נוסחת נסיגה:</strong> \(T(n) = 2T(n-1) + 1\). פתרון: \(T(n) = 2^n - 1 = \Theta(2^n)\).</p>
+
+          <h3>ח. היררכיית סיבוכיות</h3>
+          \[1 \prec \log\log n \prec \log n \prec \sqrt{n} \prec n \prec n\log n \prec n^2 \prec n^3 \prec 2^n \prec
+          n!\]
+        </div>
+      </div>
+
+      <!-- ========== LESSON 3 ========== -->
+      <div id="s3" class="summary-panel">
+        <div class="summary-content">
+          <h2>שיעור 3 – סיבוכיות של נוסחאות נסיגה</h2>
+
+          <h3>א. מבוא</h3>
+          <p>כאשר אלגוריתם מכיל קריאות רקורסיביות, זמן הריצה שלו מתואר באמצעות <strong>נוסחת נסיגה</strong>
+            (recurrence). מטרתנו: למצוא ביטוי סגור (חסם \(\Theta\)) לפתרון.</p>
+          <div class="logic-note">
+            <p><strong>כללי אצבע:</strong></p>
+            <p>1. עבור \(n\) קטנים מספיק, מניחים \(T(n) = \Theta(1)\).</p>
+            <p>2. ניתן להשמיט ערכי רצפה (\(\lfloor\rfloor\)) ותקרה (\(\lceil\rceil\)) מהארגומנט הרקורסיבי.</p>
+            <p>3. ניתן להחליף \(f(n)\) ב-\(f'(n)\) אם \(f'(n) = \Theta(f(n))\).</p>
+          </div>
+
+          <h3>ב. שיטת ההצבה (Substitution Method)</h3>
+          <p>שני צעדים:</p>
+          <ol>
+            <li><strong>ניחוש</strong> צורת הפתרון (למשל \(T(n) = O(n \log n)\)).</li>
+            <li><strong>הוכחה באינדוקציה</strong> — מוצאים את הקבועים.</li>
+          </ol>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p><strong>נוסחה:</strong> \(T(n) = T(n/2) + 1\). <strong>ניחוש:</strong> \(T(n) = O(\log n)\).</p>
+            <p><strong>הוכחה:</strong> נניח \(T(k) \le c \log k\) לכל \(k < n\). אז:</p>
+                \[T(n) = T(n/2) + 1 \le c\log(n/2) + 1 = c\log n - c + 1 \le c\log n\]
+                <p>בתנאי ש-\(c \ge 1\). ■</p>
+          </div>
+
+          <div class="warning-box">
+            <div class="warning-box__label">מלכודת נפוצה</div>
+            <p>עבור \(T(n) = 2T(n/2) + 1\), אם מנסים להוכיח \(T(n) \le cn\), מקבלים \(T(n) \le cn + 1\) — לא מספיק.
+              הפתרון: לנחש \(T(n) \le cn - d\) עבור קבוע \(d > 0\) מתאים.</p>
+          </div>
+
+          <h3>ג. שיטת האיטרציות (Iteration Method)</h3>
+          <p>פותחים את הנוסחה שוב ושוב עד שמגיעים למקרה הבסיס, ואז סוכמים.</p>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>\(T(n) = T(n-1) + c\)</p>
+            \[T(n) = T(n-1) + c = T(n-2) + 2c = \ldots = T(1) + (n-1)c = \Theta(n)\]
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>\(T(n) = 2T(n/2) + c\)</p>
+            \[T(n) = 2T(n/2) + c = 4T(n/4) + 2c + c = 2^k T(n/2^k) + c\sum_{i=0}^{k-1}2^i\]
+            <p>כאשר \(k = \log n\): \(T(n) = nT(1) + c(n-1) = \Theta(n)\).</p>
+          </div>
+
+          <h3>ד. שיטת עץ הרקורסיה</h3>
+          <p>שיטה ויזואלית: מציירים עץ שבו כל צומת מייצג עלות של קריאה רקורסיבית. סוכמים את העלויות לפי
+            <strong>קומות</strong>:
+          </p>
+          <ul>
+            <li>כל קומה — סכום העלויות של כל הצמתים באותה רמה.</li>
+            <li>סוכמים את כל הקומות.</li>
+          </ul>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>\(T(n) = T(n/3) + T(2n/3) + n\)</p>
+            <p>בכל קומה: סך העלויות הוא \(n\) (העבודה ״מתפזרת״ בין הקריאות אך הסכום נשמר).</p>
+            <p>עומק העץ: \(\log_{3/2} n = \Theta(\log n)\) (הענף הארוך ביותר).</p>
+            <p>סה״כ: \(T(n) = O(n \log n)\).</p>
+          </div>
+
+          <div class="logic-note">
+            <p><strong>כלל חשוב:</strong> עבור \(T(n) = T(\alpha n) + T(\beta n) + cn\) כאשר \(\alpha + \beta < 1\):
+                \(T(n)=\Theta(n)\).</p>
+                <p>כאשר \(\alpha + \beta = 1\): \(T(n) = \Theta(n \log n)\).</p>
+                <p>כאשר \(\alpha + \beta > 1\): \(T(n) = \Theta(n^{\log_{1/\max(\alpha,\beta)} 2})\) (גדל מהר יותר).</p>
+          </div>
+
+          <h3>ה. משפט האב (Master Theorem)</h3>
+          <p>כלי ישיר לפתרון נוסחאות מהצורה:</p>
+          \[T(n) = a \cdot T\!\left(\frac{n}{b}\right) + f(n)\]
+          <p>כאשר \(a \ge 1\), \(b > 1\), ו-\(f(n)\) חיובית אסימפטוטית.</p>
+          <p>השיטה משווה בין \(f(n)\) לבין \(n^{\log_b a}\):</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט האב — 3 מקרים</div>
+            <p><strong>מקרה 1:</strong> אם \(f(n) = O(n^{\log_b a - \varepsilon})\) עבור \(\varepsilon > 0\), אז:</p>
+            \[T(n) = \Theta(n^{\log_b a})\]
+
+            <p><strong>מקרה 2:</strong> אם \(f(n) = \Theta(n^{\log_b a})\), אז:</p>
+            \[T(n) = \Theta(n^{\log_b a} \log n)\]
+
+            <p><strong>מקרה 3:</strong> אם \(f(n) = \Omega(n^{\log_b a + \varepsilon})\) עבור \(\varepsilon > 0\),
+              ובנוסף \(a \cdot f(n/b) \le c \cdot f(n)\) עבור \(c < 1\) (תנאי הרגולריות), אז:</p>
+                \[T(n) = \Theta(f(n))\]
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמאות</div>
+            <p><strong>1.</strong> \(T(n) = 8T(n/2) + n^2\): \(a=8, b=2, \log_b a = 3\). \(f(n) = n^2 = O(n^{3-1})\) —
+              <strong>מקרה 1</strong>: \(T(n) = \Theta(n^3)\).
+            </p>
+            <p><strong>2.</strong> \(T(n) = 2T(n/4) + \sqrt{n}\): \(a=2, b=4, \log_b a = 0.5\). \(f(n) = n^{0.5} =
+              \Theta(n^{\log_b a})\) — <strong>מקרה 2</strong>: \(T(n) = \Theta(\sqrt{n}\log n)\).</p>
+            <p><strong>3.</strong> \(T(n) = 3T(n/3) + n^{3/2}\): \(a=3, b=3, \log_b a = 1\). \(f(n) = n^{1.5} =
+              \Omega(n^{1+0.5})\) — <strong>מקרה 3</strong>: \(T(n) = \Theta(n^{3/2})\).</p>
+          </div>
+
+          <h4>המקרה המורחב של משפט האב</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הרחבת מקרה 2</div>
+            <p>אם \(f(n) = \Theta(n^{\log_b a} \cdot \log^k n)\) עבור \(k \ge 0\), אז:</p>
+            \[T(n) = \Theta(n^{\log_b a} \cdot \log^{k+1} n)\]
+          </div>
+
+          <h3>ו. החלפת משתנים</h3>
+          <p>טכניקה לנוסחאות מהצורה \(T(n) = aT(n^{1/p}) + f(n)\):</p>
+          <ol>
+            <li>נציב \(n = 2^m\) (כלומר \(m = \log n\)).</li>
+            <li>נגדיר \(S(m) = T(2^m)\).</li>
+            <li>נפתור עבור \(S(m)\) (לרוב ע״י משפט האב).</li>
+            <li>נחזיר ל-\(T(n)\) ע״י \(m = \log n\).</li>
+          </ol>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>\(T(n) = 2T(\sqrt{n}) + \log n\)</p>
+            <p>נציב \(n = 2^m\): \(S(m) = T(2^m) = 2T(2^{m/2}) + m = 2S(m/2) + m\).</p>
+            <p>משפט האב: \(a=2, b=2, \log_b a = 1\), \(f(m) = m = \Theta(m^1)\) — מקרה 2.</p>
+            <p>\(S(m) = \Theta(m \log m)\). נחזיר: \(T(n) = \Theta(\log n \cdot \log\log n)\).</p>
+          </div>
+
+          <h3>ז. שיטת החסימה</h3>
+          <p>לנוסחאות שמשפט האב לא חל עליהן (למשל עם שני פרמטרים רקורסיביים שונים): חוסמים מלמעלה ומלמטה.</p>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>\(T(n) = T(n/3) + T(n/4) + n\)</p>
+            <p>חסם תחתון: \(2T(n/4) + n\). חסם עליון: \(2T(n/3) + n\). אם שניהם נותנים \(\Theta(n)\), אז \(T(n) =
+              \Theta(n)\).</p>
+          </div>
+
+          <h3>ח. סיכום</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>שיטה</th>
+                <th>שימוש עיקרי</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>הצבה</td>
+                <td>ניחוש + הוכחה באינדוקציה; דורשת ניחוש טוב</td>
+              </tr>
+              <tr>
+                <td>איטרציות</td>
+                <td>פתיחת הנוסחה שוב ושוב; מתאימה לנוסחאות פשוטות</td>
+              </tr>
+              <tr>
+                <td>עץ רקורסיה</td>
+                <td>ויזואליזציה; מתאים כשיש קריאות מרובות בגדלים שונים</td>
+              </tr>
+              <tr>
+                <td>משפט האב</td>
+                <td>\(T(n) = aT(n/b) + f(n)\); 3 מקרים לפי \(f(n)\) מול \(n^{\log_b a}\)</td>
+              </tr>
+              <tr>
+                <td>החלפת משתנים</td>
+                <td>\(T(n) = aT(n^{1/p}) + f(n)\); הצבת \(n = 2^m\)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== LESSON 4 ========== -->
+      <div id="s4" class="summary-panel">
+        <div class="summary-content">
+          <h2>שיעור 4 – טיפוסי נתונים מופשטים, עצים בינאריים, ערימות ומיון ערימה</h2>
+
+          <h3>א. טיפוס נתונים מופשט (ADT)</h3>
+          <p><strong>טיפוס נתונים מופשט</strong> (Abstract Data Type – ADT) הוא אוסף של פעולות על נתונים כלשהם, כאשר
+            המשתמש ב-ADT מכיר את הפעולות ואת השפעתן על הנתונים, אך <strong>אינו נדרש להכיר את פרטי המימוש</strong>.
+            מדובר בהפרדה מוחלטת בין <em>ממשק</em> (מה הפעולות עושות) לבין <em>מימוש</em> (איך הן מתבצעות בפועל).</p>
+
+          <h4>ADT מול מבנה נתונים</h4>
+          <p><strong>מבנה נתונים</strong> (Data Structure) הוא שיטת אחסון וארגון של נתונים שמאפשרת ביצוע פעולות מסוימות.
+            כאשר נדבר על <em>מימוש</em> ל-ADT, נציין מבנה נתונים קונקרטי.</p>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה – מחסנית (Stack)</div>
+            <p>ה-ADT "מחסנית" מגדיר פעולות כמו <code>Push</code>, <code>Pop</code>, <code>Top</code>,
+              <code>IsEmpty</code>. המשתמש יודע שזהו מבנה LIFO (Last In First Out), אך אינו יודע כיצד זה ממומש.
+            </p>
+            <p>מימושים אפשריים: (1) <strong>מערך</strong> — פשוט ומהיר, אך מוגבל בגודל. (2) <strong>רשימה
+                מקושרת</strong> — גמיש בגודל. הסיבוכיות של הפעולות תלויה במימוש שנבחר.</p>
+          </div>
+
+          <h3>ב. תור קדימויות (Priority Queue)</h3>
+          <p><strong>תור קדימויות</strong> הוא ADT המוגדר ע״י הפעולות הבאות:</p>
+          <ul>
+            <li>\(\text{Create}(PQ, L)\) — יצירת תור קדימויות מתוך רשימה נתונה \(L\) של איברים.</li>
+            <li>\(\text{Insert}(PQ, x)\) — הכנסת האיבר אליו מצביע \(x\).</li>
+            <li>\(\text{Max}(PQ)\) — החזרת האיבר בעל המפתח המקסימלי.</li>
+            <li>\(\text{Del-Max}(PQ)\) — מחיקת האיבר בעל המפתח המקסימלי.</li>
+            <li>\(\text{Change-Priority}(PQ, x, k)\) — שינוי המפתח של האיבר אליו מצביע \(x\) ל-\(k\).</li>
+          </ul>
+          <p>זוהי הרחבה של תור, אלא שכאן ההוצאה היא <strong>לפי הקדימות</strong>, ולא לפי הוותק. למפתחות של האיברים
+            ניתנת בד״כ משמעות של קדימות או עדיפות.</p>
+
+          <h4>מימושים שונים של תור קדימויות</h4>
+          <p>נסמן: \(m\) — גודל הרשימה ההתחלתית \(L\), ו-\(n\) — מספר האיברים ברגע נתון.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>פעולה</th>
+                <th>מערך</th>
+                <th>מערך ממוין</th>
+                <th>רשימה מקושרת</th>
+                <th>רשימה מקושרת ממוינת</th>
+                <th>ערימה</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Create</td>
+                <td>\(\Theta(m)\)</td>
+                <td>\(\Theta(m \log m)\)</td>
+                <td>\(\Theta(m)\)</td>
+                <td>\(\Theta(m \log m)\)</td>
+                <td>\(\Theta(m)\)</td>
+              </tr>
+              <tr>
+                <td>Insert</td>
+                <td>\(\Theta(1)\)</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(1)\)</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>Max</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(1)\)</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(1)\)</td>
+                <td>\(\Theta(1)\)</td>
+              </tr>
+              <tr>
+                <td>ExtractMax</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(1)\)</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(1)\)</td>
+                <td>\(\Theta(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>ChangePriority</td>
+                <td>\(\Theta(1)\)</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(1)\)</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(\log n)\)</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="logic-note">
+            <p>הערימה מספקת את האיזון הטוב ביותר: כל הפעולות ב-\(O(\log n)\), והחזרת מקסימום ב-\(O(1)\). במימושים
+              האחרים, תמיד יש לפחות פעולה אחת שלוקחת \(\Theta(n)\).</p>
+          </div>
+
+          <h3>ג. עצים — הגדרות יסוד</h3>
+          <p><strong>עץ</strong> בהגדרתו הכללית הוא גרף בלתי מכוון, קשיר וללא מעגלים. לקודקודים בעץ קוראים
+            <strong>צמתים</strong> (nodes).
+          </p>
+          <p><strong>עץ מושרש</strong> (Rooted Tree) — עץ שבו קיים צומת מיוחד הנקרא <strong>שורש</strong>. אפשר לדמיין
+            שהגרף מכוון כלפי מטה מהשורש, כך שניתן להגיע לכל צומת.</p>
+
+          <h4>עץ בינארי — הגדרה רקורסיבית</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p><strong>עץ בינארי</strong> הוא:</p>
+            <ul>
+              <li>עץ בינארי ריק (אינו מכיל צמתים כלל), <strong>או</strong></li>
+              <li>מבנה המכיל שלוש קבוצות זרות של צמתים: (1) רשומת שורש אחת ויחידה, (2) עץ בינארי הנקרא <strong>תת-עץ
+                  שמאלי</strong>, (3) עץ בינארי הנקרא <strong>תת-עץ ימני</strong>.</li>
+            </ul>
+          </div>
+
+          <h4>מונחים והגדרות</h4>
+          <p>עבור צומת \(v\):</p>
+          <table>
+            <thead>
+              <tr>
+                <th>מונח</th>
+                <th>הגדרה</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>שורש (Root)</td>
+                <td>הצומת היחיד שממנו כל מבנה העץ מתחיל; אין לו הורה.</td>
+              </tr>
+              <tr>
+                <td>בן שמאלי (Left child)</td>
+                <td>שורש תת-העץ השמאלי של \(v\).</td>
+              </tr>
+              <tr>
+                <td>בן ימני (Right child)</td>
+                <td>שורש תת-העץ הימני של \(v\).</td>
+              </tr>
+              <tr>
+                <td>אב (Parent)</td>
+                <td>\(v\) נקרא האב של בניו, והם נקראים <strong>אחים</strong> (siblings).</td>
+              </tr>
+              <tr>
+                <td>אב קדמון (Ancestor)</td>
+                <td>צומת שנמצא בין \(v\) לבין השורש (על המסלול מ-\(v\) לשורש).</td>
+              </tr>
+              <tr>
+                <td>צאצא (Descendant)</td>
+                <td>צומת שנמצא בתת-העץ ש-\(v\) שורשו.</td>
+              </tr>
+              <tr>
+                <td>עלה (Leaf)</td>
+                <td>צומת שאין לו בנים (0 בנים).</td>
+              </tr>
+              <tr>
+                <td>צומת פנימי (Internal)</td>
+                <td>כל צומת שאינו עלה.</td>
+              </tr>
+              <tr>
+                <td>מספר בנים</td>
+                <td>בעץ בינארי — 0, 1 או 2 בנים לכל צומת.</td>
+              </tr>
+              <tr>
+                <td>מסלול (Path)</td>
+                <td>סדרת צמתים שבין כל שניים יש קשת. <strong>אורך מסלול</strong> = מספר הקשתות שבו.</td>
+              </tr>
+              <tr>
+                <td>גובה צומת (Height)</td>
+                <td>אורך המסלול הארוך ביותר מהצומת עד לעלה שהוא צאצא שלו.</td>
+              </tr>
+              <tr>
+                <td>גובה העץ</td>
+                <td>גובה השורש. עץ בעל צומת יחיד: גובה 0. עץ ריק: גובה \(-1\).</td>
+              </tr>
+              <tr>
+                <td>עומק צומת (Depth)</td>
+                <td>אורך המסלול מהשורש עד הצומת. עומק השורש הוא 0.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>אחסון בזיכרון</h4>
+          <p><strong>שיטה 1 — מערך:</strong> מאכסנים רמה אחרי רמה, משמאל לימין. בנים חסרים מיוצגים כתאים ריקים — עלול
+            לגרום לבזבוז זיכרון גדול בעץ דליל.</p>
+          <p><strong>שיטה 2 — רשומות עם מצביעים:</strong> כל רשומה מכילה מצביע לבן שמאלי, מצביע לבן ימני, ומצביע לאב
+            (מצביע ריק לאב של השורש). יעיל יותר ברוב המקרים.</p>
+
+          <h4>סיווג עצים בינאריים</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">סוגי עצים</div>
+            <p><strong>עץ מלא (Full):</strong> לכל צומת יש 0 או 2 בנים בלבד (אף צומת לא עם בן יחיד).</p>
+            <p><strong>עץ שלם (Complete/Perfect):</strong> עץ מלא שבו <strong>כל העלים באותו עומק</strong>.</p>
+            <p><strong>עץ כמעט שלם (Nearly Complete):</strong> עץ שלם שבו חסרים עלים ברצף מצד ימין ברמה התחתונה בלבד.
+              זהו בדיוק המבנה של ערימה בינארית.</p>
+          </div>
+
+          <h3>ד. ערימה בינארית (Binary Heap)</h3>
+          <p><strong>ערימה</strong> היא מבנה נתונים מסוג מערך, שניתן לראותו ויזואלית כ<strong>עץ בינארי כמעט
+              שלם</strong>.</p>
+
+          <h4>ייצוג כמערך</h4>
+          <p>מערך \(A\) המייצג ערימה מכיל שני מאפיינים:</p>
+          <ul>
+            <li>\(\text{length}[A]\) — מספר האיברים הכללי במערך (גודל המערך, קבוע).</li>
+            <li>\(\text{heap-size}[A]\) — מספר האיברים בערימה (יכול לגדול עד \(\text{length}[A]\)).</li>
+          </ul>
+          <p>שורש הערימה הוא \(A[1]\). עבור צומת באינדקס \(i\):</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">ניווט בערימה</div>
+            <p><strong>אב:</strong> \(\text{Parent}(i) = \lfloor i/2 \rfloor\)</p>
+            <p><strong>בן שמאלי:</strong> \(\text{Left}(i) = 2i\)</p>
+            <p><strong>בן ימני:</strong> \(\text{Right}(i) = 2i + 1\)</p>
+          </div>
+
+          <h4>תכונת הערימה</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p><strong>ערימת מקסימום (Max-Heap):</strong> לכל צומת \(i\) (שאינו שורש): \(A[\text{Parent}(i)] \ge A[i]\).
+              כלומר, האב תמיד גדול-שווה לבנו. המכסימום נמצא בשורש.</p>
+            <p><strong>ערימת מינימום (Min-Heap):</strong> לכל צומת \(i\) (שאינו שורש): \(A[\text{Parent}(i)] \le A[i]\).
+              המינימום נמצא בשורש.</p>
+          </div>
+
+          <h4>תכונות כמותיות</h4>
+          <ul>
+            <li>מספר האיברים בערימה בגובה \(h\): \(2^h \le n \le 2^{h+1} - 1\).</li>
+            <li><strong>גובה הערימה:</strong> \(h = \lfloor \lg n \rfloor\) כאשר \(n\) מספר האיברים.</li>
+            <li><strong>עלים:</strong> נמצאים באינדקסים \(\lfloor n/2 \rfloor + 1\) עד \(n\). יש \(\lceil n/2 \rceil\)
+              עלים ו-\(\lfloor n/2 \rfloor\) צמתים פנימיים.</li>
+            <li>בגובה \(h\) (מהתחתית) נמצאים לכל היותר \(\lceil n / 2^{h+1} \rceil\) צמתים.</li>
+          </ul>
+
+          <h3>ה. פעולות על ערימות</h3>
+
+          <h4>1. Max-Heapify — תיקון כלפי מטה</h4>
+          <p>שגרה שמתקנת הפרה של תכונת הערימה <strong>בשורש</strong> של תת-עץ, בהנחה ששני תתי העצים (שמאלי וימני) כבר
+            מקיימים את תכונת הערימה.</p>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">פסאודו-קוד: Max-Heapify(A, i)</div>
+            <p>1. \(l \leftarrow \text{Left}(i)\), \(r \leftarrow \text{Right}(i)\), \(n \leftarrow
+              \text{heap-size}[A]\)</p>
+            <p>2. \(\text{largest} \leftarrow i\)</p>
+            <p>3. <strong>if</strong> \(l \le n\) <strong>and</strong> \(A[l] > A[i]\) <strong>then</strong>
+              \(\text{largest} \leftarrow l\)</p>
+            <p>4. <strong>if</strong> \(r \le n\) <strong>and</strong> \(A[r] > A[\text{largest}]\)
+              <strong>then</strong> \(\text{largest} \leftarrow r\)
+            </p>
+            <p>5. <strong>if</strong> \(\text{largest} \ne i\)</p>
+            <p>6. &emsp; exchange \(A[i] \leftrightarrow A[\text{largest}]\)</p>
+            <p>7. &emsp; Max-Heapify\((A, \text{largest})\)</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>סיבוכיות:</strong> בכל קריאה רקורסיבית יורדים רמה אחת בעץ. מספר הרמות המכסימלי הוא \(h = \lfloor
+              \lg n \rfloor\). לכן זמן הריצה הוא \(O(\log n)\), או באופן שקול \(O(h)\).</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה — Max-Heapify(A, 2)</div>
+            <p>נתון \(A = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]\):</p>
+            <p>שלב 1: \(i=2\), \(A[2]=4\). בנים: \(A[4]=14\), \(A[5]=7\). הגדול: \(A[4]=14\). מחליפים \(A[2]
+              \leftrightarrow A[4]\). המערך: \([16, 14, 10, 4, 7, 9, 3, 2, 8, 1]\).</p>
+            <p>שלב 2: \(i=4\), \(A[4]=4\). בנים: \(A[8]=2\), \(A[9]=8\). הגדול: \(A[9]=8\). מחליפים \(A[4]
+              \leftrightarrow A[9]\). המערך: \([16, 14, 10, 8, 7, 9, 3, 2, 4, 1]\).</p>
+            <p>שלב 3: \(i=9\), \(A[9]=4\) הוא עלה — סיום. ערימה תקינה.</p>
+          </div>
+
+          <h4>2. פעפוע מעלה (Bubble-Up) — תיקון כלפי מעלה</h4>
+          <p>שגרה הפוכה ל-Heapify: מתקנת הפרה כאשר צומת גדול מאביו (בערימת מקסימום). מקבלת מערך \(A\) ואינדקס \(i\),
+            בהנחה שתכונת הערימה מתקיימת בכל המערך <strong>פרט אולי</strong> ל-\(A[i]\) שגדול מאביו.</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">אלגוריתם</div>
+            <p>כל עוד \(i > 1\) וגם \(A[i] > A[\text{Parent}(i)]\): החלף \(A[i]\) עם \(A[\text{Parent}(i)]\), ועדכן \(i
+              \leftarrow \text{Parent}(i)\).</p>
+          </div>
+          <p><strong>סיבוכיות:</strong> \(O(\log n)\) — עולים לכל היותר \(h\) רמות.</p>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה — פעפוע מעלה</div>
+            <p>נתון \(A = [16, 14, 10, 8, 7, 9, 3, 2, 15, 1]\), כאשר \(A[9]=15\) מפר את תכונת הערימה (גדול מאביו
+              \(A[4]=8\)):</p>
+            <p>שלב 1: \(i=9\). \(A[9]=15 > A[4]=8\). מחליפים: \(A = [16, 14, 10, 15, 7, 9, 3, 2, 8, 1]\).</p>
+            <p>שלב 2: \(i=4\). \(A[4]=15 > A[2]=14\). מחליפים: \(A = [16, 15, 10, 14, 7, 9, 3, 2, 8, 1]\).</p>
+            <p>שלב 3: \(i=2\). \(A[2]=15 < A[1]=16\). עצירה — ערימה תקינה.</p>
+          </div>
+
+          <h4>3. בניית ערימה (Build-Heap)</h4>
+          <p>הפיכת מערך שרירותי \(A[1..n]\) לערימת מקסימום חוקית.</p>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">פסאודו-קוד: BuildHeap(A)</div>
+            <p>1. \(\text{heapSize}[A] \leftarrow \text{length}[A]\)</p>
+            <p>2. <strong>for</strong> \(i \leftarrow \lfloor \text{heapSize}[A]/2 \rfloor\) <strong>downto</strong> 1
+            </p>
+            <p>3. &emsp; <strong>do</strong> Heapify\((A, i)\)</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>מדוע מתחילים מ-\(\lfloor n/2 \rfloor\)?</strong> כי האיברים \(A[\lfloor n/2 \rfloor + 1], \ldots,
+              A[n]\) הם <strong>עלים</strong> — הם כבר ערימות טריוויאליות בנות צומת אחד. לכן מתחילים מהצומת הפנימי
+              האחרון ועולים עד השורש. בכל קריאה ל-Heapify, שני תתי העצים כבר ערימות חוקיות (כי טיפלנו בהם לפני כן).</p>
+          </div>
+
+          <h4>ניתוח סיבוכיות Build-Heap</h4>
+          <p>חסם פשוט: \(O(n)\) קריאות ל-Heapify, כל אחת \(O(\log n)\) ⟹ \(O(n \log n)\). אבל ניתוח מדויק יותר נותן
+            תוצאה טובה יותר:</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט: \(\text{Build-Heap}\) רץ בזמן \(O(n)\)</div>
+            <p><strong>הוכחה:</strong> נספור את מספר ההחלפות (exchange). יש לכל היותר \(n/2\) עלים, \(n/4\) אבות של
+              עלים, \(n/8\) סבים של עלים, וכן הלאה (השמטנו ערכי תקרה). לצומת בגובה \(y\) מתבצעות לכל היותר \(y\) החלפות.
+              לכן מספר ההחלפות הכולל הוא לכל היותר:</p>
+            \[\frac{n}{4}\cdot 1 + \frac{n}{8}\cdot 2 + \ldots + \frac{n}{2^{i+1}}\cdot i + \ldots + 1 \cdot \lfloor\log
+            n\rfloor \le n\]
+            <p>כי \(\displaystyle\sum_{i=1}^{\lfloor\log n\rfloor} \frac{i}{2^{i+1}} \le 1\).</p>
+          </div>
+
+          <h4>4. הכנסת ערך חדש לערימה (HeapInsert)</h4>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">פסאודו-קוד: HeapInsert(A, key)</div>
+            <p>1. \(\text{heapSize}[A] \leftarrow \text{heapSize}[A] + 1\)</p>
+            <p>2. \(i \leftarrow \text{heapSize}[A]\)</p>
+            <p>3. <strong>while</strong> \(i > 1\) <strong>and</strong> \(A[\text{Parent}(i)] < \text{key}\)</p>
+                <p>4. &emsp; <strong>do</strong> \(A[i] \leftarrow A[\text{Parent}(i)]\)</p>
+                <p>5. &emsp;&emsp; \(i \leftarrow \text{Parent}(i)\)</p>
+                <p>6. \(A[i] \leftarrow \text{key}\)</p>
+          </div>
+          <p><strong>סיבוכיות:</strong> \(O(\log n)\).</p>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה — הכנסת 15 לערימה</div>
+            <p>ערימה מקורית: \(A = [16, 14, 10, 8, 7, 9, 3, 2, 4]\).</p>
+            <p>מוסיפים \(\text{key}=15\) למקום 10. \(A[10]=15\) גדול מ-\(A[5]=7\), מעלים. \(A[5]=15\) גדול
+              מ-\(A[2]=14\), מעלים. \(A[2]=15 < A[1]=16\), עצירה.</p>
+                <p>תוצאה: \(A = [16, 15, 10, 8, 14, 9, 3, 2, 4, 7]\).</p>
+          </div>
+
+          <h4>5. מחיקת שורש הערימה (Heap-Extract-Max)</h4>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">פסאודו-קוד: Heap-Extract-Max(A)</div>
+            <p>1. <strong>if</strong> \(\text{heapSize}[A] < 1\)</p>
+                <p>2. &emsp; <strong>error</strong> "heap underflow"</p>
+                <p>3. \(\text{max} \leftarrow A[1]\)</p>
+                <p>4. \(A[1] \leftarrow A[\text{heapSize}[A]]\)</p>
+                <p>5. \(\text{heapSize}[A] \leftarrow \text{heapSize}[A] - 1\)</p>
+                <p>6. Max-Heapify\((A, 1)\)</p>
+                <p>7. <strong>return</strong> max</p>
+          </div>
+          <p><strong>סיבוכיות:</strong> \(O(\log n)\).</p>
+
+          <h4>6. שינוי מפתח צומת (Change-Priority)</h4>
+          <p>כאשר משנים את ערך מפתח של צומת בערימה, יש שלוש אפשרויות:</p>
+          <ol>
+            <li>השינוי לא הפר את תכונת הערימה — סיימנו.</li>
+            <li>הפרה <strong>כלפי מטה</strong> (בערימת מקסימום: המפתח קטן מבנו) — נבצע <strong>Heapify</strong>.</li>
+            <li>הפרה <strong>כלפי מעלה</strong> (בערימת מקסימום: המפתח גדול מאביו) — נבצע <strong>פעפוע מעלה</strong>.
+            </li>
+          </ol>
+          <p>בפועל, ניתן פשוט לבצע גם Heapify וגם פעפוע — אחת הפעולות תהיה מנוונת (לא תעשה דבר).</p>
+          <p><strong>סיבוכיות:</strong> \(O(\log n)\).</p>
+
+          <div class="logic-note">
+            <p><strong>מחיקת צומת שרירותי:</strong> ניתן למחוק צומת \(A[i]\) כלשהו מהערימה: מחליפים \(A[i]\) עם
+              \(A[\text{heapSize}]\), מקטינים את גודל הערימה ב-1, ומבצעים Heapify + פעפוע מעלה על אינדקס \(i\).
+              סיבוכיות: \(O(\log n)\).</p>
+          </div>
+
+          <h3>ו. סיכום פעולות ערימה</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>פעולה</th>
+                <th>תיאור</th>
+                <th>סיבוכיות</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Max-Heapify</td>
+                <td>תיקון הפרה כלפי מטה</td>
+                <td>\(O(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>פעפוע מעלה</td>
+                <td>תיקון הפרה כלפי מעלה</td>
+                <td>\(O(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>Build-Heap</td>
+                <td>בניית ערימה ממערך שרירותי</td>
+                <td>\(O(n)\)</td>
+              </tr>
+              <tr>
+                <td>HeapInsert</td>
+                <td>הכנסת איבר חדש</td>
+                <td>\(O(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>Heap-Extract-Max</td>
+                <td>מחיקת והחזרת המקסימום</td>
+                <td>\(O(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>Max</td>
+                <td>החזרת המקסימום (ללא מחיקה)</td>
+                <td>\(O(1)\)</td>
+              </tr>
+              <tr>
+                <td>Change-Priority</td>
+                <td>שינוי ערך מפתח</td>
+                <td>\(O(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>Delete</td>
+                <td>מחיקת צומת שרירותי</td>
+                <td>\(O(\log n)\)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>ז. מיון ערימה (Heap Sort)</h3>
+          <p>אלגוריתם מיון המנצל את תכונות הערימה כדי למיין מערך <strong>in-place</strong>.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">אלגוריתם Heap-Sort(A)</div>
+            <p>1. בצע \(\text{Build-Heap}(A)\) — הפוך את \(A[1..n]\) לערימת מקסימום.</p>
+            <p>2. עבור \(i = n\) <strong>בירידה עד</strong> 2:</p>
+            <p>&emsp;(א) החלף \(A[1] \leftrightarrow A[i]\).</p>
+            <p>&emsp;(ב) הקטן את \(\text{heap-size}[A]\) ב-1.</p>
+            <p>&emsp;(ג) בצע \(\text{Heapify}(A, 1)\).</p>
+          </div>
+
+          <h4>מדוע זה עובד?</h4>
+          <div class="logic-note">
+            <p><strong>שמורת הלולאה:</strong> בתחילת כל איטרציה, \(A[1..i]\) הוא ערימת מקסימום המכילה את \(i\) האיברים
+              הקטנים ביותר, ו-\(A[i+1..n]\) מכיל את \(n-i\) האיברים הגדולים ביותר <strong>בסדר ממוין</strong>.</p>
+            <p>בכל איטרציה, \(A[1]\) הוא המכסימום בערימה (הקטן ביותר מבין הגדולים שטרם מוינו). נשלח אותו למקומו הסופי
+              ע"י החלפה עם \(A[i]\), נכווץ את הערימה, ונתקן אותה.</p>
+          </div>
+
+          <h4>ניתוח סיבוכיות</h4>
+          <ul>
+            <li>Build-Heap: \(O(n)\).</li>
+            <li>הלולאה: \(n-1\) איטרציות, כל אחת עם Heapify ב-\(O(\log n)\).</li>
+            <li><strong>סה״כ:</strong> \(O(n) + (n-1) \cdot O(\log n) = O(n \log n)\).</li>
+          </ul>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">משפט</div>
+            <p>זמן הריצה של מיון ערימה הוא \(\Theta(n \log n)\) <strong>גם במקרה הטוב</strong> (כאשר כל האיברים שונים זה
+              מזה).</p>
+          </div>
+
+          <h4>יתרונות מיון ערימה</h4>
+          <ul>
+            <li>ממיין <strong>in-place</strong> — דורש רק \(O(1)\) זיכרון נוסף (בניגוד למיון מיזוג הדורש \(O(n)\)).</li>
+            <li>זמן ריצה \(O(n \log n)\) <strong>מובטח</strong> במקרה הגרוע (בניגוד למיון מהיר שבגרוע הוא \(O(n^2)\)).
+            </li>
+          </ul>
+
+          <h3>ח. סיכום כללי</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>נושא</th>
+                <th>תוכן מרכזי</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ADT</td>
+                <td>ממשק מופשט של פעולות על נתונים, ללא קשר למימוש</td>
+              </tr>
+              <tr>
+                <td>מבנה נתונים</td>
+                <td>מימוש קונקרטי — שיטת אחסון וארגון</td>
+              </tr>
+              <tr>
+                <td>תור קדימויות</td>
+                <td>ADT עם Create, Insert, Max, Del-Max, Change-Priority</td>
+              </tr>
+              <tr>
+                <td>עץ בינארי</td>
+                <td>הגדרה רקורסיבית; שורש, עלה, אב, אב קדמון, צאצא, גובה, עומק</td>
+              </tr>
+              <tr>
+                <td>סיווג עצים</td>
+                <td>מלא (0/2 בנים), שלם (עלים באותו עומק), כמעט שלם</td>
+              </tr>
+              <tr>
+                <td>ערימה</td>
+                <td>עץ כמעט שלם במערך; \(\text{Parent}=\lfloor i/2\rfloor\), \(\text{Left}=2i\), \(\text{Right}=2i+1\)
+                </td>
+              </tr>
+              <tr>
+                <td>Heapify</td>
+                <td>תיקון הפרה כלפי מטה — \(O(\log n)\)</td>
+              </tr>
+              <tr>
+                <td>Build-Heap</td>
+                <td>Heapify מ-\(\lfloor n/2\rfloor\) עד 1 — \(O(n)\)</td>
+              </tr>
+              <tr>
+                <td>Heap Sort</td>
+                <td>Build-Heap + חילוץ מקסימום חוזר — \(\Theta(n \log n)\), in-place</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== LESSON 5A ========== -->
+      <div id="s5a" class="summary-panel">
+        <div class="summary-content">
+          <h2>שיעור 5א – מיון מהיר (Quick-Sort), אלגוריתם החלוקה ואלגוריתמים אקראיים</h2>
+
+          <h3>א. מיון מהיר – הרעיון הכללי</h3>
+          <p><strong>מיון מהיר</strong> (Quick-Sort) פותח ב-1962 ע״י <strong>HOARE</strong>. בדומה למיון מיזוג זהו
+            אלגוריתם רקורסיבי שעובד בשיטת <strong>הפרד-ומשול</strong>, אך בשונה ממיון מיזוג:</p>
+          <ul>
+            <li><strong>ממיין במקום (in-place):</strong> אין צורך בהקצאת זיכרון נוסף למערך עזר.</li>
+            <li><strong>העבודה העיקרית נעשית לפני הקריאות הרקורסיביות</strong> — בשלב החלוקה (partition).</li>
+            <li>החלוקה היא לשני מערכים, אבל <strong>לא בהכרח חצאים שווים</strong>.</li>
+          </ul>
+          <div class="theorem-box">
+            <div class="theorem-box__label">סכמת הרעיון</div>
+            <p><strong>קלט:</strong> מערך \(A\) בגודל \(n\).</p>
+            <p><strong>1. הפרד:</strong> בחר איבר ציר \(x\) מתוך המערך וחלק את \(A\) לשני תתי-מערכים: \(A[1..q-1]\)
+              המכיל איברים \(\le x\), ו-\(A[q+1..n]\) המכיל איברים \(\ge x\), כאשר \(A[q]=x\) במקומו הסופי.</p>
+            <p><strong>2. משול:</strong> מיין רקורסיבית את \(A[1..q-1]\) ואת \(A[q+1..n]\).</p>
+            <p><strong>3. צרף:</strong> אין צורך לעשות דבר — המערך כולו ממוין.</p>
+          </div>
+
+          <h4>פסאודו-קוד</h4>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Quick-Sort(A, p, r)</div>
+            <p>1. <strong>if</strong> \(p < r\)</p>
+                <p>2. &emsp; \(q \leftarrow \text{Partition}(A, p, r)\)</p>
+                <p>3. &emsp; Quick-Sort\((A, p, q-1)\)</p>
+                <p>4. &emsp; Quick-Sort\((A, q+1, r)\)</p>
+                <p>הקריאה הראשית עבור מערך בגודל \(n\) היא \(\text{Quick-Sort}(A, 1, n)\).</p>
+          </div>
+
+          <h3>ב. אלגוריתם החלוקה (Partition) – לפי איבר הכי ימני</h3>
+          <p>החלוקה לוקחת את <strong>האיבר הימני ביותר</strong> \(A[r]\) כאיבר ציר \(x\), ובסופה האיבר \(x\) נמצא במקומו
+            הסופי, משמאלו כל האיברים \(\le x\) ומימינו כל האיברים \(>x\).</p>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Partition(A, p, r)</div>
+            <p>1. \(x \leftarrow A[r]\)</p>
+            <p>2. \(i \leftarrow p - 1\)</p>
+            <p>3. <strong>for</strong> \(j \leftarrow p\) <strong>to</strong> \(r-1\)</p>
+            <p>4. &emsp; <strong>if</strong> \(A[j] \le x\)</p>
+            <p>5. &emsp;&emsp; \(i \leftarrow i + 1\)</p>
+            <p>6. &emsp;&emsp; exchange \(A[i] \leftrightarrow A[j]\)</p>
+            <p>7. exchange \(A[i+1] \leftrightarrow A[r]\)</p>
+            <p>8. <strong>return</strong> \(i + 1\)</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>אינטואיציה למשתנים:</strong> לאחר כל איטרציה המערך מחולק לארבעה אזורים:</p>
+            <p>• \(A[p..i]\) — איברים \(\le x\) שכבר נסרקו.</p>
+            <p>• \(A[i+1..j-1]\) — איברים \(>x\) שכבר נסרקו.</p>
+            <p>• \(A[j..r-1]\) — איברים שטרם נסרקו.</p>
+            <p>• \(A[r] = x\) — איבר הציר.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה — חלוקה על המערך [50, 30, 25, 10, 77, 5, 20, 88, 26]</div>
+            <p>הציר הוא האיבר הימני \(x=26\). סורקים מ-\(j=1\) עד \(r-1\): כל איבר \(\le 26\) מתחלף לאזור השמאלי (ירוק),
+              והגדולים יותר נשארים מימין (אדום).</p>
+            <p>בסיום הסריקה המערך נראה: \([25, 10, 5, 20\,|\,77, 50, 30, 88\,|\,26]\), ואז מחליפים את \(A[i+1]\) עם
+              \(A[r]\) ומקבלים: \([25, 10, 5, 20, 26, 50, 30, 88, 77]\) — \(26\) במקומו הסופי, כל מי שמשמאלו \(\le 26\),
+              כל מי שמימינו \(\ge 26\).</p>
+          </div>
+
+          <h3>ג. הוכחת נכונות מיון מהיר</h3>
+
+          <h4>טענה 1 — סיום</h4>
+          <p>מיון מהיר עוצר לאחר זמן סופי.</p>
+          <p><strong>הוכחה:</strong> Partition עוצר בוודאות (לולאה סופית של \(r-p\) איטרציות, כל אחת בזמן קבוע). תנאי
+            העצירה של Quick-Sort הוא מערך בגודל \(\le 1\); בכל קריאה רקורסיבית גודל הבעיה <strong>קטן ממש</strong>
+            (לפחות ב-1) ולכן אחרי מספר סופי של רמות רקורסיה נגיע לתנאי העצירה. ■</p>
+
+          <h4>טענה 2 — נכונות החלוקה</h4>
+          <p>בסיום \(\text{Partition}(A, p, r)\): \(x\) (הציר) נמצא במקומו הסופי, משמאלו רק איברים \(\le x\), ומימינו רק
+            איברים \(\ge x\).</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">שמורת הלולאה (שורות 3–6)</div>
+            <p>בתחילת כל איטרציה, לכל אינדקס \(k\) במערך:</p>
+            <p>א. אם \(p \le k \le i\) — אז \(A[k] \le x\).</p>
+            <p>ב. אם \(i+1 \le k \le j-1\) — אז \(A[k] > x\).</p>
+            <p>ג. אם \(k=r\) — אז \(A[r] = x\).</p>
+          </div>
+          <p><strong>בסיס:</strong> בתחילת האיטרציה הראשונה, \(i = p-1\) ו-\(j=p\), כך שהקטעים בא׳ ובב׳ ריקים,
+            ו-\(A[r]=x\) מקיים את ג׳.</p>
+          <p><strong>צעד:</strong> בכל איטרציה: אם \(A[j]>x\) רק \(j\) גדל — האיבר נכנס לאזור ב׳. אם \(A[j]\le x\),
+            \(i\) גדל ב-1, מתבצעת החלפה \(A[i] \leftrightarrow A[j]\), ולאחריה האיבר ה״חדש״ ב-\(A[i]\) מקיים את א׳
+            (קטן-שווה ל-\(x\)) והאיבר שעבר ל-\(A[j-1]\) מקיים את ב׳.</p>
+          <p><strong>סיום:</strong> בסוף הלולאה \(j=r\), כך ש-\(A[p..i] \le x\) ו-\(A[i+1..r-1] > x\). ההחלפה בשורה 7
+            (החלפת \(A[i+1]\) עם \(A[r]=x\)) מציבה את \(x\) במקומו הסופי באינדקס \(i+1\), ומקיימת את טענה 2. ■</p>
+
+          <h4>טענה 3 — נכונות מיון מהיר (באינדוקציה על \(n\))</h4>
+          <p><strong>בסיס:</strong> עבור \(n=1\) האלגוריתם נכון טריוויאלית (אין מה למיין).</p>
+          <p><strong>צעד:</strong> נניח שמיון מהיר ממיין נכון מערכים בגודל \(k < n\). מטענה 2 לאחר Partition, \(A[q]=x\)
+              במקומו הסופי, \(A[1..q-1]\) מכיל את כל האיברים \(\le x\), ו-\(A[q+1..n]\) מכיל את כל האיברים \(\ge x\).
+              ע״פ הנחת האינדוקציה הקריאות הרקורסיביות ממיינות נכון את שני החלקים. לכן המערך כולו ממוין. ■</p>
+
+              <h3>ד. גרסת חלוקה אלטרנטיבית – Hoare-Partition</h3>
+              <p>הגרסה המקורית של HOARE לוקחת את האיבר ה<strong>שמאלי</strong> ביותר \(A[p]\) כציר, ובסיום אינה מציבה
+                אותו במקומו הסופי.</p>
+              <div class="theorem-box theorem-box--code">
+                <div class="theorem-box__label">Hoare-Partition(A, p, r)</div>
+                <p>1. \(x \leftarrow A[p]\)</p>
+                <p>2. \(i \leftarrow p - 1\); &nbsp; 3. \(j \leftarrow r + 1\)</p>
+                <p>4. <strong>while</strong> TRUE</p>
+                <p>5. &emsp; <strong>repeat</strong> \(j \leftarrow j-1\) <strong>until</strong> \(A[j] \le x\)</p>
+                <p>6. &emsp; <strong>repeat</strong> \(i \leftarrow i+1\) <strong>until</strong> \(A[i] \ge x\)</p>
+                <p>7. &emsp; <strong>if</strong> \(i < j\): exchange \(A[i] \leftrightarrow A[j]\)</p>
+                    <p>8. &emsp; <strong>else return</strong> \(j\)</p>
+              </div>
+              <div class="logic-note">
+                <p>נקודות שצריך לשים אליהן לב בגרסה זו: \(x\) <strong>אינו</strong> בהכרח נמצא במקומו הסופי בסיום, ייתכן
+                  שאחד מהאזורים יישאר ריק, וצריך להתאים את הקריאה ב-Quick-Sort (משתמשים ב-\(j\) כנקודת חלוקה, ושני
+                  התת-מערכים הם \(A[p..j]\) ו-\(A[j+1..r]\)).</p>
+              </div>
+
+              <h3>ה. ניתוח זמן ריצה</h3>
+              <p><strong>סיבוכיות החלוקה:</strong> \(\Theta(n)\) ללא תלות בבחירת איבר הציר (לולאה אחת על המערך).</p>
+
+              <h4>המקרה הגרוע</h4>
+              <p>מתרחש כאשר החלוקה <strong>בלתי מאוזנת באופן קיצוני</strong> בכל שלב של הרקורסיה — תת-מערך אחד בגודל
+                \(0\) ותת-מערך שני בגודל \(n-1\). זה קורה כשאיבר הציר הוא תמיד המינימום או המקסימום של תת-המערך (למשל
+                כשהמערך כבר ממוין או ממוין הפוך, וגרסת ה-partition בוחרת תמיד באיבר הימני).</p>
+              \[T(n) = T(n-1) + T(0) + \Theta(n) = \Theta(n^2)\]
+
+              <h4>המקרה הטוב</h4>
+              <p>מתרחש כאשר החלוקה <strong>מאוזנת</strong> בכל שלב, כלומר לשני חצאים בערך:</p>
+              \[T(n) = 2T\!\left(\frac{n}{2}\right) + \Theta(n) = \Theta(n \log n)\]
+
+              <h4>המקרה הממוצע</h4>
+              <div class="theorem-box">
+                <div class="theorem-box__label">טענה</div>
+                <p>זמן הריצה הממוצע של מיון מהיר הוא \(\Theta(n \log n)\).</p>
+              </div>
+              <p>״ממוצע״ כאן מתייחס לממוצע של זמני הריצה על פני <strong>כל הקלטים האפשריים</strong> בגודל \(n\) (תחת
+                הנחת התפלגות אחידה). ההוכחה המלאה דורשת ידע מוקדם בהסתברות ומופיעה בספר הלימוד; האינטואיציה היא שגם
+                חלוקות ״לא טובות במיוחד״ (למשל ביחס \(1{:}9\)) עדיין נותנות \(O(n \log n)\), ובממוצע רוב החלוקות אף
+                טובות יותר.</p>
+
+              <h3>ו. אלגוריתמים אקראיים – מבוא</h3>
+              <p><strong>אלגוריתם אקראי</strong> הוא אלגוריתם שעושה שימוש ב<strong>מחולל מספרים אקראיים</strong> במהלך
+                הריצה. היתרון העיקרי שלו הוא <strong>חסינות מפני "יריב מרושע"</strong>: גם אם היריב מכיר את פרטי
+                האלגוריתם, הוא לא יוכל לייצר קלט שיהווה תמיד מקרה גרוע, כי האקראיות נבחרת בזמן ריצה ולא תלויה בקלט.</p>
+              <div class="logic-note">
+                <p>בפועל רוב סביבות התכנות מציעות מחולל <strong>פסאודו-אקראי</strong> — אלגוריתם דטרמיניסטי המחזיר
+                  מספרים שנראים סטטיסטית אקראיים מספיק.</p>
+              </div>
+
+              <h4>שני סוגי אלגוריתמים אקראיים</h4>
+              <div class="theorem-box">
+                <div class="theorem-box__label">סיווג</div>
+                <p><strong>1. לאס וגאס (Las Vegas):</strong> התוצאה <strong>תמיד נכונה</strong>, אך האקראיות יכולה
+                  להשפיע על זמן הריצה (למשל מיון מהיר אקראי).</p>
+                <p><strong>2. מונטה קארלו (Monte Carlo):</strong> זמן הריצה אינו מושפע מהאקראיות, אבל התוצאה
+                  <strong>עלולה להיות שגויה</strong> (ההסתברות לטעות חסומה — לכל היותר חצי).
+                </p>
+              </div>
+
+              <h3>ז. מיון מהיר אקראי</h3>
+              <p>הרעיון: לפני ה-partition, נבחר אינדקס אקראי בתחום \([p, r]\) ונחליף את האיבר באינדקס זה עם \(A[r]\) —
+                וכך הציר ייבחר באקראיות אחידה.</p>
+              <div class="theorem-box theorem-box--code">
+                <div class="theorem-box__label">Random-Partition(A, p, r)</div>
+                <p>1. \(i \leftarrow \text{Random}(p, r)\)</p>
+                <p>2. exchange \(A[r] \leftrightarrow A[i]\)</p>
+                <p>3. <strong>return</strong> \(\text{Partition}(A, p, r)\)</p>
+              </div>
+              <div class="theorem-box theorem-box--code">
+                <div class="theorem-box__label">Random-Quick-Sort(A, p, r)</div>
+                <p>1. <strong>if</strong> \(p < r\)</p>
+                    <p>2. &emsp; \(q \leftarrow \text{Random-Partition}(A, p, r)\)</p>
+                    <p>3. &emsp; Random-Quick-Sort\((A, p, q-1)\)</p>
+                    <p>4. &emsp; Random-Quick-Sort\((A, q+1, r)\)</p>
+              </div>
+              <div class="logic-note">
+                <p>למיון מהיר האקראי אותם זמני ריצה גרוע/טוב/ממוצע. ההבדל המרכזי הוא ש<strong>הממוצע מחושב כעת על פני
+                    ההגרלות</strong> שמבצע האלגוריתם (על אותו קלט), ולא על פני הקלטים. כך, לכל קלט נתון, הזמן הצפוי הוא
+                  \(\Theta(n \log n)\), בלי תלות בסדר הראשוני של המערך.</p>
+              </div>
+
+              <h3>ח. שאלות ותרגול</h3>
+              <div class="example-box">
+                <div class="example-box__label">שאלה 1</div>
+                <p>עבור מערך שכל איבריו <strong>שונים זה מזה</strong>: איזה ערך \(q\) מחזירה \(\text{Partition}\) כשאיבר
+                  הציר \(A[r]\) הוא המקסימום? וכשהוא המינימום?</p>
+                <p><strong>תשובה:</strong> כשהציר הוא המקסימום, כל האיברים \(\le x\), ולכן \(i\) יגדל בכל איטרציה ובסוף
+                  \(i = r-1\), כלומר \(q = r\). כשהציר הוא המינימום, אף איבר אינו \(\le x\) (פרט אולי לציר עצמו), \(i\)
+                  נשאר \(p-1\) ובסוף \(q = p\).</p>
+              </div>
+              <div class="example-box">
+                <div class="example-box__label">שאלה 2 — הרצה על מערך ממוין</div>
+                <p>במיון מהיר על מערך שכל איבריו שונים והוא <strong>כבר ממוין</strong>: בכל קריאה \(A[r]\) הוא המקסימום
+                  של תת-המערך, ולכן \(q=r\) — חלוקה ביחס \(n-1{:}0\). זהו המקרה הגרוע, וזמן הריצה הוא \(\Theta(n^2)\).
+                  כנ״ל למערך הממוין בסדר הפוך.</p>
+              </div>
+              <div class="example-box">
+                <div class="example-box__label">שאלה 3 — דינמיות החלוקה</div>
+                <p>בשונה ממיון מיזוג שבו החלוקה היא <strong>סטטית</strong> (תמיד לשני חצאים), במיון מהיר החלוקה
+                  <strong>דינמית</strong> ותלויה בערכי המערך — בכל שלב נקבל חלוקה שונה, וזה בדיוק מה שגורם לזמן הריצה
+                  להיות תלוי בנתונים.
+                </p>
+              </div>
+        </div>
+      </div>
+
+      <!-- ========== LESSON 5B ========== -->
+      <div id="s5b" class="summary-panel">
+        <div class="summary-content">
+          <h2>שיעור 5ב – בעיית הבחירה: ערכי מיקום, Random-Select ו-Select</h2>
+
+          <h3>א. בעיית הבחירה (Selection Problem)</h3>
+          <p><strong>הבעיה:</strong> בהינתן מערך \(A\) בגודל \(n\) ואינדקס \(i\) בטווח \(1 \le i \le n\), נרצה להחזיר את
+            <strong>האיבר ה-\(i\)-הכי קטן</strong> במערך — כלומר את הערך שהיה במקום \(i\) אילו המערך היה ממוין.
+          </p>
+          <p>נקרא לערך זה <strong>ערך המיקום ה-\(i\)</strong>. בפרט:</p>
+          <ul>
+            <li>\(i = 1\) — מינימום.</li>
+            <li>\(i = n\) — מקסימום.</li>
+            <li>\(i = \lceil (n+1)/2 \rceil\) — <strong>חציון</strong>.</li>
+          </ul>
+
+          <h4>פתרונות תמימים</h4>
+          <ul>
+            <li><strong>מינימום/מקסימום</strong> (\(i=1\) או \(i=n\)) ניתן למצוא בזמן \(\Theta(n)\) — סריקה אחת.</li>
+            <li><strong>אינדקס שרירותי:</strong> ניתן למיין את כל המערך ולקחת את האיבר ה-\(i\) — בעלות \(\Omega(n \log
+              n)\).</li>
+          </ul>
+          <p><strong>השאלה המרכזית:</strong> האם ניתן לפתור את בעיית הבחירה ב<strong>זמן לינארי \(\Theta(n)\)</strong>
+            לכל \(i\), ובפרט למצוא חציון בזמן לינארי?</p>
+          <div class="logic-note">
+            <p>נציג שני אלגוריתמים:</p>
+            <p><strong>1. Random-Select</strong> — אקראי, לינארי בממוצע אך \(\Theta(n^2)\) במקרה הגרוע.</p>
+            <p><strong>2. Select</strong> — דטרמיניסטי, לינארי גם <strong>במקרה הגרוע</strong>, אך מסובך יותר.</p>
+          </div>
+
+          <h3>ב. Random-Select</h3>
+          <p>הרעיון מבוסס ישירות על Partition של מיון מהיר: לאחר חלוקה אקראית, איבר הציר נמצא במקומו הסופי, ואנחנו
+            יודעים בדיוק כמה איברים נמצאים משמאלו. אם הציר הוא בדיוק האיבר ה-\(i\), סיימנו; אחרת ממשיכים רקורסיבית רק
+            <strong>בצד אחד</strong> של החלוקה.
+          </p>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Random-Select(A, p, r, i)</div>
+            <p>1. <strong>if</strong> \(p = r\): <strong>return</strong> \(A[p]\)</p>
+            <p>2. \(q \leftarrow \text{Random-Partition}(A, p, r)\)</p>
+            <p>3. \(k \leftarrow q - p + 1\) &nbsp; &nbsp; <em>(מיקום הציר בתוך \(A[p..r]\))</em></p>
+            <p>4. <strong>if</strong> \(i = k\): <strong>return</strong> \(A[q]\)</p>
+            <p>5. <strong>else if</strong> \(i < k\): <strong>return</strong> Random-Select\((A, p, q-1, i)\)</p>
+            <p>6. <strong>else</strong>: <strong>return</strong> Random-Select\((A, q+1, r, i-k)\)</p>
+          </div>
+          <div class="logic-note">
+            <p>חשוב שים לב: בחיפוש בצד הימני האינדקס משתנה ל-\(i-k\), כי \(k\) האיברים השמאליים (כולל הציר) כבר ידועים
+              כקטנים יותר.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה — חיפוש האיבר הרביעי הכי קטן</div>
+            <p>נתון \(A = [50, 30, 20, 25, 10, 15, 18, 77, 5, 20, 88, 26]\), \(n=12\), מחפשים \(i=4\).</p>
+            <p><strong>שלב 1:</strong> נניח שהציר האקראי הוא \(26\). לאחר Partition: \([20, 25, 10, 15, 18, 5,
+              20\,|\,26\,|\,30, 50, 88, 77]\), \(q=8\), \(k=8\). \(i=4 < k\) — ממשיכים בצד שמאל \(A[1..7]\) עם
+                \(i=4\).</p>
+                <p><strong>שלב 2:</strong> על \(A=[20, 25, 10, 15, 18, 5, 20]\), נניח ציר \(15\). לאחר Partition: \([10,
+                  5\,|\,15\,|\,20, 18, 25, 20]\), \(q=3\), \(k=3\). \(i=4 > k\) — ממשיכים בצד ימין \(A[4..7] = [20, 18,
+                  25, 20]\) עם \(i = 4-3 = 1\).</p>
+                <p><strong>שלב 3:</strong> על \([20, 18, 25, 20]\), נניח ציר \(18\). Partition: \([\,|\,18\,|\,20, 25,
+                  20]\), \(q=1\), \(k=1\), \(i=1=k\) — מחזירים \(18\).</p>
+                <p>ואכן, \(18\) הוא האיבר הרביעי הכי קטן במערך המקורי.</p>
+          </div>
+
+          <h4>ניתוח זמן ריצה של Random-Select</h4>
+          <ul>
+            <li><strong>מקרה טוב:</strong> חלוקה אחת ואחריה עוצרים — \(T(n) = \Theta(n)\).</li>
+            <li><strong>מקרה גרוע:</strong> חלוקה ביחס \(0{:}n-1\) בכל שלב, וההמשך תמיד בחלק הגדול:</li>
+          </ul>
+          \[T(n) = T(n-1) + \Theta(n) = \Theta(n^2)\]
+          <ul>
+            <li><strong>מקרה ממוצע:</strong> \(\Theta(n)\) (הוכחה מלאה בספר).</li>
+          </ul>
+          <p>קיבלנו פתרון <strong>לינארי בממוצע</strong>, אבל לא במקרה הגרוע.</p>
+
+          <h3>ג. Select – אלגוריתם בחירה דטרמיניסטי לינארי</h3>
+          <p>אלגוריתם Select פותח ב-1973 ע״י מספר ממדעני המחשב המובילים בתקופה. הוא רץ בזמן <strong>\(\Theta(n)\) במקרה
+              הגרוע</strong>.</p>
+          <p><strong>הרעיון המרכזי:</strong> כדי להבטיח זמן לינארי גם בגרוע, צריך לדאוג שהחלוקות יהיו <strong>מאוזנות
+              יחסית</strong> — לא בהכרח 1:1, אבל לפחות בערך 3:7. הדרך לכך: לבחור את הציר באופן <strong>חכם</strong> ולא
+            אקראי, באמצעות שיטת <strong>חציון החציונים</strong> (median of medians).</p>
+
+          <h4>שיטת חציון החציונים – Choose-Pivot</h4>
+          <div class="theorem-box">
+            <div class="theorem-box__label">Choose-Pivot(A, p, r)</div>
+            <p>1. נחלק את המערך לקבוצות של <strong>חמישיות רצופות</strong> (אולי קבוצה אחת קטנה יותר בסוף). למצוא את
+              החציון של כל חמישייה (למשל ע״י מיון בכל קבוצה). נעתיק את החציונים האלו למערך עזר \(B\) (גודלו \(\lceil n/5
+              \rceil\)).</p>
+            <p>2. נחזיר את <strong>החציון של \(B\)</strong> (החציון של החציונים) — נחשב אותו ע״י קריאה רקורסיבית
+              ל-Select על \(B\).</p>
+          </div>
+
+          <h4>אלגוריתם Select</h4>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Select(A, p, r, i)</div>
+            <p>1. <strong>if</strong> \(p = r\): <strong>return</strong> \(A[p]\)</p>
+            <p>2. \(x \leftarrow \text{Choose-Pivot}(A, p, r)\)</p>
+            <p>3. \(q \leftarrow \text{Partition-With-Pivot}(A, p, r, x)\)</p>
+            <p>4. \(k \leftarrow q - p + 1\)</p>
+            <p>5. <strong>if</strong> \(i = k\): <strong>return</strong> \(A[q]\)</p>
+            <p>6. <strong>else if</strong> \(i < k\): <strong>return</strong> Select\((A, p, q-1, i)\)</p>
+            <p>7. <strong>else</strong>: <strong>return</strong> Select\((A, q+1, r, i-k)\)</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>Partition-With-Pivot</strong> זהה ל-Partition הרגילה, פרט לכך שהציר \(x\) ניתן כפרמטר ולא נקבע
+              מראש כ-\(A[r]\). אפשר לממש זאת ע״י איתור \(x\) במערך, החלפתו עם \(A[r]\), וקריאה ל-Partition הרגילה.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה — חיפוש האיבר הרביעי בעזרת Select</div>
+            <p>נתון \(A = [50, 30, 20, 25, 10, 15, 18, 77, 5, 20, 88, 26]\), \(n=12\), \(\lceil n/5 \rceil = 3\)
+              חמישיות.</p>
+            <p>חמישייה 1: \([50,30,20,25,10]\) → חציון \(25\). חמישייה 2: \([15,18,77,5,20]\) → חציון \(18\). חמישייה 3
+              (קבוצה אחרונה, 2 איברים): \([88,26]\) → "חציון" \(26\).</p>
+            <p>\(B = [25, 18, 26]\). מציאת חציון של \(B\) ישירות (ללא רקורסיה כי \(|B|=3 \le 5\)): \(x=25\).</p>
+            <p>Partition-With-Pivot של \(A\) סביב \(x=25\) נותן:</p>
+            <p>\([20, 10, 15, 18, 5, 20\,|\,25\,|\,77, 30, 50, 88, 26]\), \(q=7\), \(k=7\). \(i=4 < 7\) — ממשיכים:
+                \(\text{Select}(A, 1, 6, 4)\).</p>
+          </div>
+
+          <h3>ד. ניתוח Select – למה זה לינארי?</h3>
+          <p><strong>טענה:</strong> בחלוקה לפי חציון החציונים, גם החלוקה הגרועה ביותר נותנת איזון של בערך \(3{:}7\).
+            כלומר בשני הצדדים יש לפחות \(\sim 30\%\) מהאיברים.</p>
+
+          <h4>הוכחה אינטואיטיבית – למה לפחות \(\sim 3n/10\) איברים גדולים מ-\(x\)?</h4>
+          <p>נסדר את החמישיות באיור — כל עמודה היא חמישייה ממוינת (הקטן למעלה, הגדול למטה), והחציונים בשורה האמצעית.
+            נסדר את העמודות לפי החציון שלהן, משמאל לימין (החציון הקטן ביותר משמאל).</p>
+          <p>אז:</p>
+          <ul>
+            <li><strong>בחצי הימני</strong> של החמישיות: לפחות \(\lceil \lceil n/5 \rceil / 2 \rceil\) חמישיות שהחציון
+              שלהן \(\ge x\).</li>
+            <li>בכל חמישייה כזו, ה<strong>חציון עצמו ושני האיברים מתחתיו</strong> בעמודה (כלומר 3 איברים) הם \(\ge x\).
+            </li>
+            <li>נוריד את הקבוצה האחרונה (שאולי קטנה מ-5) ואת החמישייה של \(x\) עצמו.</li>
+            <li>סה״כ מספר האיברים \(>x\) הוא לפחות:</li>
+          </ul>
+          \[3\!\left(\left\lceil \tfrac{\lceil n/5 \rceil}{2} \right\rceil - 2\right) \;\ge\; \frac{3n}{10} - 6\]
+          <p>באופן סימטרי, יש לפחות \(\frac{3n}{10} - 6\) איברים <strong>קטנים</strong> מ-\(x\). כלומר גם בחלוקה הגרועה:
+            צד אחד מכיל לפחות כ-30% והצד השני לכל היותר כ-70% מהאיברים.</p>
+
+          <h4>נוסחת הנסיגה של Select</h4>
+          <p>בכל קריאה ל-Select מתבצעות שתי קריאות רקורסיביות:</p>
+          <ul>
+            <li><strong>על מערך החציונים \(B\)</strong> בגודל \(\lceil n/5 \rceil\) — מציאת חציון החציונים.</li>
+            <li><strong>על אחד מצדדי החלוקה</strong> בגודל \(\le 7n/10 + 6\).</li>
+          </ul>
+          <p>בנוסף יש עבודה לינארית לחלוקה לחמישיות, מציאת החציונים (כל חמישייה ב-\(\Theta(1)\) — מדוע?), והפרטישן עצמו:
+          </p>
+          \[T(n) = T\!\left(\left\lceil \tfrac{n}{5} \right\rceil\right) + T\!\left(\tfrac{7n}{10} + 6\right) +
+          \Theta(n)\]
+          <div class="logic-note">
+            <p><strong>הסיבה לזמן הלינארי:</strong> סכום המקדמים \(\frac{1}{5} + \frac{7}{10} = \frac{9}{10} < 1\). על
+                פי הכלל מנוסחאות נסיגה (שיעור 3): כאשר \(T(n)=T(\alpha n) + T(\beta n) + cn\) עם \(\alpha + \beta < 1\),
+                הפתרון הוא \(T(n)=\Theta(n)\). את ההוכחה הפורמלית עושים בשיטת ההצבה (פרטים בספר).</p>
+          </div>
+
+          <h3>ה. סיבוכיות זיכרון של Select</h3>
+          <p>דרישות הזיכרון הנוסף של Select מתחלקות לשניים:</p>
+          <ul>
+            <li><strong>מערך החציונים \(B\)</strong> — לינארי בגודל הקלט (\(\lceil n/5 \rceil\) בשורש העץ).</li>
+            <li><strong>עומק מחסנית הרקורסיה</strong> — לוגריתמי, ולכן זניח אסימפטוטית לעומת \(B\).</li>
+          </ul>
+          <p>נוסחת נסיגה לזיכרון:</p>
+          \[S(n) = \max\!\left\{ S\!\left(\tfrac{n}{5}\right), S\!\left(\tfrac{7n}{10}+6\right) \right\} + \left\lceil
+          \tfrac{n}{5} \right\rceil = S\!\left(\tfrac{7n}{10}+6\right) + \left\lceil \tfrac{n}{5} \right\rceil\]
+          <p>פתרון: \(S(n) = \Theta(n)\).</p>
+
+          <h3>ו. מיון מהיר דטרמיניסטי</h3>
+          <p>כעת נחבר את הידע מחלקים א׳ וב׳: כיצד נשפר את מיון מהיר כדי שגם במקרה הגרוע זמן הריצה יהיה \(\Theta(n \log
+            n)\)?</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">פתרון</div>
+            <p>בכל שלב שבו צריך לבחור איבר ציר לחלוקה, נבחר אותו כ<strong>חציון</strong> של תת-המערך הרלוונטי, באמצעות
+              קריאה ל-Select.</p>
+          </div>
+          <p>מאחר שכל קריאה ל-Select היא \(\Theta(n)\), והחלוקה לפי חציון מבטיחה איזון \(1{:}1\) (לכל היותר הפרש 1),
+            נוסחת הנסיגה היא:</p>
+          \[T(n) = 2T(n/2) + \Theta(n) = \Theta(n \log n)\]
+          <p>במקרה הגרוע. בפועל, האלגוריתם הזה אינו פופולרי כי הקבועים שלו גדולים מאוד ביחס למיון מהיר אקראי, אך הוא
+            חשוב תיאורטית כי הוא מראה ש<strong>קיים</strong> אלגוריתם מיון מבוסס-השוואות שעובד ב-\(\Theta(n \log n)\) גם
+            בגרוע ו-in-place.</p>
+
+          <h3>ז. שאלות ותרגול</h3>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 1 — מינימום ומקסימום ע״י Select</div>
+            <p>אפשר למצוא מינימום ע״י \(\text{Select}(A, 1, n, 1)\) ומקסימום ע״י \(\text{Select}(A, 1, n, n)\). תיאורטית
+              הסיבוכיות \(\Theta(n)\) זהה לסריקה פשוטה, אך מבחינה מעשית סריקה ישירה הרבה יותר יעילה (קבועים קטנים
+              בהרבה).</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 2 — מתי Choose-Pivot לא קוראת ל-Select?</div>
+            <p>עבור \(n \le 5\) אין צורך בקריאה רקורסיבית: גודל \(B\) הוא 1 וחציונו עצמו. בפועל, גם עבור מערכים קטנים
+              מסף מסוים (למשל 25, 35) ניתן לבצע מיון ישיר ולבחור חציון, מכיוון שהקבועים נבלעים.</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה — מציאת ״איבר רוב״</div>
+            <p>איבר רוב במערך בגודל \(n\) הוא איבר שמופיע יותר מ-\(n/2\) פעמים. שימו לב שאם קיים איבר רוב, הוא בהכרח
+              <strong>החציון</strong> של המערך. לכן אלגוריתם פשוט: למצוא חציון בעזרת Select בזמן \(\Theta(n)\), ואז
+              לסרוק את המערך ולספור את מספר ההופעות שלו (גם כן \(\Theta(n)\)). אם יותר מ-\(n/2\) — זהו איבר הרוב; אחרת
+              אין איבר רוב. סה״כ \(\Theta(n)\).
+            </p>
+          </div>
+
+          <h3>ח. סיכום השיעור</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>אלגוריתם</th>
+                <th>בעיה</th>
+                <th>זמן ממוצע</th>
+                <th>זמן גרוע</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Quick-Sort בסיסי</td>
+                <td>מיון</td>
+                <td>\(\Theta(n \log n)\)</td>
+                <td>\(\Theta(n^2)\)</td>
+              </tr>
+              <tr>
+                <td>Random-Quick-Sort</td>
+                <td>מיון</td>
+                <td>\(\Theta(n \log n)\)</td>
+                <td>\(\Theta(n^2)\) (בהסתברות נמוכה)</td>
+              </tr>
+              <tr>
+                <td>Random-Select</td>
+                <td>בחירה</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(n^2)\)</td>
+              </tr>
+              <tr>
+                <td>Select (חציון חציונים)</td>
+                <td>בחירה</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(n)\)</td>
+              </tr>
+              <tr>
+                <td>Quick-Sort דטרמיניסטי (עם Select)</td>
+                <td>מיון</td>
+                <td>\(\Theta(n \log n)\)</td>
+                <td>\(\Theta(n \log n)\)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== LESSON 6 ========== -->
+      <div id="s6" class="summary-panel">
+        <div class="summary-content">
+          <h2>שיעור 6 – חסם תחתון לבעיית המיון ומיונים בזמן לינארי</h2>
+
+          <h3>א. כמה מהר אפשר למיין?</h3>
+          <p>תזכורת – <strong>בעיית המיון</strong>:</p>
+          <div class="theorem-box">
+            <p><strong>קלט:</strong> סדרת איברים \((a_1, a_2, \ldots, a_n)\) שמוגדר עליהם סדר.</p>
+            <p><strong>פלט:</strong> תמורה \((a_1', a_2', \ldots, a_n')\) של איברים אלו, כך ש-\(a_i' \le a_j'\) לכל זוג
+              אינדקסים \(1 \le i < j \le n\).</p>
+          </div>
+          <p>עד עתה כל אלגוריתמי המיון שראינו (הכנסה, מיזוג, ערימה, מהיר) רצים במקרה הגרוע ב-\(\Omega(n \log n)\).
+            מתעוררות שלוש שאלות:</p>
+          <ol>
+            <li>האם קיים אלגוריתם שממיין \(n\) איברים בזמן \(o(n \log n)\)?</li>
+            <li>אם לא — האם פשוט עוד לא מצאנו אלגוריתם כזה?</li>
+            <li>איך אפשר להוכיח ש<strong>אף</strong> אלגוריתם, גם כזה שטרם התגלה, לא יוכל לרוץ בזמן טוב מ-\(\Omega(n
+              \log n)\)?</li>
+          </ol>
+
+          <h3>ב. חסם תחתון לבעיית המיון</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">טענה</div>
+            <p>כל אלגוריתם מיון <strong>המבוסס השוואות</strong>, על קלט באורך \(n\), יבצע במקרה הגרוע <strong>\(\Omega(n
+                \log n)\) השוואות</strong> בין איברי הקלט.</p>
+          </div>
+          <div class="logic-note">
+            <p><strong>אלגוריתם מיון השוואות (comparison sorting algorithm):</strong> אלגוריתם שבו ההחלטות על קביעת סדר
+              הממוין מבוססות <strong>רק</strong> על השוואות בין איברי הקלט. בהינתן שני איברים \(a\) ו-\(b\) אפשר לבצע
+              אחת מההבדיקות: \(a<b\), \(a \le b\), \(a=b\), \(a \ge b\), \(a>b\). אסור להשתמש בפעולות חשבון על איברי
+                הקלט, ואין הנחה שהאיברים הם מספרים.</p>
+          </div>
+          <p>נשים לב שכל המיונים שלמדנו עד היום הם מיונים מבוססי השוואות, ולכן:</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">מסקנה</div>
+            <p><strong>מיון ערימה ומיון מיזוג</strong> הם אלגוריתמים <strong>אופטימליים</strong> (במובן אסימפטוטי)
+              לבעיית מיון השוואות במקרה הגרוע.</p>
+          </div>
+
+          <h3>ג. הוכחת החסם התחתון – מודל עץ ההחלטה</h3>
+          <p>ניתן לתאר כל מיון השוואות באמצעות <strong>עץ החלטה</strong>:</p>
+          <ul>
+            <li>לכל אלגוריתם מיון ולכל גודל קלט \(n\) מתאים עץ החלטה <strong>אחד</strong>.</li>
+            <li>כל קודקוד פנימי מסומן בזוג אינדקסים \(i{:}j\) ומייצג השוואה בין \(a_i\) ל-\(a_j\). הענפים היוצאים ממנו
+              מתאימים לתשובות \(\le\) או \(>\).</li>
+            <li>כל <strong>עלה</strong> בעץ מסומן בתמורה (הסדר הממוין) שהאלגוריתם מחזיר במקרה זה.</li>
+            <li>המסלול הספציפי שניקח בעץ תלוי ב<strong>קלט</strong> הקונקרטי שמתקבל; העץ עצמו לא תלוי בקלט אלא רק
+              באלגוריתם וב-\(n\).</li>
+          </ul>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה — עץ החלטה למיון הכנסה עם \(n=3\)</div>
+            <p>על קלט \(\langle 9, 3, 7 \rangle\) המסלול בעץ הוא: \(1{:}2 \to 2{:}3 \to 1{:}3\) ומגיעים לעלה התואם תמורה
+              \((2,3,1)\) — כלומר הסדר הממוין הוא \(a_2 < a_3 < a_1\), כלומר \(3 < 7 < 9\).</p>
+          </div>
+
+          <h4>שלבי ההוכחה</h4>
+          <p>כמות ההשוואות שהאלגוריתם עורך במקרה הגרוע מיוצגת ע״י <strong>המסלול הארוך ביותר מהשורש לעלה</strong>, כלומר
+            ע״י <strong>גובה העץ</strong> \(h\). נחפש חסם תחתון ל-\(h\):</p>
+          <div class="theorem-box">
+            <div class="theorem-box__label">שלב 1 — מספר העלים גדול לפחות \(n!\)</div>
+            <p>על מנת שהאלגוריתם יהיה נכון, חייב להיות לפחות עלה אחד עבור כל אחת מ-\(n!\) התמורות האפשריות של \(n\)
+              האיברים (כל סדר ממוין יכול להופיע בקלט מתאים).</p>
+            <p>לכן: <strong>מספר העלים בעץ ההחלטה \(\ge n!\)</strong>.</p>
+          </div>
+          <div class="theorem-box">
+            <div class="theorem-box__label">שלב 2 — בעץ בינארי בגובה \(h\) יש לכל היותר \(2^h\) עלים</div>
+            <p>עץ ההחלטה הוא בינארי (כל השוואה מפצלת לשני ענפים). מאינדוקציה ידוע שמספר העלים בעץ בינארי בגובה \(h\)
+              חסום ע״י \(2^h\).</p>
+          </div>
+          <div class="theorem-box">
+            <div class="theorem-box__label">שלב 3 — חיבור החסמים</div>
+            <p>נקבל: \(2^h \ge \text{מספר העלים} \ge n!\), ולכן:</p>
+            <p>\[h \ge \log_2(n!) = \Theta(n \log n)\]</p>
+            <p>השוויון האחרון נובע מקירוב סטירלינג: \(n! \approx \sqrt{2\pi n}\,(n/e)^n\), ולכן \(\log(n!) = n\log n -
+              n\log e + O(\log n) = \Theta(n \log n)\).</p>
+          </div>
+          <p>קיבלנו: בכל אלגוריתם מיון השוואות, גובה עץ ההחלטה (= מספר ההשוואות במקרה הגרוע) הוא לפחות \(\Omega(n \log
+            n)\). מ.ש.ל.</p>
+
+          <h3>ד. חסמים עליונים ותחתונים למיון השוואות – תמונה כוללת</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>סיבוכיות</th>
+                <th>מי משיג / מי דורש?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>\(O(n^2)\)</td>
+                <td>מיון בועות, מיון הכנסה (גרוע)</td>
+              </tr>
+              <tr>
+                <td>\(O(n \log n)\)</td>
+                <td>מיון מיזוג, מיון ערימה — <strong>חסם עליון</strong> אמיתי לבעיה</td>
+              </tr>
+              <tr>
+                <td>\(\Theta(n \log n)\)</td>
+                <td>הסיבוכיות הטבועה האמיתית של בעיית מיון השוואות</td>
+              </tr>
+              <tr>
+                <td>\(\Omega(n \log n)\)</td>
+                <td>החסם התחתון שהוכחנו: כל מיון השוואות דורש \(\Omega(n \log n)\)</td>
+              </tr>
+              <tr>
+                <td>\(\Omega(n)\)</td>
+                <td>חסם תחתון טריוויאלי — חייבים לפחות לעבור על הקלט</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="logic-note">
+            <p><strong>חסם עליון לבעיה</strong> — מספיק להציג אלגוריתם אחד שפותר אותה בזמן זה (״ניתן לפתור אותה בלא יותר
+              מאשר…״).</p>
+            <p><strong>חסם תחתון לבעיה</strong> — מחייב להוכיח ש<strong>אף</strong> אלגוריתם (כולל אלה שטרם התגלו!) לא
+              יכול להיות מהיר מזה.</p>
+            <p><strong>פערים אלגוריתמיים:</strong> במקרים רבים יש פער בין החסם העליון שאנחנו מצליחים להשיג לבין החסם
+              התחתון שאנחנו מצליחים להוכיח. דוגמה מפורסמת: בעיית הסוכן הנוסע (TSP) — חסם עליון \(O(n^2 \cdot 2^n)\)
+              (Held-Karp 1962), חסם תחתון \(\Omega(n)\). פתוח אם קיים אלגוריתם בזמן \(O(c^n)\) עבור \(c<2\).< /p>
+          </div>
+
+          <h3>ה. שאלות קצרות (חסם תחתון)</h3>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 1 — האם החסם תקף גם במקרה הטוב?</div>
+            <p><strong>לא.</strong> החסם הוא על <strong>המקרה הגרוע</strong>. במקרה הטוב אפשר בקלות למיין בזמן \(o(n
+              \log n)\): מיון הכנסה במערך כבר ממוין רץ ב-\(\Theta(n)\). הוא לא סותר את החסם התחתון כי החסם מתייחס למקרה
+              הגרוע בלבד.</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 2 — מדוע ייתכן שיש <strong>יותר</strong> מ-\(n!\) עלים בעץ?</div>
+            <p>החסם הוא <strong>לפחות</strong> \(n!\) עלים. ייתכנו <strong>יותר</strong> כי האלגוריתם עשוי להגיע לאותה
+              תמורה ע״י מסלולים שונים בעץ (לאותה תמורה אפשרית מתאימים מספר עלים שונים). דוגמה: מיון הכנסה כבר על \(n=3\)
+              יוצר עץ עם 6 עלים בדיוק (כי \(3!=6\)), אבל אלגוריתמים אחרים עלולים ליצור יותר עלים.</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 3 — מהו \(\Theta\) של גובה עץ ההחלטה למיון בועות / ערימה?</div>
+            <p>למיון בועות — גובה \(\Theta(n^2)\) (הסיבוכיות שלו במקרה הגרוע). למיון ערימה — גובה \(\Theta(n \log n)\).
+              באופן כללי גובה עץ ההחלטה שווה אסימפטוטית לסיבוכיות של האלגוריתם במקרה הגרוע (במספר השוואות).</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה — מיון של 5 איברים</div>
+            <p>הוכיחו שעבור מיון 5 איברים יש לבצע במקרה הגרוע <strong>לפחות 7 השוואות</strong>.</p>
+            <p><strong>פתרון:</strong> לפי החסם, גובה העץ \(h \ge \lceil \log_2(5!) \rceil = \lceil \log_2 120 \rceil =
+              \lceil 6.91 \rceil = 7\).</p>
+            <p>טבלת השוואות (גרוע / טוב) למיונים השונים על 5 איברים: הכנסה 10/4, מיזוג 8/5, מהיר 10/6, ערימה 12/9.</p>
+          </div>
+
+          <h3>ו. מיונים לינאריים – הקדמה</h3>
+          <p>נכיר 3 מיונים שסיומותיהם רצים בזמן <strong>לינארי</strong> במקרה הגרוע:</p>
+          <ul>
+            <li>מיון מנייה (Counting Sort)</li>
+            <li>מיון בסיס (Radix Sort)</li>
+            <li>מיון דלי (Bucket Sort)</li>
+          </ul>
+          <div class="logic-note">
+            <p><strong>הערה חשובה:</strong> מיונים אלו אינם מיוני השוואות — הם מבצעים על איברי הקלט פעולות נוספות
+              (חשבוניות, אינדוקס מערכים לפי ערך וכד׳). לפיכך החסם התחתון \(\Omega(n \log n)\) שהוכחנו אינו חל עליהם,
+              ובהתאם הם משיגים זמני ריצה לינאריים — אבל תוך הנחות נוספות על מבנה הקלט.</p>
+          </div>
+
+          <h3>ז. מיון מנייה (Counting Sort)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הנחות הקלט</div>
+            <p>הקלט הוא מערך \(A\) בגודל \(n\) שמפתחותיו הם <strong>מספרים שלמים</strong> בתחום \([1\,..\,k]\) (או
+              \([0\,..\,k]\)). \(k\) ידוע מראש.</p>
+            <p>נשתמש במערך פלט \(B\) בגודל \(n\) ובמערך עזר \(C\) בגודל \(k\).</p>
+          </div>
+
+          <h4>האלגוריתם</h4>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Counting-Sort\((A, B, k)\)</div>
+            <p>1. <strong>for</strong> \(i \leftarrow 1\) <strong>to</strong> \(k\): \(C[i] \leftarrow 0\)
+              &nbsp;&nbsp;<em>// אתחול</em></p>
+            <p>2. <strong>for</strong> \(j \leftarrow 1\) <strong>to</strong> \(n\): \(C[A[j]] \leftarrow C[A[j]] + 1\)
+              &nbsp;&nbsp;<em>// מנייה: \(C[i]\) = מספר האיברים השווים ל-\(i\)</em></p>
+            <p>3. <strong>for</strong> \(i \leftarrow 2\) <strong>to</strong> \(k\): \(C[i] \leftarrow C[i] + C[i-1]\)
+              &nbsp;&nbsp;<em>// צבירה: \(C[i]\) = מספר האיברים \(\le i\)</em></p>
+            <p>4. <strong>for</strong> \(j \leftarrow n\) <strong>downto</strong> \(1\):</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;\(B[\,C[A[j]]\,] \leftarrow A[j]\)</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;\(C[A[j]] \leftarrow C[A[j]] - 1\) &nbsp;&nbsp;<em>// ייצור הפלט</em></p>
+          </div>
+
+          <h4>איך זה עובד? — ארבעת השלבים</h4>
+          <ol>
+            <li><strong>שלב א׳ – איפוס:</strong> אתחול \(C\) לאפסים.</li>
+            <li><strong>שלב ב׳ – מנייה:</strong> סורקים את \(A\) ומגדילים את המונה \(C[A[j]]\). בסוף השלב, \(C[i]\) =
+              מספר ההופעות של \(i\) ב-\(A\).</li>
+            <li><strong>שלב ג׳ – צבירה (סכומים מצטברים):</strong> מחליפים את \(C[i]\) בסכום \(\sum_{\ell=1}^{i}
+              C[\ell]\). בסוף השלב, \(C[i]\) = מספר האיברים ב-\(A\) שערכם \(\le i\) — וזה בדיוק <strong>מיקומו
+                הסופי</strong> של אחרון האיברים ששווים ל-\(i\) במערך הממוין.</li>
+            <li><strong>שלב ד׳ – ייצור הפלט:</strong> סורקים את \(A\) <strong>אחורה</strong> (מ-\(n\) ל-\(1\)), ולכל
+              איבר \(A[j]\) מציבים אותו במקום \(C[A[j]]\) ב-\(B\), אז מקטינים את \(C[A[j]]\) ב-1 (כדי שהאיבר הבא ששווה
+              לו ילך מיקום אחד שמאלה).</li>
+          </ol>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה</div>
+            <p>קלט: \(A = [7,1,3,1,2,4,5,3,2,4,3]\), \(n=11\), \(k=10\).</p>
+            <p>אחרי מנייה: \(C = [2,2,3,2,1,0,1,0,0,0]\) (פעמיים 1, פעמיים 2, וכו׳).</p>
+            <p>אחרי צבירה: \(C = [2,4,7,9,10,10,11,11,11,11]\).</p>
+            <p>שלב הייצור (אחורה): \(A[11]=3 \Rightarrow B[7]=3,\ C[3]=6\). \(A[10]=4 \Rightarrow B[9]=4,\ C[4]=8\).
+              \(A[9]=2 \Rightarrow B[4]=2,\ C[2]=3\). וכן הלאה. פלט סופי: \(B=[1,1,2,2,3,3,3,4,4,5,7]\).</p>
+          </div>
+
+          <h4>ניתוח</h4>
+          <ul>
+            <li><strong>זמן ריצה:</strong> שלב 1 — \(\Theta(k)\), שלב 2 — \(\Theta(n)\), שלב 3 — \(\Theta(k)\), שלב 4 —
+              \(\Theta(n)\). סה״כ <strong>\(\Theta(n+k)\)</strong>. כאשר \(k = O(n)\) הזמן הוא \(\Theta(n)\) — לינארי.
+            </li>
+            <li><strong>זיכרון נוסף:</strong> \(\Theta(n+k)\) (המערכים \(B\) ו-\(C\)).</li>
+            <li><strong>אינו מבוסס השוואות:</strong> אין כלל השוואה בין \(A[i]\) ל-\(A[j]\). השוואות מתבצעות רק עם
+              המשתנה \(i\) של הלולאה — ולכן החסם התחתון לא חל.</li>
+            <li><strong>יציב (Stable):</strong> ההליכה בשלב 4 <strong>אחורה</strong> מבטיחה שאיברים שווים ב-\(A\) שומרים
+              על סדרם היחסי גם ב-\(B\). זו תכונה מהותית להמשך (תידרש למיון בסיס).</li>
+          </ul>
+          <div class="logic-note">
+            <p><strong>שאלה:</strong> מדוע סורקים בשלב 4 בסדר הפוך? תשובה: כדי לשמור על יציבות. אם נסרוק קדימה — ההופעה
+              הראשונה של \(i\) ב-\(A\) תוצב <strong>אחרי</strong> ההופעה השנייה ב-\(B\), כלומר הסדר היחסי יתהפך.</p>
+            <p><strong>שאלה:</strong> אחרי שלב המנייה (שלב 2), אפשר כבר לייצר את הפלט (יודעים כמה פעמים מופיע כל מספר).
+              מדוע לא עושים זאת? תשובה: כי השיטה המתוארת מאפשרת את ההכללה החשובה — מיון <strong>זוגות (מפתח,
+                ערך)</strong> או רשומות שלמות לפי השדה הממוין, תוך שמירת יציבות. אם נכתוב את המספר עצמו ולא נעתיק את
+              הרשומה, נאבד מידע.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">שאלה — מיון מערך אותיות באנגלית</div>
+            <p>איך ממיינים בזמן לינארי מערך אותיות באנגלית? <strong>פתרון:</strong> ממירים כל אות למספר בתחום \([1,
+              26]\) ומפעילים Counting-Sort עם \(k=26\). \(k\) הוא קבוע ולכן הסיבוכיות \(\Theta(n+k) = \Theta(n)\).</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה — מערך עם ערכים בתחום \([-10, 0]\)</div>
+            <p>אפשר ״להזיז״ את הערכים ב-10 (להוסיף 10 לכל איבר) כדי לקבל ערכים בתחום \([0, 10]\), להפעיל Counting-Sort,
+              ולהוריד 10 בחזרה. סה״כ \(\Theta(n)\).</p>
+          </div>
+
+          <h3>ח. מיון בסיס (Radix Sort)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הנחות הקלט</div>
+            <p>הקלט הוא מערך \(A\) בגודל \(n\) שמפתחותיו ניתנים לייצוג כ<strong>מספרים שלמים בני \(d\) ספרות בבסיס
+                \(b\)</strong> כלשהו (למשל מספרים בין 0 ל-\(b^d - 1\)).</p>
+          </div>
+
+          <h4>האלגוריתם – ממיין בשלבים</h4>
+          <ul>
+            <li>מתחילים מ<strong>הספרה הפחות משמעותית (LSD)</strong> ועוברים בהדרגה לכיוון הספרה הכי משמעותית (MSD).
+            </li>
+            <li>בכל שלב — מפעילים מיון <strong>יציב</strong> (למשל Counting-Sort, כי הספרות הן בתחום \([0, b-1]\)) על פי
+              הספרה הנוכחית.</li>
+          </ul>
+          <div class="example-box">
+            <div class="example-box__label">דוגמה — מספרים בני 3 ספרות בבסיס 10</div>
+            <p>קלט: \([509, 910, 920, 136, 436, 404]\).</p>
+            <p>שלב 1 (לפי ספרת אחדות): \([910, 920, 404, 136, 436, 509]\).</p>
+            <p>שלב 2 (לפי ספרת עשרות): \([404, 509, 910, 920, 136, 436]\).</p>
+            <p>שלב 3 (לפי ספרת מאות): \([136, 404, 436, 509, 910, 920]\) — ממוין!</p>
+          </div>
+
+          <h4>ניתוח</h4>
+          <ul>
+            <li>בכל שלב Counting-Sort רץ ב-\(\Theta(n + b)\). יש \(d\) שלבים.</li>
+            <li>סה״כ: \(\Theta(d \cdot (n + b))\). כאשר \(d\) ו-\(b\) קבועים — \(\Theta(n)\).</li>
+          </ul>
+          <div class="logic-note">
+            <p><strong>למה צריך מיון יציב בכל שלב?</strong> כי לאחר שמיינו לפי הספרה ה-\(i\), הסדר היחסי בין שני איברים
+              שיש להם אותה ספרה ב-\(i\) צריך להישאר זהה לסדר שנקבע בשלבים הקודמים (לפי הספרות הפחות משמעותיות). אם המיון
+              לא יציב — קלקלנו את העבודה הקודמת.</p>
+            <p><strong>קצת היסטוריה:</strong> מיון בסיס היה האלגוריתם ששימש למיון <strong>כרטיסי ניקוב</strong> מסוף
+              המאה ה-19 ועד שנות ה-70 של המאה ה-20. הקלט היה כרטיסי ניקוב שהמציא Herman Hollerith ב-1890 (לטובת מפקד
+              האוכלוסין האמריקני). מכונת המיון מיינה כל פעם לפי עמודה אחת, מהפחות משמעותית למשמעותית. Hollerith ייסד עסק
+              שב-1924 הפך ל-IBM.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">שאלה — מיון בתחום \([0, n^2 - 1]\)</div>
+            <p>נתונים \(n\) מספרים שלמים בתחום \([0, n^2-1]\). הציעו דרך יעילה למיינם.</p>
+            <p><strong>פתרון:</strong> ייצוג ב<strong>בסיס \(n\)</strong>: כל מספר \(\le n^2-1\) הוא בעל לכל היותר
+              \(d=2\) ספרות בבסיס \(n\). מיון בסיס עם Counting-Sort נותן \(\Theta(d \cdot (n+b)) = \Theta(2 \cdot (n+n))
+              = \Theta(n)\).</p>
+            <p><strong>הרעיון הכללי:</strong> ייצוג בבסיס מתאים מצמצם את \(d\) על חשבון הגדלת \(b\). מאזנים בין השניים.
+              הבסיס האופטימלי הוא בדרך כלל \(b = \Theta(n)\).</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה — מציאת המספר המקסימלי בן 2 ספרות בבסיס \(n\)</div>
+            <p>תשובה: \(n^2 - 1\) (הספרה \(n-1\) פעמיים: \((n-1) \cdot n + (n-1) = n^2 - 1\)).</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה — מספר מקסימלי של קטעים שמכיל שלם</div>
+            <p>נתונים \(n\) קטעים \([a_i, b_i]\) על הישר הממשי, \(0 \le a_i \le b_i \le n^d\) (\(d\) קבוע). כתבו
+              אלגוריתם לינארי שמוצא שלם \(z\) השייך למספר מקסימלי של קטעים.</p>
+            <p><strong>רעיון:</strong> ממיינים את כל ה-\(2n\) נקודות הקצה לפי הערך (משתמשים במיון בסיס לינארי כי הערכים
+              בתחום \([0, n^d]\)). סורקים את הרשימה הממוינת תוך שמירת מונה: ב-\(a_i\) מעלים, ב-\(b_i+1\) מורידים. הערך
+              עם המונה הגבוה ביותר הוא \(z\). סה״כ \(\Theta(n)\).</p>
+          </div>
+
+          <h3>ט. מיון דלי (Bucket Sort)</h3>
+          <div class="theorem-box">
+            <div class="theorem-box__label">הנחות הקלט</div>
+            <p>הקלט הוא מערך \(A\) בגודל \(n\) של מספרים ממשיים בתחום \([0, 1)\), המתפלגים <strong>אחידה</strong> בתחום
+              זה.</p>
+            <p><strong>התפלגות אחידה</strong> פירושה שהסיכוי להופעת איבר בתת-קטע נתון פרופורציוני לאורכו. למשל, הסיכוי
+              שאיבר ייפול בתת-קטע \([\frac{1}{2}, \frac{3}{4}]\) הוא \(\frac{1}{4}\).</p>
+            <p>אם המספרים מתפלגים אחידה בקטע \([a, b)\) הכללי — אפשר ״לנרמל״ אותם ל-\([0, 1)\) בעזרת \((x-a)/(b-a)\).
+            </p>
+          </div>
+
+          <h4>הרעיון</h4>
+          <p>מפזרים את \(n\) המפתחות ל-\(n\) <strong>״דליים״</strong> — לכל דלי שייך תת-קטע מ\"כסה״ של אורך \(1/n\).
+            הדלי ה-\(i\) מתאים לקטע \([\,i/n,\ (i+1)/n)\), ומיוצג ע״י <strong>רשימה מקושרת</strong>. ממיינים כל דלי
+            בנפרד (במיון השוואות פשוט, למשל מיון הכנסה), ולבסוף משרשרים את הדליים הממוינים זה לזה.</p>
+
+          <h4>האלגוריתם</h4>
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Bucket-Sort\((A, n)\)</div>
+            <p>1. <strong>for</strong> \(i \leftarrow 1\) <strong>to</strong> \(n\):</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;insert \(A[i]\) into list \(B[\lfloor n \cdot A[i] \rfloor]\)</p>
+            <p>2. <strong>for</strong> \(i \leftarrow 0\) <strong>to</strong> \(n-1\):</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;sort list \(B[i]\) using e.g. insertion sort</p>
+            <p>3. concatenate the lists \(B[0], B[1], \ldots, B[n-1]\) together in order</p>
+          </div>
+
+          <h4>ניתוח</h4>
+          <ul>
+            <li>מכיוון שהמפתחות מפולגות אחידה — מצפים למספר <strong>קבוע</strong> של מפתחות בכל דלי, ולכן מיון של דלי
+              בודד דורש \(\Theta(1)\) בממוצע.</li>
+            <li>מספר הדליים — \(n\), זמן לכל דלי בממוצע — \(\Theta(1)\), זמן השרשור — \(\Theta(n)\).</li>
+            <li><strong>סיבוכיות הזמן הממוצעת של מיון דלי המורחב היא \(\Theta(n)\)</strong> (הוכחה מלאה בספר הלימוד עמ׳
+              146-147).</li>
+            <li><strong>מקרה גרוע:</strong> כל \(n\) האיברים נופלים לאותו דלי. אז מיון הכנסה על דלי בודד דורש
+              \(\Theta(n^2)\). לכן בגרוע — \(\Theta(n^2)\).</li>
+          </ul>
+
+          <div class="example-box">
+            <div class="example-box__label">שאלה — מיון לפי מרחק ממרכז העיגול</div>
+            <p>נתונות \(m\) נקודות \(p_i = (x_i, y_i)\) בתוך עיגול היחידה (\(0 < x_i^2 + y_i^2 \le 1\)) המתפלגות אחידה.
+                תכננו אלגוריתם הממיין את הנקודות לפי מרחקיהן \(d_i=\sqrt{x_i^2 + y_i^2}\) מהראשית, בזמן \(\Theta(m)\)
+                בתוחלת.</p>
+                <p><strong>רמז + פתרון:</strong> ההתפלגות אחידה בעיגול אך לא של \(d_i\). שטח טבעת ברדיוס \(r\) ועובי
+                  \(dr\) הוא \(2\pi r\,dr\) — לכן הצפיפות של \(d\) פרופורציונית ל-\(d\). על מנת ש״התפלגות הנקודות
+                  בדליים״ תהיה אחידה, נגדיר את הדלי ה-\(i\) כטבעת המקיימת ש<strong>שטחה</strong> שווה
+                  ל-\(\frac{\pi}{m}\). דהיינו, רדיוס פנימי \(r_i\) ורדיוס חיצוני \(r_{i+1}\) המקיימים \(\pi(r_{i+1}^2 -
+                  r_i^2) = \pi/m\). זה נותן \(r_i = \sqrt{i/m}\). כל נקודה משויכת לדלי \(\lfloor m \cdot d_i^2
+                  \rfloor\). בכל דלי בממוצע \(\Theta(1)\) נקודות, ומיון הדליים בנפרד ושרשורם נותנים \(\Theta(m)\)
+                  בתוחלת.</p>
+          </div>
+
+          <h3>י. שאלות סיכום</h3>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 1 — סיבוכיות במקרה הגרוע של מיון דלי?</div>
+            <p>\(\Theta(n^2)\) — כשכל האיברים נופלים לאותו דלי וצריך למיין אותו במיון הכנסה.</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 2 — פלינדרום בזמן \(o(n \log n)\)?</div>
+            <p>סדרה \(a_1, \ldots, a_n\) היא <strong>פלינדרום</strong> אם \(a_i = a_{n-j+1}\) לכל \(1 \le i, j \le n\)
+              (כלומר ההיפוך זהה לסדרה).</p>
+            <p>נתונה סדרה באורך \(n\) של מספרים שלמים בין 1 ל-\(3n\), וידוע שכל מספר מופיע מספר זוגי של פעמים. האם ניתן
+              <strong>להפוך</strong> את הסדרה הנתונה לפלינדרום באורך \(n\), המכיל את אותם מספרים בדיוק, בזמן \(o(n \log
+              n)\)? הראו כיצד או הוכיחו כי לא ניתן.
+            </p>
+            <p><strong>תשובה (רעיון):</strong> כיוון שהמספרים בתחום \([1, 3n]\) — אפשר למיין את הסדרה בזמן \(\Theta(n)\)
+              ע״י Counting-Sort. לאחר המיון, פשוט בונים את הפלינדרום: לכל מספר עם זוגיות \(2k\) הופעות, שמים \(k\)
+              הופעות בחצי שמאלי וסימטרית בחצי הימני. סה״כ \(\Theta(n)\).</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 3 — וקטור הרבולי</div>
+            <p>נתון מערך \(A\) בגודל \(n\) של שלמים שונים. צריך לסדר את המערך כך שיתקיים: לכל \(1 < i \le \lceil n/2
+                \rceil\) — \(A[i] \ge A[i-1]\), ולכל \(\lceil n/2 \rceil + 1 \le i < n\) — \(A[i] \ge A[i+1]\). כלומר,
+                המערך עולה עד אמצעו ואז יורד (״הר״). תנו חסם תחתון (ב-\(\Omega\)) לסיבוכיות הזמן הדרושה לפתרון בעיית
+                הוקטור ההרבולי.</p>
+                <p><strong>רעיון:</strong> אם הייתה ניתנת בעיית הוקטור ההרבולי בזמן \(o(n \log n)\), היה ניתן באמצעותה
+                  למיין מערך כללי בזמן \(o(n \log n)\) (קל לחלץ את המיון מהוקטור ההרבולי בזמן \(O(n)\)). לכן, מהחסם
+                  התחתון על מיון השוואות, גם בעיית הוקטור ההרבולי דורשת \(\Omega(n \log n)\) במודל ההשוואות.</p>
+          </div>
+          <div class="example-box">
+            <div class="example-box__label">שאלה 4 — מיון \(m\) קבוצות שסכומיהן \(O(n)\)</div>
+            <p>נתונות \(m\) קבוצות \(S_1, S_2, \ldots, S_m\), כל אחת מכילה מספרים שלמים בתחום \([1, n]\), ובנוסף
+              \(\sum_{i=1}^{m} |S_i| = O(n)\). הציעו אלגוריתם הממיין כל אחת מהקבוצות בסיבוכיות זמן
+              <strong>כוללת</strong> של \(\Theta(n)\).
+            </p>
+            <p><strong>פתרון:</strong> טריק נחמד — בונים <strong>זוגות</strong> \((j, x)\) עבור כל \(x \in S_j\), כך שכל
+              הזוגות יחד מהווים מערך באורך \(\sum |S_j| = O(n)\). ממיינים את כל הזוגות לפי שני המפתחות (קבוצה ואז ערך)
+              במיון בסיס בעל 2 שלבי Counting-Sort: שלב 1 לפי \(x\) (תחום \([1,n]\)), שלב 2 לפי \(j\) (תחום \([1, m]\),
+              אך מספיק \([1, O(n)]\) כי \(m \le \sum|S_i| = O(n)\)). סה״כ \(\Theta(n)\). אחר כך מחלצים בחזרה לפי הקבוצה.
+            </p>
+          </div>
+
+          <h3>יא. סיכום השיעור – טבלת השוואה</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>אלגוריתם</th>
+                <th>זמן ממוצע</th>
+                <th>זמן גרוע</th>
+                <th>זיכרון נוסף</th>
+                <th>הנחות על הקלט</th>
+                <th>השוואות?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>מיון מנייה</td>
+                <td>\(\Theta(n+k)\)</td>
+                <td>\(\Theta(n+k)\)</td>
+                <td>\(\Theta(n+k)\)</td>
+                <td>שלמים בתחום \([1, k]\), \(k = O(n)\)</td>
+                <td>לא</td>
+              </tr>
+              <tr>
+                <td>מיון בסיס</td>
+                <td>\(\Theta(d(n+b))\)</td>
+                <td>\(\Theta(d(n+b))\)</td>
+                <td>\(\Theta(n+b)\)</td>
+                <td>\(d\) ספרות בבסיס \(b\), \(d, b\) קבועים</td>
+                <td>לא</td>
+              </tr>
+              <tr>
+                <td>מיון דלי</td>
+                <td>\(\Theta(n)\)</td>
+                <td>\(\Theta(n^2)\)</td>
+                <td>\(\Theta(n)\)</td>
+                <td>התפלגות אחידה ב-\([0,1)\)</td>
+                <td>לא (בלב המיון)</td>
+              </tr>
+              <tr>
+                <td>מיוני השוואות (אופטימליים)</td>
+                <td>\(\Theta(n \log n)\)</td>
+                <td>\(\Theta(n \log n)\)</td>
+                <td>תלוי</td>
+                <td>אין הנחה — כל קלט עם יחס סדר</td>
+                <td>כן</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="logic-note">
+            <p><strong>המסר המרכזי:</strong> אפשר לעקוף את החסם \(\Omega(n \log n)\) <strong>רק</strong> ע״י ניצול מבנה
+              נוסף בקלט (טווח קטן, ספרות, התפלגות אחידה וכד׳) — מבנה שבו עובדים אחרת מאשר השוואות בלבד.</p>
+          </div>
+        </div>
+      </div>
+      <!-- ========== LESSON 7 ========== -->
+      <div id="s7" class="summary-panel">
+        <div class="summary-content">
+          <h2>שיעור 7 – תוחלת ומבני נתונים בסיסיים</h2>
+
+          <h3>א. נושאי השיעור</h3>
+          <p>בשיעור זה מחברים בין שני נושאים מרכזיים: מצד אחד, מושג <strong>התוחלת</strong> מתוך הסתברות וניתוח
+            אלגוריתמים; מצד שני, העמקה במושגים <strong>טיפוס נתונים מופשט</strong> ו<strong>מבנה נתונים</strong>, בעיקר
+            דרך מחסנית, תור, מערך, רשימות מקושרות ועצים.</p>
+
+          <div class="logic-note">
+            <p><strong>מפת השיעור:</strong> תוחלת, ADT, מחסנית, תור, מימושים באמצעות מערך ורשימה מקושרת, רשימות עם זקיף,
+              השוואה בין מערך לרשימה, עצים בינאריים וייצוג עצים בזיכרון.</p>
+          </div>
+
+          <h3>ב. תוחלת – Expected Value</h3>
+          <p>נניח שיש ניסוי עם מרחב מדגם \(\Omega\), פונקציית הסתברות \(p\), ומשתנה מקרי \(X\). <strong>התוחלת</strong>
+            של \(X\), המסומנת \(E[X]\), היא הממוצע המשוקלל של ערכי המשתנה לפי ההסתברויות שלהם.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">הגדרה</div>
+            <p>\[
+              E[X] = \sum_x p(x)\cdot x
+              \]</p>
+            <p>אינטואיטיבית: התוחלת היא <strong>הממוצע הצפוי</strong> של התוצאה אם היינו חוזרים על הניסוי הרבה פעמים.
+            </p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה – קובייה הוגנת</div>
+            <p>בקובייה הוגנת בעלת 6 פאות, כל תוצאה \(1,2,\ldots,6\) מתקבלת בהסתברות \(\frac{1}{6}\), ולכן:</p>
+            <p>\[
+              E[X] = \frac{1}{6}(1+2+3+4+5+6)=3.5
+              \]</p>
+          </div>
+
+          <h4>תוחלת באלגוריתמים</h4>
+          <p>כאשר מנתחים אלגוריתם, לפעמים לא מספיק לשאול רק מה זמן הריצה הגרוע. נרצה לדעת כמה פעולות מתבצעות
+            <strong>בתוחלת</strong>, כלומר בממוצע הסתברותי.
+          </p>
+
+          <div class="example-box">
+            <div class="example-box__label">דוגמה – מציאת מינימום במערך</div>
+            <p>באלגוריתם למציאת מינימום, בכל פעם שמוצאים איבר קטן יותר מהמינימום הנוכחי, מעדכנים את המשתנה \(min\).</p>
+            <p>מספר ההשוואות תמיד קבוע: אם יש \(n\) איברים, משווים כל איבר החל מהשני למינימום הנוכחי, ולכן מספר ההשוואות
+              הוא \(n-1\).</p>
+            <p>לעומת זאת, מספר הפעמים שבהן שורת העדכון מתבצעת תלוי בסדר האיברים. בניתוח הסתברותי, נחשב את תוחלת מספר
+              העדכונים.</p>
+          </div>
+
+          <h3>ג. ADT – טיפוס נתונים מופשט</h3>
+          <p><strong>טיפוס נתונים מופשט</strong> או ADT הוא תיאור של אוסף פעולות שאפשר לבצע על נתונים, בלי להתחייב לאופן
+            המימוש הפנימי שלהן.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">רעיון מרכזי</div>
+            <p>ADT אומר <strong>מה</strong> אפשר לעשות, אבל לא בהכרח <strong>איך</strong> זה ממומש.</p>
+            <p>לדוגמה, מחסנית מוגדרת לפי הפעולות \(Push\), \(Pop\), \(StackEmpty\), \(StackFull\), בלי לקבוע מראש אם היא
+              ממומשת באמצעות מערך או רשימה מקושרת.</p>
+          </div>
+
+          <h4>מבנה נתונים לעומת ADT</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>מושג</th>
+                <th>משמעות</th>
+                <th>דוגמה</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ADT</td>
+                <td>ממשק מופשט של פעולות</td>
+                <td>מחסנית עם \(Push\), \(Pop\)</td>
+              </tr>
+              <tr>
+                <td>מבנה נתונים</td>
+                <td>שיטת אחסון וארגון בפועל בזיכרון</td>
+                <td>מערך, רשימה מקושרת, עץ</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>ד. מחסנית – Stack</h3>
+          <p><strong>מחסנית</strong> היא ADT הפועל לפי עקרון <strong>LIFO</strong>: האחרון שנכנס הוא הראשון שיוצא.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">פעולות בסיסיות</div>
+            <ul>
+              <li>\(Push(S,x)\) – הכנסת איבר לראש המחסנית.</li>
+              <li>\(Pop(S)\) – הוצאת האיבר שבראש המחסנית.</li>
+              <li>\(StackEmpty(S)\) – בדיקה האם המחסנית ריקה.</li>
+              <li>\(StackFull(S)\) – בדיקה האם המחסנית מלאה, אם יש מגבלת מקום.</li>
+            </ul>
+          </div>
+
+          <h4>מימוש מחסנית באמצעות מערך</h4>
+          <p>נשתמש במערך \(S[1..n]\) ובמשתנה \(top[S]\), שמייצג את מספר האיברים במחסנית וגם את מיקום האיבר העליון.</p>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Stack-Empty\((S)\)</div>
+            <p>1. <strong>return</strong> \(top[S] = 0\)</p>
+          </div>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Push\((S,x)\)</div>
+            <p>1. <strong>if</strong> \(top[S] = length[S]\)</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;<strong>then error</strong> "overflow"</p>
+            <p>3. \(top[S] \leftarrow top[S] + 1\)</p>
+            <p>4. \(S[top[S]] \leftarrow x\)</p>
+          </div>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Pop\((S)\)</div>
+            <p>1. <strong>if</strong> \(StackEmpty(S)\)</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;<strong>then error</strong> "underflow"</p>
+            <p>3. \(top[S] \leftarrow top[S] - 1\)</p>
+            <p>4. <strong>return</strong> \(S[top[S]+1]\)</p>
+          </div>
+
+          <div class="logic-note">
+            <p><strong>סיבוכיות:</strong> כל אחת מהפעולות \(Push\), \(Pop\), \(StackEmpty\) מתבצעת בזמן \(\Theta(1)\).
+            </p>
+          </div>
+
+          <h3>ה. תור – Queue</h3>
+          <p><strong>תור</strong> הוא ADT הפועל לפי עקרון <strong>FIFO</strong>: הראשון שנכנס הוא הראשון שיוצא.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">פעולות בסיסיות</div>
+            <ul>
+              <li>\(Enqueue(Q,x)\) – הכנסת איבר לסוף התור.</li>
+              <li>\(Dequeue(Q)\) – הוצאת האיבר שבראש התור.</li>
+              <li>\(QueueEmpty(Q)\) – בדיקה האם התור ריק.</li>
+              <li>\(QueueFull(Q)\) – בדיקה האם התור מלא.</li>
+            </ul>
+          </div>
+
+          <h4>מימוש תור באמצעות מערך מעגלי</h4>
+          <p>במימוש מערכי של תור משתמשים בשני אינדקסים: \(head[Q]\) מצביע על תחילת התור, ו-\(tail[Q]\) מצביע על המקום
+            הבא שאליו יוכנס איבר. כדי לא לבזבז את תחילת המערך אחרי פעולות הוצאה, מתייחסים למערך כאל
+            <strong>מעגלי</strong> בעזרת פעולת \(mod\).
+          </p>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Enqueue\((Q,x)\)</div>
+            <p>1. <strong>if</strong> \(QueueFull(Q)\)</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;<strong>then error</strong> "overflow"</p>
+            <p>3. \(Q[tail[Q]] \leftarrow x\)</p>
+            <p>4. \(tail[Q] \leftarrow (tail[Q] \bmod n) + 1\)</p>
+          </div>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Dequeue\((Q)\)</div>
+            <p>1. <strong>if</strong> \(QueueEmpty(Q)\)</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;<strong>then error</strong> "underflow"</p>
+            <p>3. \(x \leftarrow Q[head[Q]]\)</p>
+            <p>4. \(head[Q] \leftarrow (head[Q] \bmod n) + 1\)</p>
+            <p>5. <strong>return</strong> \(x\)</p>
+          </div>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">בדיקות ריק/מלא</div>
+            <p>\(QueueEmpty(Q):\) <strong>return</strong> \(head[Q] = tail[Q]\)</p>
+            <p>\(QueueFull(Q):\) <strong>return</strong> \((tail[Q] \bmod n)+1 = head[Q]\)</p>
+          </div>
+
+          <div class="logic-note">
+            <p>במימוש הזה תא אחד נשאר לא מנוצל כדי להבדיל בין מצב שבו התור ריק לבין מצב שבו התור מלא.</p>
+          </div>
+
+          <h3>ו. רשימות מקושרות</h3>
+          <p><strong>רשימה מקושרת</strong> היא מבנה נתונים המורכב מאיברים, כאשר כל איבר מכיל מידע ומצביע לאיבר הבא.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">מבנה איבר ברשימה חד־מקושרת</div>
+            <p>כל איבר כולל בדרך כלל:</p>
+            <ul>
+              <li>\(key\) או \(info\) – המידע המאוחסן באיבר.</li>
+              <li>\(next\) – מצביע לאיבר הבא.</li>
+            </ul>
+            <p>ראש הרשימה מסומן \(head\), והאיבר האחרון מצביע ל-\(NIL\).</p>
+          </div>
+
+          <h4>פעולות בסיסיות על רשימה</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>פעולה</th>
+                <th>רעיון</th>
+                <th>זמן</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>חיפוש</td>
+                <td>מעבר לינארי עד שמוצאים את האיבר או מגיעים לסוף</td>
+                <td>\(\Theta(n)\)</td>
+              </tr>
+              <tr>
+                <td>הכנסה</td>
+                <td>בהינתן מצביע למקום ההכנסה, מעדכנים מצביעים</td>
+                <td>\(\Theta(1)\)</td>
+              </tr>
+              <tr>
+                <td>מחיקה</td>
+                <td>בהינתן מצביע לאיבר שלפני האיבר למחיקה, מעדכנים מצביעים</td>
+                <td>\(\Theta(1)\)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>רשימה דו־כיוונית</h4>
+          <p>ברשימה דו־כיוונית כל איבר מכיל גם \(next\) וגם \(prev\). היתרון הוא שאפשר למחוק איבר נתון ישירות, בלי למצוא
+            את קודמו.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">מבנה איבר ברשימה דו־כיוונית</div>
+            <p>\[
+              prev \quad | \quad key+info \quad | \quad next
+              \]</p>
+          </div>
+
+          <h4>רשימה מעגלית ורשימה ממוינת</h4>
+          <ul>
+            <li><strong>רשימה מעגלית:</strong> האיבר האחרון מצביע בחזרה לראש הרשימה במקום ל-\(NIL\).</li>
+            <li><strong>רשימה ממוינת:</strong> האיברים נשמרים לפי סדר מפתחות, ולכן חיפוש יכול להיעצר ברגע שעוברים את
+              הערך המבוקש.</li>
+          </ul>
+
+          <h3>ז. זקיף ברשימה מקושרת</h3>
+          <p><strong>זקיף</strong> הוא איבר דמה שמוסיפים לראש הרשימה, כדי לפשט מקרי קצה.</p>
+
+          <div class="logic-note">
+            <p>בלי זקיף, הכנסה לראש הרשימה דורשת טיפול מיוחד כי צריך לעדכן את \(head\). עם זקיף, גם הכנסה לראש נראית כמו
+              הכנסה רגילה אחרי איבר נתון.</p>
+          </div>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">יתרון הזקיף</div>
+            <p>הזקיף לא מייצג נתון אמיתי. הוא נועד להפוך את הקוד לאחיד יותר ולצמצם תנאי קצה, למשל ברשימה ריקה או בהכנסה
+              לפני האיבר הראשון.</p>
+          </div>
+
+          <h3>ח. מימוש תור באמצעות רשימה חד־מקושרת</h3>
+          <p>כדי לממש תור ביעילות בעזרת רשימה חד־מקושרת, נשמור שני מצביעים:</p>
+          <ul>
+            <li>\(head[L]\) – מצביע לאיבר הראשון בתור.</li>
+            <li>\(tail[L]\) – מצביע לאיבר האחרון בתור.</li>
+          </ul>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">QueueInit\((L)\)</div>
+            <p>1. \(head[L] \leftarrow NIL\)</p>
+            <p>2. \(tail[L] \leftarrow NIL\)</p>
+          </div>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">QueueEmpty\((L)\)</div>
+            <p>1. <strong>return</strong> \(head[L] = NIL\)</p>
+          </div>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Enqueue\((L,x)\)</div>
+            <p>1. \(next[x] \leftarrow NIL\)</p>
+            <p>2. <strong>if</strong> \(head[L] = NIL\)</p>
+            <p>3. &nbsp;&nbsp;&nbsp;&nbsp;<strong>then</strong> \(head[L] \leftarrow x\)</p>
+            <p>4. &nbsp;&nbsp;&nbsp;&nbsp;<strong>else</strong> \(next[tail[L]] \leftarrow x\)</p>
+            <p>5. \(tail[L] \leftarrow x\)</p>
+          </div>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">Dequeue\((L)\)</div>
+            <p>1. <strong>if</strong> \(QueueEmpty(L)\)</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;<strong>then error</strong> "underflow"</p>
+            <p>3. \(x \leftarrow head[L]\)</p>
+            <p>4. \(head[L] \leftarrow next[x]\)</p>
+            <p>5. <strong>if</strong> \(head[L] = NIL\)</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;<strong>then</strong> \(tail[L] \leftarrow NIL\)</p>
+            <p>7. \(next[x] \leftarrow NIL\)</p>
+            <p>8. <strong>return</strong> \(x\)</p>
+          </div>
+
+          <div class="logic-note">
+            <p>בזכות המצביע \(tail\), גם \(Enqueue\) וגם \(Dequeue\) מתבצעות בזמן \(\Theta(1)\).</p>
+          </div>
+
+          <h3>ט. מערכים לעומת רשימות מקושרות</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>מבנה</th>
+                <th>יתרונות</th>
+                <th>חסרונות</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>מערך</td>
+                <td>גישה ישירה לאיבר לפי אינדקס בזמן \(\Theta(1)\)</td>
+                <td>גודל קשיח יחסית; הכנסה/מחיקה באמצע דורשות הזזות</td>
+              </tr>
+              <tr>
+                <td>רשימה מקושרת</td>
+                <td>הקצאת זיכרון דינמית; הכנסה ומחיקה נוחות כאשר יש מצביע מתאים</td>
+                <td>אין גישה ישירה לפי אינדקס; חיפוש בדרך כלל \(\Theta(n)\); יש תקורה של מצביעים</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>י. עצים בינאריים</h3>
+          <p><strong>עץ בינארי</strong> הוא מבנה נתונים היררכי. לכל קודקוד יש לכל היותר שני ילדים: בן שמאלי ובן ימני.
+          </p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">מושגים בסיסיים</div>
+            <ul>
+              <li><strong>שורש:</strong> הקודקוד העליון בעץ.</li>
+              <li><strong>הורה וילד:</strong> יחס היררכי בין שני קודקודים סמוכים.</li>
+              <li><strong>תת־עץ שמאלי/ימני:</strong> העץ שמתחיל מהבן השמאלי או הימני.</li>
+              <li><strong>עלה:</strong> קודקוד שאין לו ילדים.</li>
+            </ul>
+          </div>
+
+          <h4>אחסון עצים בינאריים בזיכרון</h4>
+          <p>אפשר לייצג עץ בינארי בשתי דרכים עיקריות:</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ייצוג</th>
+                <th>רעיון</th>
+                <th>מתאים במיוחד</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>מערך</td>
+                <td>אם הקודקוד במקום \(i\), אז ילדיו נמצאים במיקומים \(2i\), \(2i+1\)</td>
+                <td>עצים כמעט מלאים, כמו ערימות</td>
+              </tr>
+              <tr>
+                <td>מצביעים</td>
+                <td>כל קודקוד מכיל \(parent\), \(left\), \(right\)</td>
+                <td>עצים לא מלאים או דינמיים</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">מבנה קודקוד בייצוג מצביעים</div>
+            <p>כל קודקוד יכול להכיל:</p>
+            <p>\[
+              key+info,\quad parent,\quad left,\quad right
+              \]</p>
+            <p>אם אין בן שמאלי או ימני, הערך המתאים הוא \(NIL\).</p>
+          </div>
+
+          <h3>יא. עצים עם דרגה גדולה מ־2</h3>
+          <p>לפעמים לקודקוד בעץ יכולים להיות יותר משני ילדים, ולעיתים אפילו מספר ילדים שאינו חסום מראש. לדוגמה: עץ
+            ארגוני, מערכת קבצים או מבנה היררכי של מחלקות.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">ייצוג בן־שמאלי / אח־ימני</div>
+            <p>כל עץ כללי ניתן לייצג כעץ בינארי בעזרת שני מצביעים לכל קודקוד:</p>
+            <ul>
+              <li><strong>left-child:</strong> מצביע לבן הראשון של הקודקוד.</li>
+              <li><strong>right-sibling:</strong> מצביע לאח הבא של הקודקוד.</li>
+            </ul>
+          </div>
+
+          <p>כך אפשר לייצג עצים כלליים באמצעות מבנה בינארי, גם כאשר לקודקוד יש הרבה ילדים.</p>
+
+          <h3>יב. אלגוריתם Floyd לזיהוי רשימת ״שבלול״</h3>
+          <p>רשימת שבלול היא רשימה חד־מקושרת שבה האיבר האחרון אינו מצביע ל-\(NIL\), אלא מצביע לאיבר קודם ברשימה, ולכן
+            נוצר מעגל.</p>
+
+          <div class="theorem-box">
+            <div class="theorem-box__label">רעיון</div>
+            <p>משתמשים בשני מצביעים:</p>
+            <ul>
+              <li>\(p\) – מצביע איטי שמתקדם צעד אחד בכל פעם.</li>
+              <li>\(q\) – מצביע מהיר שמתקדם שני צעדים בכל פעם.</li>
+            </ul>
+            <p>אם יש מעגל, שני המצביעים ייפגשו בתוך המעגל. אם אין מעגל, המצביע המהיר יגיע ל-\(NIL\).</p>
+          </div>
+
+          <div class="theorem-box theorem-box--code">
+            <div class="theorem-box__label">IsLollipop\((L)\)</div>
+            <p>1. \(p \leftarrow head[L]\)</p>
+            <p>2. \(q \leftarrow head[L]\)</p>
+            <p>3. <strong>while</strong> \(next[q] \ne NIL\) <strong>and</strong> \(next[next[q]] \ne NIL\)</p>
+            <p>4. &nbsp;&nbsp;&nbsp;&nbsp;\(p \leftarrow next[p]\)</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;\(q \leftarrow next[next[q]]\)</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> \(q = p\)</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>then return</strong> true</p>
+            <p>8. <strong>return</strong> false</p>
+          </div>
+
+          <div class="logic-note">
+            <p><strong>סיבוכיות:</strong> זמן \(\Theta(n)\), זיכרון נוסף \(\Theta(1)\).</p>
+          </div>
+
+          <h3>יג. דוגמאות שאלות מהשיעור</h3>
+
+          <div class="example-box">
+            <div class="example-box__label">1. מחסנית עם פעולת \(max\) בזמן \(\Theta(1)\)</div>
+            <p>כדי לתמוך בפעולות \(push(x)\), \(pop()\), ו-\(max()\) בזמן \(\Theta(1)\), משתמשים בשתי מחסניות:</p>
+            <ul>
+              <li>מחסנית רגילה \(S\) לשמירת האיברים.</li>
+              <li>מחסנית עזר \(M\), שבה בראש המחסנית נשמר המקסימום הנוכחי.</li>
+            </ul>
+            <p>בעת \(push(x)\), דוחפים ל-\(M\) את \(\max(x, top[M])\). בעת \(pop\), מוציאים גם מ-\(S\) וגם מ-\(M\). לכן
+              \(max()\) פשוט מחזירה את \(top[M]\).</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">2. בדיקת סוגריים תקינה</div>
+            <p>בהינתן מחרוזת של סוגריים פותחים וסוגרים, משתמשים במחסנית:</p>
+            <ul>
+              <li>כאשר רואים סוגר פותח — דוחפים למחסנית.</li>
+              <li>כאשר רואים סוגר סוגר — בודקים שבראש המחסנית יש סוגר פותח מתאים.</li>
+              <li>בסוף, המחרוזת תקינה אם ורק אם המחסנית ריקה ולא הייתה סתירה באמצע.</li>
+            </ul>
+            <p>זמן הריצה הוא \(\Theta(n)\).</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">3. היפוך רשימה חד־מקושרת ברקורסיה</div>
+            <p>אפשר להפוך רשימה חד־מקושרת בת \(n\) איברים בזמן \(\Theta(n)\) בעזרת רקורסיה, תוך שימוש בזיכרון מחסנית
+              הקריאות. בכל שלב הופכים את המשך הרשימה, ואז מחברים את האיבר הנוכחי לסוף.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-box__label">4. מספר הופעות במערך ממוין</div>
+            <p>בהינתן מערך ממוין \(A[1..n]\) וערך \(z\), אפשר למצוא כמה פעמים \(z\) מופיע בזמן \(O(\log n)\):</p>
+            <p>מוצאים בעזרת חיפוש בינארי את ההופעה הראשונה של \(z\), ואת ההופעה האחרונה של \(z\). ההפרש בין האינדקסים
+              ועוד 1 הוא מספר ההופעות.</p>
+          </div>
+
+          <h3>יד. סיכום השיעור</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>נושא</th>
+                <th>רעיון מרכזי</th>
+                <th>סיבוכיות טיפוסית</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>תוחלת</td>
+                <td>ממוצע משוקלל לפי הסתברויות</td>
+                <td>תלוי במשתנה המקרי</td>
+              </tr>
+              <tr>
+                <td>מחסנית</td>
+                <td>LIFO – אחרון נכנס ראשון יוצא</td>
+                <td>\(Push/Pop = \Theta(1)\)</td>
+              </tr>
+              <tr>
+                <td>תור</td>
+                <td>FIFO – ראשון נכנס ראשון יוצא</td>
+                <td>\(Enqueue/Dequeue = \Theta(1)\)</td>
+              </tr>
+              <tr>
+                <td>רשימה מקושרת</td>
+                <td>איברים עם מצביעים</td>
+                <td>חיפוש \(\Theta(n)\), הכנסה/מחיקה עם מצביע \(\Theta(1)\)</td>
+              </tr>
+              <tr>
+                <td>זקיף</td>
+                <td>איבר דמה שמפשט מקרי קצה</td>
+                <td>לא משנה אסימפטוטית, מפשט מימוש</td>
+              </tr>
+              <tr>
+                <td>עץ בינארי</td>
+                <td>מבנה היררכי עם עד שני ילדים לקודקוד</td>
+                <td>תלוי בגובה העץ</td>
+              </tr>
+              <tr>
+                <td>שבלול</td>
+                <td>רשימה חד־מקושרת עם מעגל</td>
+                <td>זיהוי ב-\(\Theta(n)\) זמן ו-\(\Theta(1)\) זיכרון</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">מבני נתונים ומבוא לאלגוריתמים · 20407</div>
+          <p class="footer__text">פורטל לימוד · האוניברסיטה הפתוחה</p>
+        </div>
+        <ul class="footer__links">
+          <li><a href="../../index.html">ראשי</a></li>
+          <li><a href="index.html">הקורס</a></li>
+          <li><a href="summaries.html">סיכומים</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: '\\[', right: '\\]', display: true },
+          { left: '\\(', right: '\\)', display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+
+</html>
