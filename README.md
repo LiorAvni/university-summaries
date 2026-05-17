@@ -55,13 +55,6 @@
 <a class="btn btn--ghost" href="../../index.html">
           חזרה לכל הקורסים
         </a>
-<a class="resource-card reveal-item" href="summaries.html#s8" style="text-decoration:none">
-<div class="resource-card__body">
-<div class="resource-card__number" style="color:#4f8ff7">מפגש 8</div>
-<h3 class="resource-card__title">איזומורפיזם ומשפט השלמות</h3>
-<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">איזומורפיזם והומומורפיזם בין מודלים, אבחנה בין מודלים, תורה שלמה, משפט הנקין, משפט השלמות, סקולם-לוונהיים, אקסיומות פיאנו ומשפטי אי־השלמות של גדל.</p>
-</div>
-</a>
 </div>
 </div>
 </section>
