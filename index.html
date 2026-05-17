@@ -1,1 +1,156 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc"><title>Logic course illustration</title><desc>Logic symbols, truth table grid and proof lines on a dark academic background.</desc><defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0b1228"/><stop offset="1" stop-color="#172554"/></linearGradient><radialGradient id="glow" cx="28%" cy="24%" r="70%"><stop offset="0" stop-color="#60a5fa" stop-opacity=".5"/><stop offset="1" stop-color="#111827" stop-opacity="0"/></radialGradient></defs><rect width="900" height="520" rx="36" fill="url(#bg)"/><rect width="900" height="520" rx="36" fill="url(#glow)"/><g fill="none" stroke="#93c5fd" stroke-width="3" opacity=".33"><path d="M78 105h744M78 185h744M78 265h744M78 345h744M78 425h744M180 70v385M330 70v385M480 70v385M630 70v385M780 70v385"/></g><g font-family="Inter,Arial,sans-serif" font-weight="800" text-anchor="middle"><text x="210" y="170" font-size="86" fill="#bfdbfe">⊨</text><text x="450" y="170" font-size="78" fill="#dbeafe">∀x</text><text x="690" y="170" font-size="76" fill="#bfdbfe">→</text><text x="210" y="312" font-size="72" fill="#e0e7ff">P ∧ Q</text><text x="450" y="312" font-size="82" fill="#93c5fd">⊢</text><text x="690" y="312" font-size="72" fill="#e0e7ff">¬P</text></g><g transform="translate(145 380)"><rect width="610" height="74" rx="18" fill="#020617" opacity=".56" stroke="#60a5fa" stroke-opacity=".35"/><circle cx="46" cy="37" r="8" fill="#60a5fa"/><circle cx="92" cy="37" r="8" fill="#818cf8"/><path d="M135 37h390" stroke="#bfdbfe" stroke-width="5" stroke-linecap="round" opacity=".7"/></g></svg>
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>פורטל לימוד – האוניברסיטה הפתוחה</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="nav-overlay"></div>
+<nav class="nav">
+<div class="container">
+<div class="nav__inner">
+<a class="nav__brand" href="index.html">
+<div class="nav__brand-icon">🎓</div>
+<span>פורטל לימוד</span>
+</a>
+<ul class="nav__links">
+<li><a class="nav__link active" href="index.html">ראשי</a></li>
+<li><a class="nav__link" href="courses/logic/index.html">לוגיקה</a></li>
+<li><a class="nav__link" href="courses/manma/index.html">מנמ״א</a></li>
+<li><a class="nav__link" href="courses/linear2/index.html">לינארית 2</a></li>
+</ul>
+<button aria-label="תפריט" class="nav__hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero -->
+<section class="hero section--hero">
+<div class="hero__bg">
+<div class="hero__bg-image"></div>
+<div class="hero__bg-overlay"></div>
+<div class="hero__grid-pattern"></div>
+</div>
+<div class="hero__content">
+<div class="hero__badge reveal" style="opacity:0;transform:translateY(20px)">
+        האוניברסיטה הפתוחה · פורטל לימוד אישי
+      </div>
+<h1 class="hero__title reveal" style="opacity:0;transform:translateY(30px)">
+        הקורסים שלי
+      </h1>
+<p class="hero__subtitle reveal" style="opacity:0;transform:translateY(25px)">
+        סיכומים מפורטים ומעודכנים לפי קורס ומפגש: לוגיקה למדעי המחשב, מבני נתונים ומבוא לאלגוריתמים, ואלגברה לינארית 2.
+        כל קורס כולל ניווט ישיר לסיכומים הרלוונטיים ולחומר המלא שכבר הועלה.
+      </p>
+</div>
+</section>
+<!-- Course Cards -->
+<section class="section" id="courses">
+<div class="container">
+<div class="hub-courses reveal-group">
+<a class="course-card course-card--logic reveal-item" href="courses/logic/index.html">
+<div class="course-card__image"><img alt="איור לוגיקה למדעי המחשב" loading="lazy" src="assets/images/logic-course.svg"/></div>
+<div class="course-card__icon">⊨</div>
+<div class="course-card__code">קורס 20466</div>
+<h2 class="course-card__title">לוגיקה למדעי המחשב</h2>
+<p class="course-card__desc">
+            תחביר וסמנטיקה של השפה הפסוקית, אינדוקציה מבנית, תורת ההוכחה, DNF וקבוצות שלמות, ובהמשך שפת היחסים: מודלים, הצבה, צורה פרנקסית ותורת ההוכחה בשפת היחסים.
+          </p>
+<div class="course-card__meta">
+<span class="course-card__meta-item">7 מפגשים</span>
+<span class="course-card__meta-item">סיכומים מפורטים</span>
+</div>
+<div class="course-card__arrow">
+            לעמוד הקורס
+            <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M19 12H5"></path><path d="M12 5l-7 7 7 7"></path></svg>
+</div>
+</a>
+<a class="course-card course-card--manma reveal-item" href="courses/manma/index.html">
+<div class="course-card__image"><img alt="איור מבני נתונים ואלגוריתמים" loading="lazy" src="assets/images/algorithms-course.svg"/></div>
+<div class="course-card__icon">📊</div>
+<div class="course-card__code">קורס 20407</div>
+<h2 class="course-card__title">מבני נתונים ומבוא לאלגוריתמים</h2>
+<p class="course-card__desc">
+            הוכחת נכונות ופסאודו־קוד, סיבוכיות וסימונים אסימפטוטיים, נוסחאות נסיגה ומשפט האב, ערימות, מיון מהיר, בעיית הבחירה, חסמים למיון, מיונים לינאריים, תוחלת ומבני נתונים בסיסיים.
+          </p>
+<div class="course-card__meta">
+<span class="course-card__meta-item">8 שיעורים</span>
+<span class="course-card__meta-item">סיכומים מפורטים</span>
+</div>
+<div class="course-card__arrow">
+            לעמוד הקורס
+            <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M19 12H5"></path><path d="M12 5l-7 7 7 7"></path></svg>
+</div>
+</a>
+<a class="course-card course-card--linear reveal-item" href="courses/linear2/index.html">
+<div class="course-card__image"><img alt="איור אלגברה לינארית 2" loading="lazy" src="assets/images/linear2-course.svg"/></div>
+<div class="course-card__icon">𝝀</div>
+<div class="course-card__code">קורס 20229</div>
+<h2 class="course-card__title">אלגברה לינארית 2</h2>
+<p class="course-card__desc">
+            רקע נדרש מלינארית 1, מכפלה פנימית ואורתוגונליות, פירוק אורתוגונלי, משפט ריס והעתקה צמודה, העתקות אוניטריות ונורמליות, המשפט הספקטרלי, תבניות בילינאריות וריבועיות, חפיפה וצורות קנוניות.
+          </p>
+<div class="course-card__meta">
+<span class="course-card__meta-item">9 יחידות סיכום</span>
+<span class="course-card__meta-item">סיכומים מפורטים</span>
+</div>
+<div class="course-card__arrow">
+            לעמוד הקורס
+            <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M19 12H5"></path><path d="M12 5l-7 7 7 7"></path></svg>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Stats -->
+<section class="section">
+<div class="container">
+<div class="stats-grid reveal-group">
+<div class="stat-card reveal-item">
+<div class="stat-card__number" data-count="3">3</div>
+<div class="stat-card__label">קורסים</div>
+</div>
+<div class="stat-card reveal-item">
+<div class="stat-card__number" data-count="24">24</div>
+<div class="stat-card__label">סיכומי מפגשים/יחידות</div>
+</div>
+<div class="stat-card reveal-item">
+<div class="stat-card__number" data-count="170">170</div>
+<div class="stat-card__label">נושאים מכוסים</div>
+</div>
+<div class="stat-card reveal-item">
+<div class="stat-card__number" data-count="90">90</div>
+<div class="stat-card__label">משפטים, הגדרות ודוגמאות</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="footer__inner">
+<div>
+<div class="footer__brand">פורטל לימוד · האוניברסיטה הפתוחה</div>
+<p class="footer__text">סיכומים וחומרי לימוד מסודרים לכל קורס</p>
+</div>
+<ul class="footer__links">
+<li><a href="index.html">ראשי</a></li>
+<li><a href="courses/logic/index.html">לוגיקה</a></li>
+<li><a href="courses/manma/index.html">מנמ״א</a></li>
+<li><a href="courses/linear2/index.html">לינארית 2</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
