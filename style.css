@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>אלגברה לינארית 2 – 20229</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="nav-overlay"></div>
+<nav class="nav">
+<div class="container">
+<div class="nav__inner">
+<a class="nav__brand" href="../../index.html">
+<div class="nav__brand-icon" style="background:linear-gradient(135deg,#a78bfa,#f472b6)">𝝀</div>
+<span>לינארית 2 · 20229</span>
+</a>
+<ul class="nav__links">
+<li><a class="nav__link" href="../../index.html">ראשי</a></li>
+<li><a class="nav__link active" href="index.html">הקורס</a></li>
+<li><a class="nav__link" href="summaries.html">סיכומים</a></li>
+</ul>
+<button aria-label="תפריט" class="nav__hamburger"><span></span><span></span><span></span></button>
+</div>
+</div>
+</nav>
+<section class="hero section--hero">
+<div class="hero__bg">
+<div class="hero__bg-image" style="background-image:url('../../assets/images/linear2-course.svg')"></div>
+<div class="hero__bg-overlay"></div>
+<div class="hero__grid-pattern"></div>
+</div>
+<div class="hero__content">
+<div class="hero__badge reveal" style="opacity:0;transform:translateY(20px)">
+        האוניברסיטה הפתוחה · קורס 20229
+      </div>
+<h1 class="hero__title reveal" style="opacity:0;transform:translateY(30px)">
+        אלגברה לינארית 2
+      </h1>
+<p class="hero__subtitle reveal" style="opacity:0;transform:translateY(25px)">
+        סיכומים מעודכנים של לינארית 2: רקע מלינארית 1, מכפלה פנימית, פירוק אורתוגונלי, העתקה צמודה, העתקות אוניטריות ונורמליות, המשפט הספקטרלי, תבניות בילינאריות וריבועיות, חפיפה, צורות קנוניות ותבניות ריבועיות ממשיות.
+      </p>
+<div class="hero__actions reveal" style="opacity:0;transform:translateY(20px)">
+<a class="btn btn--primary" href="summaries.html" style="background:linear-gradient(135deg,#a78bfa,#ec4899)">
+          לסיכומים המפורטים
+          <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M19 12H5"></path><path d="M12 5l-7 7 7 7"></path></svg>
+</a>
+<a class="btn btn--ghost" href="../../index.html">חזרה לכל הקורסים</a>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-header__eyebrow">מה יש בסיכומים</span>
+<h2 class="section-header__title">נושאי הקורס</h2>
+<p class="section-header__desc">החלוקה כאן נבנתה לפי עמודי “סיכומים מפורטים” של הקורס, כדי שהעמוד הראשי של הקורס יתאים בפועל לחומר שכבר נמצא באתר.</p>
+</div>
+<div class="resources-grid reveal-group">
+<a class="resource-card reveal-item" href="summaries.html#s0" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">רקע</div>
+<h3 class="resource-card__title">רקע נדרש מאלגברה לינארית 1</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">שדות, מרוכבים, מרחבים לינאריים, מטריצות, דטרמיננטות, העתקות לינאריות, ייצוג מטריצי, ערכים עצמיים, לכסון, דרגה ומערכות משוואות.</p>
+</div>
+</a>
+<a class="resource-card reveal-item" href="summaries.html#s1" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">מפגש 1</div>
+<h3 class="resource-card__title">מכפלה פנימית, נורמה ואורתוגונליות</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">מכפלות פנימיות ממשיות ומרוכבות, נורמה ומרחק, אורתוגונליות, בסיסים אורתוגונליים ואורתונורמליים ותהליך גרם־שמידט.</p>
+</div>
+</a>
+<a class="resource-card reveal-item" href="summaries.html#s2" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">מפגש 2</div>
+<h3 class="resource-card__title">הפירוק האורתוגונלי וההעתקה הצמודה</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">היטל אורתוגונלי, משפט הפירוק האורתוגונלי, המרחב הדואלי, משפט ההצגה של ריס וההעתקה הצמודה.</p>
+</div>
+</a>
+<a class="resource-card reveal-item" href="summaries.html#s3" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">מפגש 3</div>
+<h3 class="resource-card__title">העתקות אוניטריות, נורמליות ולכסון אוניטרי</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">העתקות אוניטריות, אנטי־צמודות ונורמליות, מטריצות אוניטריות, לכסון אוניטרי ושימושים.</p>
+</div>
+</a>
+<a class="resource-card reveal-item" href="summaries.html#s4" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">מפגש 4</div>
+<h3 class="resource-card__title">המשפט הספקטרלי</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">המשפט הספקטרלי להעתקות נורמליות וצמודות לעצמן, פירוק למרחבים עצמיים והיטל אורתוגונלי ספקטרלי.</p>
+</div>
+</a>
+<a class="resource-card reveal-item" href="summaries.html#s45" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">מפגש 4.5</div>
+<h3 class="resource-card__title">תבניות בילינאריות וריבועיות</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">תבנית בילינארית, מטריצה מייצגת, סימטריות ואנטי־סימטריות, תבנית ריבועית, קיטוב, אי־מנוונות והקשר למטריצה.</p>
+</div>
+</a>
+<a class="resource-card reveal-item" href="summaries.html#s5" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">מפגש 5</div>
+<h3 class="resource-card__title">חפיפה, שינוי בסיס ולכסון</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">נוסחת שינוי בסיס \(M^tAM\), חפיפה של מטריצות, דרגת תבנית, השלמה לריבועים ולכסון של תבניות סימטריות.</p>
+</div>
+</a>
+<a class="resource-card reveal-item" href="summaries.html#s6" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">מפגש 6</div>
+<h3 class="resource-card__title">צורה קנונית וחפיפות אלמנטריות</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">חפיפות אלמנטריות, נרמול לצורה קנונית מעל \(\mathbb{R}\), חוק ההתמדה של סילבסטר ולכסון אורתוגונלי.</p>
+</div>
+</a>
+<a class="resource-card reveal-item" href="summaries.html#s7" style="text-decoration:none">
+<div class="resource-card__body">
+<div class="resource-card__number" style="color:#a78bfa">מפגש 7</div>
+<h3 class="resource-card__title">תבניות ריבועיות ממשיות — סיווג וסימנים</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7">תבניות חיוביות ושליליות לחלוטין, חצי־חיוביות וחצי־שליליות, תבניות לא־מוגדרות, דרגה, אינדקס חיובי/שלילי וחתימה.</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="footer__inner">
+<div>
+<div class="footer__brand">אלגברה לינארית 2 · 20229</div>
+<p class="footer__text">פורטל לימוד · האוניברסיטה הפתוחה</p>
+</div>
+<ul class="footer__links">
+<li><a href="../../index.html">ראשי</a></li>
+<li><a href="summaries.html">סיכומים</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>
